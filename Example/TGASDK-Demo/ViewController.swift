@@ -29,7 +29,17 @@ private enum Row: Int, CaseIterable {
     }
 }
 
-
+@objc public class TGAUserInfo2: NSObject {
+    
+    /// 用户Id
+    @objc public var txnId: String = ""
+    
+    /// 用户昵称
+    @objc public var nickname: String = ""
+    
+    /// 用户头像
+    @objc public var avatar: String = ""
+}
 
 /// MARK - ViewController
 final class ViewController: UIViewController {
@@ -56,7 +66,7 @@ final class ViewController: UIViewController {
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             tableView.topAnchor.constraint(equalTo: view.topAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-        ])
+        ])                
     }
 
     override func didReceiveMemoryWarning() {
@@ -86,10 +96,9 @@ extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch Row.allCases[indexPath.row] {
         case .config:
-            
             TGASdk.shared.configuration.lang = "\(Locale(identifier: NSLocale.preferredLanguages.first ?? "zh-Hans").languageCode ?? "")"
             TGASdk.shared.configuration.statusBarStyle = .lightContent
-            TGASdk.shared.configuration.navigationBackImage = UIImage(named: "navigation_back_default")
+            //TGASdk.shared.configuration.navigationBackImage = UIImage(named: "navigation_back_default")
         case .initTGA:
             TGASdk.shared.initSdk(env: "", appKey: "8b99b56478a9427f8bcb8aee1ee7f292", userInfo: nil, delegate: self)
         case .openGameCenter:

@@ -336,6 +336,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) TGASdk * _No
 /// \param theme 主题
 ///
 - (void)openGameCenterWithVc:(UIViewController * _Nonnull)vc secUrl:(NSString * _Nullable)secUrl secTitle:(NSString * _Nullable)secTitle theme:(NSString * _Nullable)theme;
+- (void)closeAllWindow;
 /// 设置日志等级
 /// \param level TGALogLevel
 ///
@@ -730,6 +731,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) TGASdk * _No
 /// \param theme 主题
 ///
 - (void)openGameCenterWithVc:(UIViewController * _Nonnull)vc secUrl:(NSString * _Nullable)secUrl secTitle:(NSString * _Nullable)secTitle theme:(NSString * _Nullable)theme;
+- (void)closeAllWindow;
 /// 设置日志等级
 /// \param level TGALogLevel
 ///

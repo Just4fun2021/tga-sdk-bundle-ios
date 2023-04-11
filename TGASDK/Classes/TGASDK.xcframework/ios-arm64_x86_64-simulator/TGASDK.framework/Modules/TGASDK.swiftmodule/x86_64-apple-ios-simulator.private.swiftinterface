@@ -37,6 +37,16 @@ import _StringProcessing
     get
   }
 }
+public protocol TGAEventDelegate : AnyObject {
+  func onEvent(type: Swift.String, param: Swift.String?)
+}
+@_hasMissingDesignatedInitializers public class TGAEventCenter {
+  public static var shared: TGASDK.TGAEventCenter
+  public func addEventDelegate(eventType: Swift.String, delegate: TGASDK.TGAEventDelegate)
+  public func removeEventDelegate(eventType: Swift.String, delegate: TGASDK.TGAEventDelegate)
+  public func postEvent(eventType: Swift.String, param: Swift.String?)
+  @objc deinit
+}
 @_inheritsConvenienceInitializers @objc public class TGAUserInfo : ObjectiveC.NSObject {
   @objc public var userId: Swift.String
   @objc public var nickname: Swift.String
@@ -57,6 +67,7 @@ import _StringProcessing
   @objc public func initSdk(env: Swift.String? = nil, appKey: Swift.String, userInfo: TGASDK.TGAUserInfo? = nil, delegate: TGASDK.TGASdkDelegate)
   @objc public func logout()
   @objc public func openGameCenter(vc: UIKit.UIViewController, secUrl: Swift.String? = nil, secTitle: Swift.String? = nil, theme: Swift.String? = nil)
+  @objc public func closeAllWindow()
   @objc public func setLogLevel(level: TGASDK.TGALogLevel)
   @objc override dynamic public init()
   @objc deinit
