@@ -1,6 +1,6 @@
 //
-//  AppDelegate
-//  Created on 2022/9/10
+//  AppDelegate.swift
+//  Created on 2022/9/6
 //  Description <#文件描述#>
 //  PD <#产品文档地址#>
 //  Design <#设计文档地址#>
@@ -9,6 +9,7 @@
 //
 
 import UIKit
+import CocoaDebug
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,6 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        CocoaDebug.enable()
+        CocoaDebugSettings.shared.showBubbleAndWindow = false
         return true
     }
 

@@ -4,6 +4,7 @@
 // swift-module-flags-ignorable: -enable-bare-slash-regex
 import AppLovinSDK
 import Combine
+import CommonCrypto
 import Dispatch
 import Foundation
 import LocalAuthentication
@@ -17,11 +18,440 @@ import UniformTypeIdentifiers
 import WebKit
 import _Concurrency
 import _StringProcessing
+extension Swift.String {
+  public var md5: Swift.String {
+    get
+  }
+}
+public typealias JSONString = Swift.String
+public protocol JSONMappable : TGASDK.JSONConvertibleMappable {
+  init(json: TGASDK.JSON)
+}
+public protocol JSONConvertibleMappable {
+  func mapJSON() -> TGASDK.JSON
+  func mapString() -> TGASDK.JSONString?
+  var ignoreProperties: [Swift.String]? { get }
+  var replacedProperties: [Swift.String : Swift.String]? { get }
+}
+extension TGASDK.JSONConvertibleMappable {
+  public func mapJSON() -> TGASDK.JSON
+  public func mapString() -> Swift.String?
+  public var ignoreProperties: [Swift.String]? {
+    get
+  }
+  public var replacedProperties: [Swift.String : Swift.String]? {
+    get
+  }
+}
+extension Swift.Optional : TGASDK.JSONConvertibleMappable {
+  public func mapJSON() -> TGASDK.JSON
+}
+extension Swift.Array : TGASDK.JSONConvertibleMappable {
+  public func mapJSON() -> TGASDK.JSON
+}
+extension Swift.Dictionary : TGASDK.JSONConvertibleMappable {
+  public func mapJSON() -> TGASDK.JSON
+}
+extension Foundation.URL : TGASDK.JSONConvertibleMappable {
+  public func mapJSON() -> TGASDK.JSON
+}
+extension Foundation.Date : TGASDK.JSONConvertibleMappable {
+  public func mapJSON() -> TGASDK.JSON
+}
+extension Swift.String : TGASDK.JSONConvertibleMappable {
+}
+extension Foundation.NSNumber : TGASDK.JSONConvertibleMappable {
+}
+extension Swift.Bool : TGASDK.JSONConvertibleMappable {
+}
+extension Swift.Float : TGASDK.JSONConvertibleMappable {
+}
+extension Swift.Double : TGASDK.JSONConvertibleMappable {
+}
+extension Swift.Int : TGASDK.JSONConvertibleMappable {
+}
+extension Swift.Int8 : TGASDK.JSONConvertibleMappable {
+}
+extension Swift.Int16 : TGASDK.JSONConvertibleMappable {
+}
+extension Swift.Int32 : TGASDK.JSONConvertibleMappable {
+}
+extension Swift.Int64 : TGASDK.JSONConvertibleMappable {
+}
+extension Swift.UInt : TGASDK.JSONConvertibleMappable {
+}
+extension Swift.UInt8 : TGASDK.JSONConvertibleMappable {
+}
+extension Swift.UInt16 : TGASDK.JSONConvertibleMappable {
+}
+extension Swift.UInt32 : TGASDK.JSONConvertibleMappable {
+}
+extension Swift.UInt64 : TGASDK.JSONConvertibleMappable {
+}
+public enum SwiftyJSONError : Swift.Int, Swift.Error {
+  case unsupportedType
+  case indexOutOfBounds
+  case elementTooDeep
+  case wrongType
+  case notExist
+  case invalidJSON
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+extension TGASDK.SwiftyJSONError : Foundation.CustomNSError {
+  public static var errorDomain: Swift.String {
+    get
+  }
+  public var errorCode: Swift.Int {
+    get
+  }
+  public var errorUserInfo: [Swift.String : Any] {
+    get
+  }
+}
+public enum Type : Swift.Int {
+  case number
+  case string
+  case bool
+  case array
+  case dictionary
+  case null
+  case unknown
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public struct JSON {
+  public init(data: Foundation.Data, options opt: Foundation.JSONSerialization.ReadingOptions = []) throws
+  public init(_ object: Any)
+  public init(parseJSON jsonString: Swift.String)
+  public mutating func merge(with other: TGASDK.JSON) throws
+  public func merged(with other: TGASDK.JSON) throws -> TGASDK.JSON
+  public var type: TGASDK.`Type` {
+    get
+  }
+  public var error: TGASDK.SwiftyJSONError? {
+    get
+  }
+  public var object: Any {
+    get
+    set
+  }
+  @available(*, unavailable, renamed: "null")
+  public static var nullJSON: TGASDK.JSON {
+    get
+  }
+  public static var null: TGASDK.JSON {
+    get
+  }
+}
+public enum Index<T> : Swift.Comparable {
+  case array(Swift.Int)
+  case dictionary(Swift.DictionaryIndex<Swift.String, T>)
+  case null
+  public static func == (lhs: TGASDK.Index<T>, rhs: TGASDK.Index<T>) -> Swift.Bool
+  public static func < (lhs: TGASDK.Index<T>, rhs: TGASDK.Index<T>) -> Swift.Bool
+}
+public typealias JSONIndex = TGASDK.Index<TGASDK.JSON>
+public typealias JSONRawIndex = TGASDK.Index<Any>
+extension TGASDK.JSON : Swift.Collection {
+  public typealias Index = TGASDK.JSONRawIndex
+  public var startIndex: TGASDK.JSON.Index {
+    get
+  }
+  public var endIndex: TGASDK.JSON.Index {
+    get
+  }
+  public func index(after i: TGASDK.JSON.Index) -> TGASDK.JSON.Index
+  public subscript(position: TGASDK.JSON.Index) -> (Swift.String, TGASDK.JSON) {
+    get
+  }
+  public typealias Element = (Swift.String, TGASDK.JSON)
+  public typealias Indices = Swift.DefaultIndices<TGASDK.JSON>
+  public typealias Iterator = Swift.IndexingIterator<TGASDK.JSON>
+  public typealias SubSequence = Swift.Slice<TGASDK.JSON>
+}
+public enum JSONKey {
+  case index(Swift.Int)
+  case key(Swift.String)
+}
+public protocol JSONSubscriptType {
+  var jsonKey: TGASDK.JSONKey { get }
+}
+extension Swift.Int : TGASDK.JSONSubscriptType {
+  public var jsonKey: TGASDK.JSONKey {
+    get
+  }
+}
+extension Swift.String : TGASDK.JSONSubscriptType {
+  public var jsonKey: TGASDK.JSONKey {
+    get
+  }
+}
+extension TGASDK.JSON {
+  public subscript(path: [TGASDK.JSONSubscriptType]) -> TGASDK.JSON {
+    get
+    set
+  }
+  public subscript(path: TGASDK.JSONSubscriptType...) -> TGASDK.JSON {
+    get
+    set
+  }
+}
+extension TGASDK.JSON : Swift.ExpressibleByStringLiteral {
+  public init(stringLiteral value: Swift.StringLiteralType)
+  public init(extendedGraphemeClusterLiteral value: Swift.StringLiteralType)
+  public init(unicodeScalarLiteral value: Swift.StringLiteralType)
+  public typealias ExtendedGraphemeClusterLiteralType = Swift.StringLiteralType
+  public typealias StringLiteralType = Swift.StringLiteralType
+  public typealias UnicodeScalarLiteralType = Swift.StringLiteralType
+}
+extension TGASDK.JSON : Swift.ExpressibleByIntegerLiteral {
+  public init(integerLiteral value: Swift.IntegerLiteralType)
+  public typealias IntegerLiteralType = Swift.IntegerLiteralType
+}
+extension TGASDK.JSON : Swift.ExpressibleByBooleanLiteral {
+  public init(booleanLiteral value: Swift.BooleanLiteralType)
+  public typealias BooleanLiteralType = Swift.BooleanLiteralType
+}
+extension TGASDK.JSON : Swift.ExpressibleByFloatLiteral {
+  public init(floatLiteral value: Swift.FloatLiteralType)
+  public typealias FloatLiteralType = Swift.FloatLiteralType
+}
+extension TGASDK.JSON : Swift.ExpressibleByDictionaryLiteral {
+  public init(dictionaryLiteral elements: (Swift.String, Any)...)
+  public typealias Key = Swift.String
+  public typealias Value = Any
+}
+extension TGASDK.JSON : Swift.ExpressibleByArrayLiteral {
+  public init(arrayLiteral elements: Any...)
+  public typealias ArrayLiteralElement = Any
+}
+extension TGASDK.JSON : Swift.RawRepresentable {
+  public init?(rawValue: Any)
+  public var rawValue: Any {
+    get
+  }
+  public func rawData(options opt: Foundation.JSONSerialization.WritingOptions = JSONSerialization.WritingOptions(rawValue: 0)) throws -> Foundation.Data
+  public func rawString(_ encoding: Swift.String.Encoding = .utf8, options opt: Foundation.JSONSerialization.WritingOptions = .prettyPrinted) -> Swift.String?
+  public func rawString(_ options: [TGASDK.writingOptionsKeys : Any]) -> Swift.String?
+  public typealias RawValue = Any
+}
+extension TGASDK.JSON : Swift.CustomStringConvertible, Swift.CustomDebugStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+  public var debugDescription: Swift.String {
+    get
+  }
+}
+extension TGASDK.JSON {
+  public var array: [TGASDK.JSON]? {
+    get
+  }
+  public var arrayValue: [TGASDK.JSON] {
+    get
+  }
+  public var arrayObject: [Any]? {
+    get
+    set
+  }
+}
+extension TGASDK.JSON {
+  public var dictionary: [Swift.String : TGASDK.JSON]? {
+    get
+  }
+  public var dictionaryValue: [Swift.String : TGASDK.JSON] {
+    get
+  }
+  public var dictionaryObject: [Swift.String : Any]? {
+    get
+    set
+  }
+}
+extension TGASDK.JSON {
+  public var bool: Swift.Bool? {
+    get
+    set
+  }
+  public var boolValue: Swift.Bool {
+    get
+    set
+  }
+}
+extension TGASDK.JSON {
+  public var string: Swift.String? {
+    get
+    set
+  }
+  public var stringValue: Swift.String {
+    get
+    set
+  }
+}
+extension TGASDK.JSON {
+  public var number: Foundation.NSNumber? {
+    get
+    set
+  }
+  public var numberValue: Foundation.NSNumber {
+    get
+    set
+  }
+}
+extension TGASDK.JSON {
+  public var null: Foundation.NSNull? {
+    get
+    set
+  }
+  public func exists() -> Swift.Bool
+}
+extension TGASDK.JSON {
+  public var url: Foundation.URL? {
+    get
+    set
+  }
+}
+extension TGASDK.JSON {
+  public var double: Swift.Double? {
+    get
+    set
+  }
+  public var doubleValue: Swift.Double {
+    get
+    set
+  }
+  public var float: Swift.Float? {
+    get
+    set
+  }
+  public var floatValue: Swift.Float {
+    get
+    set
+  }
+  public var int: Swift.Int? {
+    get
+    set
+  }
+  public var intValue: Swift.Int {
+    get
+    set
+  }
+  public var uInt: Swift.UInt? {
+    get
+    set
+  }
+  public var uIntValue: Swift.UInt {
+    get
+    set
+  }
+  public var int8: Swift.Int8? {
+    get
+    set
+  }
+  public var int8Value: Swift.Int8 {
+    get
+    set
+  }
+  public var uInt8: Swift.UInt8? {
+    get
+    set
+  }
+  public var uInt8Value: Swift.UInt8 {
+    get
+    set
+  }
+  public var int16: Swift.Int16? {
+    get
+    set
+  }
+  public var int16Value: Swift.Int16 {
+    get
+    set
+  }
+  public var uInt16: Swift.UInt16? {
+    get
+    set
+  }
+  public var uInt16Value: Swift.UInt16 {
+    get
+    set
+  }
+  public var int32: Swift.Int32? {
+    get
+    set
+  }
+  public var int32Value: Swift.Int32 {
+    get
+    set
+  }
+  public var uInt32: Swift.UInt32? {
+    get
+    set
+  }
+  public var uInt32Value: Swift.UInt32 {
+    get
+    set
+  }
+  public var int64: Swift.Int64? {
+    get
+    set
+  }
+  public var int64Value: Swift.Int64 {
+    get
+    set
+  }
+  public var uInt64: Swift.UInt64? {
+    get
+    set
+  }
+  public var uInt64Value: Swift.UInt64 {
+    get
+    set
+  }
+}
+extension TGASDK.JSON : Swift.Comparable {
+}
+public func == (lhs: TGASDK.JSON, rhs: TGASDK.JSON) -> Swift.Bool
+public func <= (lhs: TGASDK.JSON, rhs: TGASDK.JSON) -> Swift.Bool
+public func >= (lhs: TGASDK.JSON, rhs: TGASDK.JSON) -> Swift.Bool
+public func > (lhs: TGASDK.JSON, rhs: TGASDK.JSON) -> Swift.Bool
+public func < (lhs: TGASDK.JSON, rhs: TGASDK.JSON) -> Swift.Bool
+public enum writingOptionsKeys {
+  case jsonSerialization
+  case castNilToNSNull
+  case maxObjextDepth
+  case encoding
+  public static func == (a: TGASDK.writingOptionsKeys, b: TGASDK.writingOptionsKeys) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension TGASDK.JSON : Swift.Codable {
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
 @_inheritsConvenienceInitializers @objc public class TGAConfiguration : ObjectiveC.NSObject {
   @objc public var lang: Swift.String
   @objc public var statusBarStyle: UIKit.UIStatusBarStyle
   @objc public var navigationBackImage: UIKit.UIImage?
   @objc override dynamic public init()
+  @objc deinit
+}
+public protocol TGAEventDelegate : AnyObject {
+  func onEvent(type: Swift.String, param: Any?)
+}
+@_hasMissingDesignatedInitializers public class TGAEventCenter {
+  public static var shared: TGASDK.TGAEventCenter
+  public func addEventDelegate(eventType: Swift.String, delegate: TGASDK.TGAEventDelegate)
+  public func removeEventDelegate(eventType: Swift.String, delegate: TGASDK.TGAEventDelegate)
+  public func postEvent(eventType: Swift.String, param: Any?)
   @objc deinit
 }
 @objc public enum TGALogLevel : Swift.Int {
@@ -37,20 +467,19 @@ import _StringProcessing
     get
   }
 }
-public protocol TGAEventDelegate : AnyObject {
-  func onEvent(type: Swift.String, param: Swift.String?)
-}
-@_hasMissingDesignatedInitializers public class TGAEventCenter {
-  public static var shared: TGASDK.TGAEventCenter
-  public func addEventDelegate(eventType: Swift.String, delegate: TGASDK.TGAEventDelegate)
-  public func removeEventDelegate(eventType: Swift.String, delegate: TGASDK.TGAEventDelegate)
-  public func postEvent(eventType: Swift.String, param: Swift.String?)
-  @objc deinit
-}
 @_inheritsConvenienceInitializers @objc public class TGAUserInfo : ObjectiveC.NSObject {
   @objc public var userId: Swift.String
   @objc public var nickname: Swift.String
   @objc public var avatar: Swift.String
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc public class TGAShareInfo : ObjectiveC.NSObject {
+  @objc public var callbackId: Swift.String
+  @objc public var iconUrl: Swift.String
+  @objc public var link: Swift.String
+  @objc public var title: Swift.String
+  @objc public var type: Swift.String
   @objc override dynamic public init()
   @objc deinit
 }
@@ -60,18 +489,28 @@ public protocol TGAEventDelegate : AnyObject {
   @objc func tgaSdkGetUserInfo(completion: @escaping ((TGASDK.TGAUserInfo?) -> Swift.Void))
   @objc func tgaSdkCloseGameCenter()
   @objc func tgaSdkOnLogout()
+  @objc func tgaOnInAppShare(fromVC: UIKit.UIViewController, shareInfo: TGASDK.TGAShareInfo, completion: @escaping ((_ callbackId: Swift.String, _ isSuccess: Swift.Bool) -> Swift.Void))
 }
 @_inheritsConvenienceInitializers @objc public class TGASdk : ObjectiveC.NSObject {
   @objc public static let shared: TGASDK.TGASdk
   @objc public var configuration: TGASDK.TGAConfiguration
   @objc public func initSdk(env: Swift.String? = nil, appKey: Swift.String, userInfo: TGASDK.TGAUserInfo? = nil, delegate: TGASDK.TGASdkDelegate)
+  @objc public func isInited() -> Swift.Bool
   @objc public func logout()
-  @objc public func openGameCenter(vc: UIKit.UIViewController, secUrl: Swift.String? = nil, secTitle: Swift.String? = nil, theme: Swift.String? = nil)
+  @objc public func openGameCenter(vc: UIKit.UIViewController, secUrl: Swift.String? = nil, secTitle: Swift.String? = nil, theme: Swift.String? = nil) -> Swift.Bool
   @objc public func closeAllWindow()
   @objc public func setLogLevel(level: TGASDK.TGALogLevel)
   @objc override dynamic public init()
   @objc deinit
 }
+extension TGASDK.SwiftyJSONError : Swift.Equatable {}
+extension TGASDK.SwiftyJSONError : Swift.Hashable {}
+extension TGASDK.SwiftyJSONError : Swift.RawRepresentable {}
+extension TGASDK.`Type` : Swift.Equatable {}
+extension TGASDK.`Type` : Swift.Hashable {}
+extension TGASDK.`Type` : Swift.RawRepresentable {}
+extension TGASDK.writingOptionsKeys : Swift.Equatable {}
+extension TGASDK.writingOptionsKeys : Swift.Hashable {}
 extension TGASDK.TGALogLevel : Swift.Equatable {}
 extension TGASDK.TGALogLevel : Swift.Hashable {}
 extension TGASDK.TGALogLevel : Swift.RawRepresentable {}

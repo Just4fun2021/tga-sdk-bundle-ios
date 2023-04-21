@@ -8,6 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		03ED7561817F8451DD2EDECA /* Pods_TGASDK_OC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D063B1233E2405F4485B280C /* Pods_TGASDK_OC.framework */; };
+		36139BD729F27FC800B626DB /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36139BC629F27FC800B626DB /* Enum.swift */; };
+		36139BD829F27FC800B626DB /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36139BC829F27FC800B626DB /* Extension.swift */; };
+		36139BD929F27FC800B626DB /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36139BC929F27FC800B626DB /* LoginController.swift */; };
+		36139BDA29F27FC800B626DB /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36139BCA29F27FC800B626DB /* TableViewCell.swift */; };
+		36139BDB29F27FC800B626DB /* PickerHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36139BCD29F27FC800B626DB /* PickerHeaderView.swift */; };
+		36139BDC29F27FC800B626DB /* PickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36139BCE29F27FC800B626DB /* PickerViewController.swift */; };
+		36139BDD29F27FC800B626DB /* PickerViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36139BCF29F27FC800B626DB /* PickerViewControllerDelegate.swift */; };
+		36139BDE29F27FC800B626DB /* PickerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36139BD129F27FC800B626DB /* PickerManager.swift */; };
+		36139BDF29F27FC800B626DB /* PickerSingleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36139BD229F27FC800B626DB /* PickerSingleManager.swift */; };
+		36139BE029F27FC800B626DB /* PickerModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36139BD429F27FC800B626DB /* PickerModelProtocol.swift */; };
+		36139BE129F27FC800B626DB /* PickerSingleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36139BD529F27FC800B626DB /* PickerSingleType.swift */; };
+		36139BE229F27FC800B626DB /* PickerViewControllerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36139BD629F27FC800B626DB /* PickerViewControllerDataSource.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
@@ -20,12 +32,29 @@
 		8048139F28CC89D700FA68DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8048139E28CC89D700FA68DE /* Assets.xcassets */; };
 		804813A228CC89D700FA68DE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 804813A028CC89D700FA68DE /* LaunchScreen.storyboard */; };
 		804813A528CC89D700FA68DE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 804813A428CC89D700FA68DE /* main.m */; };
-		BB5B4173D037F3DE3B5236D1 /* Pods_TGASDK_Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62498F1A970AC30AB2494032 /* Pods_TGASDK_Swift.framework */; };
+		BB5B4173D037F3DE3B5236D1 /* Pods_TGASDK_Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62498F1A970AC30AB2494032 /* Pods_TGASDK_Swift.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1F3F5BD2CDE63A9D9107CE46 /* TGASDK-Demo.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = "TGASDK-Demo.podspec"; path = "../TGASDK-Demo.podspec"; sourceTree = "<group>"; };
 		2B754C1633F326A0CD1C474A /* Pods_TGASDK_Demo_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TGASDK_Demo_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		36139BC629F27FC800B626DB /* Enum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enum.swift; sourceTree = "<group>"; };
+		36139BC829F27FC800B626DB /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		36139BC929F27FC800B626DB /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		36139BCA29F27FC800B626DB /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		36139BCD29F27FC800B626DB /* PickerHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerHeaderView.swift; sourceTree = "<group>"; };
+		36139BCE29F27FC800B626DB /* PickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerViewController.swift; sourceTree = "<group>"; };
+		36139BCF29F27FC800B626DB /* PickerViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerViewControllerDelegate.swift; sourceTree = "<group>"; };
+		36139BD129F27FC800B626DB /* PickerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerManager.swift; sourceTree = "<group>"; };
+		36139BD229F27FC800B626DB /* PickerSingleManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerSingleManager.swift; sourceTree = "<group>"; };
+		36139BD429F27FC800B626DB /* PickerModelProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerModelProtocol.swift; sourceTree = "<group>"; };
+		36139BD529F27FC800B626DB /* PickerSingleType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerSingleType.swift; sourceTree = "<group>"; };
+		36139BD629F27FC800B626DB /* PickerViewControllerDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerViewControllerDataSource.swift; sourceTree = "<group>"; };
+		3643609929F0D94600E8E44D /* CocoaLumberjack.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CocoaLumberjack.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3643609B29F0D94E00E8E44D /* HandyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = HandyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		369F2C5B29EFF086002F47DD /* CocoaDebug.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CocoaDebug.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		369F2C5D29EFF086002F47DD /* CocoaLumberjack.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CocoaLumberjack.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		369F2C5F29EFF086002F47DD /* HandyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = HandyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D86AE812542ECE93E8AA2CB /* Pods-TGASDK-Demo_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TGASDK-Demo_Example.release.xcconfig"; path = "Target Support Files/Pods-TGASDK-Demo_Example/Pods-TGASDK-Demo_Example.release.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* TGASDK-Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TGASDK-Swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -82,11 +111,63 @@
 		045ED7593E1135C7E476F9C7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3643609B29F0D94E00E8E44D /* HandyJSON.framework */,
+				3643609929F0D94600E8E44D /* CocoaLumberjack.framework */,
+				369F2C5B29EFF086002F47DD /* CocoaDebug.framework */,
+				369F2C5D29EFF086002F47DD /* CocoaLumberjack.framework */,
+				369F2C5F29EFF086002F47DD /* HandyJSON.framework */,
 				2B754C1633F326A0CD1C474A /* Pods_TGASDK_Demo_Tests.framework */,
 				D063B1233E2405F4485B280C /* Pods_TGASDK_OC.framework */,
 				62498F1A970AC30AB2494032 /* Pods_TGASDK_Swift.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		36139BC729F27FC800B626DB /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				36139BC829F27FC800B626DB /* Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		36139BCB29F27FC800B626DB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				36139BCC29F27FC800B626DB /* Picker */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		36139BCC29F27FC800B626DB /* Picker */ = {
+			isa = PBXGroup;
+			children = (
+				36139BCD29F27FC800B626DB /* PickerHeaderView.swift */,
+				36139BCE29F27FC800B626DB /* PickerViewController.swift */,
+				36139BCF29F27FC800B626DB /* PickerViewControllerDelegate.swift */,
+				36139BD029F27FC800B626DB /* Manager */,
+				36139BD329F27FC800B626DB /* Model */,
+				36139BD629F27FC800B626DB /* PickerViewControllerDataSource.swift */,
+			);
+			path = Picker;
+			sourceTree = "<group>";
+		};
+		36139BD029F27FC800B626DB /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				36139BD129F27FC800B626DB /* PickerManager.swift */,
+				36139BD229F27FC800B626DB /* PickerSingleManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		36139BD329F27FC800B626DB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				36139BD429F27FC800B626DB /* PickerModelProtocol.swift */,
+				36139BD529F27FC800B626DB /* PickerSingleType.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		4DE1D394DECEEA285FCC2581 /* Pods */ = {
@@ -128,6 +209,11 @@
 		607FACD21AFB9204008FA782 /* TGASDK-Swift */ = {
 			isa = PBXGroup;
 			children = (
+				36139BC629F27FC800B626DB /* Enum.swift */,
+				36139BC729F27FC800B626DB /* Extension */,
+				36139BC929F27FC800B626DB /* LoginController.swift */,
+				36139BCA29F27FC800B626DB /* TableViewCell.swift */,
+				36139BCB29F27FC800B626DB /* View */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
@@ -229,7 +315,7 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
-						DevelopmentTeam = 74MC74A426;
+						DevelopmentTeam = BWT89KHSL8;
 						LastSwiftMigration = 0900;
 					};
 					8048138F28CC89D600FA68DE = {
@@ -312,7 +398,7 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-TGASDK-Swift/Pods-TGASDK-Swift-resources.sh",
 				"${PODS_ROOT}/AppLovinSDK/applovin-ios-sdk-11.5.5/AppLovinSDKResources.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/TGASDK/TGASDK.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/TGAIOSSDK/TGASDK.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
@@ -332,10 +418,14 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-TGASDK-Swift/Pods-TGASDK-Swift-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/CocoaDebug/CocoaDebug.framework",
+				"${BUILT_PRODUCTS_DIR}/XBDialog/XBDialog.framework",
+				"${BUILT_PRODUCTS_DIR}/XBPickerView/XBPickerView.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaDebug.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XBDialog.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XBPickerView.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -372,7 +462,7 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-TGASDK-OC/Pods-TGASDK-OC-resources.sh",
 				"${PODS_ROOT}/AppLovinSDK/applovin-ios-sdk-11.5.5/AppLovinSDKResources.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/TGASDK/TGASDK.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/TGAIOSSDK/TGASDK.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
@@ -391,8 +481,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36139BE129F27FC800B626DB /* PickerSingleType.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				36139BDC29F27FC800B626DB /* PickerViewController.swift in Sources */,
+				36139BD729F27FC800B626DB /* Enum.swift in Sources */,
+				36139BDD29F27FC800B626DB /* PickerViewControllerDelegate.swift in Sources */,
+				36139BDA29F27FC800B626DB /* TableViewCell.swift in Sources */,
+				36139BDB29F27FC800B626DB /* PickerHeaderView.swift in Sources */,
+				36139BDE29F27FC800B626DB /* PickerManager.swift in Sources */,
+				36139BE229F27FC800B626DB /* PickerViewControllerDataSource.swift in Sources */,
+				36139BD829F27FC800B626DB /* Extension.swift in Sources */,
+				36139BE029F27FC800B626DB /* PickerModelProtocol.swift in Sources */,
+				36139BDF29F27FC800B626DB /* PickerSingleManager.swift in Sources */,
+				36139BD929F27FC800B626DB /* LoginController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -549,12 +651,13 @@
 			baseConfigurationReference = EF82F5D0C3918F238BF44D1E /* Pods-TGASDK-Swift.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 74MC74A426;
+				DEVELOPMENT_TEAM = BWT89KHSL8;
 				INFOPLIST_FILE = "TGASDK-Demo/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = com.turkcell.gnctrkcll;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.just4fun.tgaios.debug;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 5.0;
@@ -566,12 +669,12 @@
 			baseConfigurationReference = 883A700A83936C8F46B629C5 /* Pods-TGASDK-Swift.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 74MC74A426;
+				DEVELOPMENT_TEAM = BWT89KHSL8;
 				INFOPLIST_FILE = "TGASDK-Demo/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = com.turkcell.gnctrkcll;
+				PRODUCT_BUNDLE_IDENTIFIER = com.just4fun.tgaios.debug;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 5.0;

@@ -260,6 +260,8 @@ using UInt = size_t;
 
 
 
+
+
 @class NSString;
 @class UIImage;
 
@@ -326,6 +328,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) TGASdk * _No
 /// \param delegate 委托
 ///
 - (void)initSdkWithEnv:(NSString * _Nullable)env appKey:(NSString * _Nonnull)appKey userInfo:(TGAUserInfo * _Nullable)userInfo delegate:(id <TGASdkDelegate> _Nonnull)delegate SWIFT_METHOD_FAMILY(none);
+/// 是否初始化
+- (BOOL)isInited SWIFT_WARN_UNUSED_RESULT;
 /// 退出登录
 - (void)logout;
 /// 打开游戏中心控制器
@@ -335,7 +339,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) TGASdk * _No
 ///
 /// \param theme 主题
 ///
-- (void)openGameCenterWithVc:(UIViewController * _Nonnull)vc secUrl:(NSString * _Nullable)secUrl secTitle:(NSString * _Nullable)secTitle theme:(NSString * _Nullable)theme;
+- (BOOL)openGameCenterWithVc:(UIViewController * _Nonnull)vc secUrl:(NSString * _Nullable)secUrl secTitle:(NSString * _Nullable)secTitle theme:(NSString * _Nullable)theme SWIFT_WARN_UNUSED_RESULT;
 - (void)closeAllWindow;
 /// 设置日志等级
 /// \param level TGALogLevel
@@ -345,7 +349,9 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) TGASdk * _No
 @end
 
 
+
 @class NSError;
+@class TGAShareInfo;
 
 /// MARK - TGASDK Delegate
 SWIFT_PROTOCOL("_TtP6TGASDK14TGASdkDelegate_")
@@ -365,6 +371,19 @@ SWIFT_PROTOCOL("_TtP6TGASDK14TGASdkDelegate_")
 - (void)tgaSdkCloseGameCenter;
 /// 用户登出
 - (void)tgaSdkOnLogout;
+/// 用户分享
+- (void)tgaOnInAppShareFromVC:(UIViewController * _Nonnull)fromVC shareInfo:(TGAShareInfo * _Nonnull)shareInfo completion:(void (^ _Nonnull)(NSString * _Nonnull, BOOL))completion;
+@end
+
+
+SWIFT_CLASS("_TtC6TGASDK12TGAShareInfo")
+@interface TGAShareInfo : NSObject
+@property (nonatomic, copy) NSString * _Nonnull callbackId;
+@property (nonatomic, copy) NSString * _Nonnull iconUrl;
+@property (nonatomic, copy) NSString * _Nonnull link;
+@property (nonatomic, copy) NSString * _Nonnull title;
+@property (nonatomic, copy) NSString * _Nonnull type;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 
@@ -379,6 +398,7 @@ SWIFT_CLASS("_TtC6TGASDK11TGAUserInfo")
 @property (nonatomic, copy) NSString * _Nonnull avatar;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
+
 
 
 
