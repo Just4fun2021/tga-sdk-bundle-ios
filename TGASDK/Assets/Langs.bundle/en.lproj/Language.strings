@@ -4,12 +4,14 @@
 //  Description <#文件描述#>
 //  PD <#产品文档地址#>
 //  Design <#设计文档地址#>
-//  Copyright © 2022 TGASDKSDK. All rights reserved.
+//  Copyright © 2022 TGASDK. All rights reserved.
 //  @author 刘小彬(liuxiaomike@gmail.com)
 //
 
-"tgaError.initError" = "initError";
-"tgaError.dataParsingFailed" = "dataParsingFailed";
-"tgaError.appKeyNil" = "appKeyNil";
+"tgaError.initError" = "initialization failed";
+"tgaError.packageNameError" = "Package name is inconsistent";
+"tgaError.dataParsingFailed" = "Data parsing error";
+"tgaError.appKeyNil" = "appKey Nil";
 "tgaError.uninitialized" = "uninitialized";
-
+"tgaError.appLovinInit" = "applovin Init error";
+"tgaError.network" = "Network or server error"

@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'TGAIOSSDK'
-  s.version          = '1.2.6'
+  s.version          = '1.2.7'
   s.summary          = 'TGAIOSSDK SDK for iOS'
 
   s.homepage         = 'https://github.com/Just4fun2021/tga-sdk-bundle-ios'
@@ -21,4 +21,5 @@ Pod::Spec.new do |s|
   
   s.vendored_frameworks = "TGASDK/Classes/TGASDK.xcframework"
   s.dependency 'AppLovinSDK', '~> 11.5.1'
+  
 end

@@ -230,6 +230,8 @@ using UInt = size_t;
 #if __has_warning("-Watimport-in-framework-header")
 #pragma clang diagnostic ignored "-Watimport-in-framework-header"
 #endif
+@import CoreFoundation;
+@import Foundation;
 @import ObjectiveC;
 @import UIKit;
 #endif
@@ -256,6 +258,21 @@ using UInt = size_t;
 
 
 
+
+@class NSCoder;
+
+SWIFT_CLASS("_TtC6TGASDK16JTSegmentControl")
+@interface JTSegmentControl : UIControl
+- (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+@interface JTSegmentControl (SWIFT_EXTENSION(TGASDK))
+- (void)moveTo:(NSInteger)index;
+- (void)moveTo:(NSInteger)index animated:(BOOL)animated;
+- (void)layoutSubviews;
+@end
 
 
 
@@ -327,7 +344,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) TGASdk * _No
 ///
 /// \param delegate 委托
 ///
-- (void)initSdkWithEnv:(NSString * _Nullable)env appKey:(NSString * _Nonnull)appKey userInfo:(TGAUserInfo * _Nullable)userInfo delegate:(id <TGASdkDelegate> _Nonnull)delegate SWIFT_METHOD_FAMILY(none);
+- (BOOL)initSdkWithEnv:(NSString * _Nullable)env appKey:(NSString * _Nonnull)appKey userInfo:(TGAUserInfo * _Nullable)userInfo delegate:(id <TGASdkDelegate> _Nonnull)delegate SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
 /// 是否初始化
 - (BOOL)isInited SWIFT_WARN_UNUSED_RESULT;
 /// 退出登录
@@ -398,6 +415,83 @@ SWIFT_CLASS("_TtC6TGASDK11TGAUserInfo")
 @property (nonatomic, copy) NSString * _Nonnull avatar;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
+
+@class UITraitCollection;
+@class UITouch;
+@class UIEvent;
+
+/// 布局视图基类，基类不支持实例化对象。在编程时我们经常会用到一些视图，这种视图只是负责将里面的子视图按照某种规则进行排列和布局，而别无其他的作用。因此我们称这种视图为容器视图或者称为布局视图。
+/// 布局视图通过重载layoutSubviews方法来完成子视图的布局和排列的工作。对于每个加入到布局视图中的子视图，都会在加入时通过KVO机制监控子视图的center和bounds以及frame值的变化，每当子视图的这些属性一变化时就又会重新引发布局视图的布局动作。同时对每个视图的布局扩展属性的设置以及对布局视图的布局属性的设置都会引发布局视图的布局动作。布局视图在添加到非布局父视图时也会通过KVO机制来监控非布局父视图的frame值和bounds值，这样每当非布局父视图的尺寸变更时也会引发布局视图的布局动作。前面说的引起变动的方法就是会在KVO处理逻辑以及布局扩展属性和布局属性设置完毕后通过调用setNeedLayout来实现的，当布局视图收到setNeedLayout的请求后，会在下一个runloop中对布局视图进行重新布局而这就是通过调用layoutSubviews方法来实现的。布局视图基类只提供了更新所有子视图的位置和尺寸以及一些基础的设置，而至于如何排列和布局这些子视图则要根据应用的场景和需求来确定，因此布局基类视图提供了一个：
+/// internal func tgCalcLayoutRect(_ size:CGSize, isEstimate:Bool, hasSubLayout:inout Bool!, sbs:[UIView]!, type:TGSizeClassType) ->CGSize
+/// 的方法，要求派生类去重载这个方法，这样不同的派生类就可以实现不同的应用场景，这就是布局视图的核心实现机制。
+/// TangramKit布局库根据实际中常见的场景实现了7种不同的布局视图派生类他们分别是：线性布局、表格布局、相对布局、框架布局、流式布局、浮动布局、路径布局。
+SWIFT_CLASS("_TtC6TGASDK12TGBaseLayout")
+@interface TGBaseLayout : UIView
+- (void)safeAreaInsetsDidChange;
+- (void)setNeedsLayout;
+@property (nonatomic, readonly) CGSize intrinsicContentSize;
+- (void)layoutSubviews;
+- (void)traitCollectionDidChange:(UITraitCollection * _Nullable)previousTraitCollection;
+- (CGSize)sizeThatFits:(CGSize)size SWIFT_WARN_UNUSED_RESULT;
+@property (nonatomic, getter=isHidden) BOOL hidden;
+- (void)awakeFromNib;
+- (void)didAddSubview:(UIView * _Nonnull)subview;
+- (void)willRemoveSubview:(UIView * _Nonnull)subview;
+- (void)willMoveToSuperview:(UIView * _Nullable)newSuperview;
+- (void)observeValueForKeyPath:(NSString * _Nullable)keyPath ofObject:(id _Nullable)object change:(NSDictionary<NSKeyValueChangeKey, id> * _Nullable)change context:(void * _Nullable)context;
+- (void)touchesBegan:(NSSet<UITouch *> * _Nonnull)touches withEvent:(UIEvent * _Nullable)event;
+- (void)touchesMoved:(NSSet<UITouch *> * _Nonnull)touches withEvent:(UIEvent * _Nullable)event;
+- (void)touchesEnded:(NSSet<UITouch *> * _Nonnull)touches withEvent:(UIEvent * _Nullable)event;
+- (void)touchesCancelled:(NSSet<UITouch *> * _Nonnull)touches withEvent:(UIEvent * _Nullable)event;
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+
+
+/// *线性布局是一种里面的子视图按添加的顺序从上到下或者从左到右依次排列的单行(单列)布局视图。线性布局里面的子视图是通过添加的顺序建立约束和依赖关系的。
+/// *根据排列的方向我们把子视图从上到下依次排列的线性布局视图称为垂直线性布局视图，而把子视图从左到右依次排列的线性布局视图则称为水平线性布局。
+/// 垂直线性布局
+/// +—––+
+/// |   A   |
+/// +—––+
+/// |   B   |
+/// +—––+  ⥥
+/// |   C   |
+/// +—––+
+/// |  …  |
+/// +—––+
+/// 水平线性布局
+/// +—–+—–+—–+—–+
+/// |  A  |  B  |  C  | … |
+/// +—–+—–+—–+—–+
+/// ⥤
+SWIFT_CLASS("_TtC6TGASDK14TGLinearLayout")
+@interface TGLinearLayout : TGBaseLayout
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+- (void)willRemoveSubview:(UIView * _Nonnull)subview;
+- (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
+@end
+
+
+
+/// *相对布局是一种里面的子视图通过相互之间的约束和依赖来进行布局和定位的布局视图。
+/// *相对布局里面的子视图的布局位置和添加的顺序无关，而是通过设置子视图的相对依赖关系来进行定位和布局的。
+/// *相对布局提供和AutoLayout等价的功能。
+SWIFT_CLASS("_TtC6TGASDK16TGRelativeLayout")
+@interface TGRelativeLayout : TGBaseLayout
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+
+
+
+
+
+
 
 
 

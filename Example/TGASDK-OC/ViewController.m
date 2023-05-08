@@ -21,6 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"TGADemo";
+    [[TGASdk shared] setLogLevelWithLevel: TGALogLevelAll];
     [self configView];
     [self configLocation];
 }
@@ -61,12 +62,12 @@
         }
         case 1:
         {
-            [TGASdk.shared initSdkWithEnv:nil appKey:@"" userInfo:nil delegate:self];
+            [TGASdk.shared initSdkWithEnv:nil appKey:@"c7dd39bedb1711eba8290212f3e42114" userInfo:nil delegate:self];
             break;
         }
         default:
         {
-            [TGASdk.shared openGameCenterWithSecUrl:nil secTitle:nil theme: nil];
+            [[TGASdk shared] openGameCenterWithVc:self secUrl:nil secTitle:nil theme:nil];
             break;
         }
     }

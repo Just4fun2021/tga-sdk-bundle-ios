@@ -23,6 +23,13 @@ extension Swift.String {
     get
   }
 }
+extension UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) public func showToast(message: Swift.String, duration: Foundation.TimeInterval = 2.0, position: CoreFoundation.CGPoint)
+  @_Concurrency.MainActor(unsafe) public func getStatusBarHeight() -> CoreFoundation.CGFloat
+}
+extension TGASDK.TGBaseLayout {
+  @_Concurrency.MainActor(unsafe) public func baseLayoutSetting()
+}
 public typealias JSONString = Swift.String
 public protocol JSONMappable : TGASDK.JSONConvertibleMappable {
   init(json: TGASDK.JSON)
@@ -87,6 +94,64 @@ extension Swift.UInt16 : TGASDK.JSONConvertibleMappable {
 extension Swift.UInt32 : TGASDK.JSONConvertibleMappable {
 }
 extension Swift.UInt64 : TGASDK.JSONConvertibleMappable {
+}
+public protocol JTSegmentControlDelegate : AnyObject {
+  func didSelected(segement: TGASDK.JTSegmentControl, index: Swift.Int)
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) open class JTSegmentControl : UIKit.UIControl {
+  @_Concurrency.MainActor(unsafe) public var sliderHeight: CoreFoundation.CGFloat
+  @_Concurrency.MainActor(unsafe) public var isScroll: Swift.Bool
+  @_Concurrency.MainActor(unsafe) public var scrollItemPadding: CoreFoundation.CGFloat
+  @_Concurrency.MainActor(unsafe) open var autoScrollWhenIndexChange: Swift.Bool
+  @_Concurrency.MainActor(unsafe) open var scrollToPointWhenIndexChanged: CoreFoundation.CGPoint?
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) open var selectedIndex: Swift.Int {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) open var itemTextColor: UIKit.UIColor {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) open var itemSelectedTextColor: UIKit.UIColor {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) open var itemBackgroundColor: UIKit.UIColor {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) open var itemSelectedBackgroundColor: UIKit.UIColor {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) open var sliderViewColor: UIKit.UIColor {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) open var font: UIKit.UIFont {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) open var selectedFont: UIKit.UIFont {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) open var items: [Swift.String]? {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) open func showDot(show: Swift.Bool, index: Swift.Int)
+  @_Concurrency.MainActor(unsafe) open var bounces: Swift.Bool {
+    get
+    set
+  }
+  @objc deinit
+}
+extension TGASDK.JTSegmentControl {
+  @objc @_Concurrency.MainActor(unsafe) dynamic open func move(to index: Swift.Int)
+  @objc @_Concurrency.MainActor(unsafe) dynamic open func move(to index: Swift.Int, animated: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func layoutSubviews()
 }
 public enum SwiftyJSONError : Swift.Int, Swift.Error {
   case unsupportedType
@@ -437,8 +502,126 @@ extension TGASDK.JSON : Swift.Codable {
   public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
 }
+public enum TGOrientation {
+  case vert
+  case horz
+  public static func == (a: TGASDK.TGOrientation, b: TGASDK.TGOrientation) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public enum TGVisibility {
+  case visible
+  case invisible
+  case gone
+  public static func == (a: TGASDK.TGVisibility, b: TGASDK.TGVisibility) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public struct TGGravity : Swift.OptionSet {
+  public let rawValue: Swift.Int
+  public init(rawValue: Swift.Int)
+  public static let none: TGASDK.TGGravity
+  public struct horz {
+    public static let left: TGASDK.TGGravity
+    public static let center: TGASDK.TGGravity
+    public static let right: TGASDK.TGGravity
+    public static let windowCenter: TGASDK.TGGravity
+    public static let between: TGASDK.TGGravity
+    public static let leading: TGASDK.TGGravity
+    public static let trailing: TGASDK.TGGravity
+    public static let around: TGASDK.TGGravity
+    public static let among: TGASDK.TGGravity
+    public static let fill: TGASDK.TGGravity
+    public static let mask: TGASDK.TGGravity
+  }
+  public struct vert {
+    public static let top: TGASDK.TGGravity
+    public static let center: TGASDK.TGGravity
+    public static let bottom: TGASDK.TGGravity
+    public static let windowCenter: TGASDK.TGGravity
+    public static let between: TGASDK.TGGravity
+    public static let fill: TGASDK.TGGravity
+    public static let baseline: TGASDK.TGGravity
+    public static let around: TGASDK.TGGravity
+    public static let among: TGASDK.TGGravity
+    public static let mask: TGASDK.TGGravity
+  }
+  public static let center: TGASDK.TGGravity
+  public static let fill: TGASDK.TGGravity
+  public static let between: TGASDK.TGGravity
+  public static let around: TGASDK.TGGravity
+  public static let among: TGASDK.TGGravity
+  public typealias ArrayLiteralElement = TGASDK.TGGravity
+  public typealias Element = TGASDK.TGGravity
+  public typealias RawValue = Swift.Int
+}
+public func & (left: TGASDK.TGGravity, right: TGASDK.TGGravity) -> TGASDK.TGGravity
+public func > (left: TGASDK.TGGravity, right: TGASDK.TGGravity) -> Swift.Bool
+public enum TGGravityPolicy {
+  case no
+  case always
+  case auto
+  public static func == (a: TGASDK.TGGravityPolicy, b: TGASDK.TGGravityPolicy) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public struct TGSubviewsShrinkType : Swift.OptionSet {
+  public let rawValue: Swift.Int
+  public init(rawValue: Swift.Int)
+  public static let none: TGASDK.TGSubviewsShrinkType
+  public static let average: TGASDK.TGSubviewsShrinkType
+  public static let weight: TGASDK.TGSubviewsShrinkType
+  public static let auto: TGASDK.TGSubviewsShrinkType
+  public static let size: TGASDK.TGSubviewsShrinkType
+  public static let space: TGASDK.TGSubviewsShrinkType
+  public typealias ArrayLiteralElement = TGASDK.TGSubviewsShrinkType
+  public typealias Element = TGASDK.TGSubviewsShrinkType
+  public typealias RawValue = Swift.Int
+}
+public struct TGWeight : Any {
+  public static let zeroWeight: TGASDK.TGWeight
+  public init(_ value: Swift.Int8)
+  public init(_ value: Swift.Int16)
+  public init(_ value: Swift.Int32)
+  public init(_ value: Swift.Int64)
+  public init(_ value: Swift.Int)
+  public init(_ value: Swift.UInt)
+  public init(_ value: Swift.Double)
+  public init(_ value: Swift.Float)
+  public init(_ value: CoreFoundation.CGFloat)
+  public init(_ value: TGASDK.TGWeight)
+}
+extension TGASDK.TGWeight : Swift.Equatable {
+}
+public func != (lhs: TGASDK.TGWeight, rhs: TGASDK.TGWeight) -> Swift.Bool
+public func == (lhs: TGASDK.TGWeight, rhs: TGASDK.TGWeight) -> Swift.Bool
+public func += (lhs: inout TGASDK.TGWeight, rhs: TGASDK.TGWeight)
+public func -= (lhs: inout TGASDK.TGWeight, rhs: TGASDK.TGWeight)
+public func + (lhs: TGASDK.TGWeight, rhs: TGASDK.TGWeight) -> TGASDK.TGWeight
+postfix operator %
+postfix public func % (val: CoreFoundation.CGFloat) -> TGASDK.TGWeight
+postfix public func % (val: Swift.Int) -> TGASDK.TGWeight
+public enum TGAdjustScrollViewContentSizeMode {
+  case auto
+  case no
+  case yes
+  public static func == (a: TGASDK.TGAdjustScrollViewContentSizeMode, b: TGASDK.TGAdjustScrollViewContentSizeMode) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
 @_inheritsConvenienceInitializers @objc public class TGAConfiguration : ObjectiveC.NSObject {
-  @objc public var lang: Swift.String
+  @objc public var lang: Swift.String {
+    @objc get
+    @objc set
+  }
   @objc public var statusBarStyle: UIKit.UIStatusBarStyle
   @objc public var navigationBackImage: UIKit.UIImage?
   @objc override dynamic public init()
@@ -494,13 +677,620 @@ public protocol TGAEventDelegate : AnyObject {
 @_inheritsConvenienceInitializers @objc public class TGASdk : ObjectiveC.NSObject {
   @objc public static let shared: TGASDK.TGASdk
   @objc public var configuration: TGASDK.TGAConfiguration
-  @objc public func initSdk(env: Swift.String? = nil, appKey: Swift.String, userInfo: TGASDK.TGAUserInfo? = nil, delegate: TGASDK.TGASdkDelegate)
+  @objc public func initSdk(env: Swift.String? = nil, appKey: Swift.String, userInfo: TGASDK.TGAUserInfo? = nil, delegate: TGASDK.TGASdkDelegate) -> Swift.Bool
   @objc public func isInited() -> Swift.Bool
   @objc public func logout()
   @objc public func openGameCenter(vc: UIKit.UIViewController, secUrl: Swift.String? = nil, secTitle: Swift.String? = nil, theme: Swift.String? = nil) -> Swift.Bool
   @objc public func closeAllWindow()
   @objc public func setLogLevel(level: TGASDK.TGALogLevel)
   @objc override dynamic public init()
+  @objc deinit
+}
+extension UIKit.UIView : TGASDK.TGViewSizeClass {
+  @_Concurrency.MainActor(unsafe) public var tg_top: TGASDK.TGLayoutPos {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) public var tg_leading: TGASDK.TGLayoutPos {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) public var tg_bottom: TGASDK.TGLayoutPos {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) public var tg_trailing: TGASDK.TGLayoutPos {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) public var tg_centerX: TGASDK.TGLayoutPos {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) public var tg_centerY: TGASDK.TGLayoutPos {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) public var tg_left: TGASDK.TGLayoutPos {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) public var tg_right: TGASDK.TGLayoutPos {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) public var tg_baseline: TGASDK.TGLayoutPos {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) public var tg_width: TGASDK.TGLayoutSize {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) public var tg_height: TGASDK.TGLayoutSize {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) public var tg_useFrame: Swift.Bool {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var tg_noLayout: Swift.Bool {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var tg_visibility: TGASDK.TGVisibility {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var tg_alignment: TGASDK.TGGravity {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var tg_reverseFloat: Swift.Bool {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var tg_clearFloat: Swift.Bool {
+    get
+    set
+  }
+}
+extension UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) public func tg_origin(_ point: CoreFoundation.CGPoint)
+  @_Concurrency.MainActor(unsafe) public func tg_origin(x: TGASDK.TGLayoutPosType, y: TGASDK.TGLayoutPosType)
+  @_Concurrency.MainActor(unsafe) public func tg_end(_ point: CoreFoundation.CGPoint)
+  @_Concurrency.MainActor(unsafe) public func tg_end(x: TGASDK.TGLayoutPosType, y: TGASDK.TGLayoutPosType)
+  @_Concurrency.MainActor(unsafe) public func tg_size(_ size: CoreFoundation.CGSize)
+  @_Concurrency.MainActor(unsafe) public func tg_size(width: TGASDK.TGLayoutSize, height: TGASDK.TGLayoutSize)
+  @_Concurrency.MainActor(unsafe) public func tg_size(width: TGASDK.TGLayoutSizeType, height: TGASDK.TGLayoutSize)
+  @_Concurrency.MainActor(unsafe) public func tg_size(width: TGASDK.TGLayoutSize, height: TGASDK.TGLayoutSizeType)
+  @_Concurrency.MainActor(unsafe) public func tg_size(width: TGASDK.TGLayoutSizeType, height: TGASDK.TGLayoutSizeType)
+  @_Concurrency.MainActor(unsafe) public func tg_size(_ sideLength: TGASDK.TGLayoutSize)
+  @_Concurrency.MainActor(unsafe) public func tg_size(_ sideLength: TGASDK.TGLayoutSizeType)
+  @_Concurrency.MainActor(unsafe) public func tg_margin(_ val: CoreFoundation.CGFloat)
+  @_Concurrency.MainActor(unsafe) public func tg_horzMargin(_ val: CoreFoundation.CGFloat)
+  @_Concurrency.MainActor(unsafe) public func tg_vertMargin(_ val: CoreFoundation.CGFloat)
+  @_Concurrency.MainActor(unsafe) public var tg_estimatedFrame: CoreFoundation.CGRect {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) public func tg_layoutCompletedDo(_ action: ((_ layout: TGASDK.TGBaseLayout, _ view: UIKit.UIView) -> Swift.Void)?)
+  @_Concurrency.MainActor(unsafe) public func tg_clearLayout(inSizeClass type: TGASDK.TGSizeClassType = .default)
+  @_Concurrency.MainActor(unsafe) public func tg_fetchSizeClass(with type: TGASDK.TGSizeClassType, from srcType: TGASDK.TGSizeClassType! = nil) -> TGASDK.TGViewSizeClass
+}
+public class TGBorderline {
+  public init(color: UIKit.UIColor, thick: CoreFoundation.CGFloat = 1, dash: CoreFoundation.CGFloat = 0, headIndent: CoreFoundation.CGFloat = 0, tailIndent: CoreFoundation.CGFloat = 0, offset: CoreFoundation.CGFloat = 0)
+  public var color: UIKit.UIColor
+  public var thick: CoreFoundation.CGFloat
+  public var headIndent: CoreFoundation.CGFloat
+  public var tailIndent: CoreFoundation.CGFloat
+  public var dash: CoreFoundation.CGFloat
+  public var offset: CoreFoundation.CGFloat
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class TGBaseLayout : UIKit.UIView, TGASDK.TGLayoutViewSizeClass {
+  @_Concurrency.MainActor(unsafe) public static var tg_isRTL: Swift.Bool {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public static func tg_updateRTL(_ isRTL: Swift.Bool, inWindow window: UIKit.UIWindow)
+  @_Concurrency.MainActor(unsafe) public var tg_padding: UIKit.UIEdgeInsets {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var tg_topPadding: CoreFoundation.CGFloat {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var tg_leadingPadding: CoreFoundation.CGFloat {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var tg_bottomPadding: CoreFoundation.CGFloat {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var tg_trailingPadding: CoreFoundation.CGFloat {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var tg_leftPadding: CoreFoundation.CGFloat {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var tg_rightPadding: CoreFoundation.CGFloat {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var tg_zeroPadding: Swift.Bool {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var tg_insetsPaddingFromSafeArea: UIKit.UIRectEdge {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var tg_insetLandscapeFringePadding: Swift.Bool {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var tg_space: CoreFoundation.CGFloat {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var tg_vspace: CoreFoundation.CGFloat {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var tg_hspace: CoreFoundation.CGFloat {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var tg_reverseLayout: Swift.Bool {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var tg_gravity: TGASDK.TGGravity {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var tg_layoutTransform: CoreFoundation.CGAffineTransform {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var tg_adjustScrollViewContentSizeMode: TGASDK.TGAdjustScrollViewContentSizeMode
+  @_Concurrency.MainActor(unsafe) public var tg_priorAutoresizingMask: Swift.Bool
+  @_Concurrency.MainActor(unsafe) public var tg_isLayouting: Swift.Bool {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) open var isSelected: Swift.Bool
+  @_Concurrency.MainActor(unsafe) public func tg_removeAllSubviews()
+  @_Concurrency.MainActor(unsafe) public func tg_layoutAnimationWithDuration(_ duration: Foundation.TimeInterval)
+  @_Concurrency.MainActor(unsafe) public func tg_sizeThatFits(_ size: CoreFoundation.CGSize = CGSize.zero, inSizeClass type: TGASDK.TGSizeClassType = TGSizeClassType.default) -> CoreFoundation.CGSize
+  @_Concurrency.MainActor(unsafe) public var tg_cacheEstimatedRect: Swift.Bool {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public func tg_estimatedFrame(of subview: UIKit.UIView, inLayoutSize size: CoreFoundation.CGSize = CGSize.zero) -> CoreFoundation.CGRect
+  @_Concurrency.MainActor(unsafe) public func tg_beginLayoutDo(_ action: (() -> Swift.Void)?)
+  @_Concurrency.MainActor(unsafe) public func tg_endLayoutDo(_ action: (() -> Swift.Void)?)
+  @_Concurrency.MainActor(unsafe) public func tg_rotationToDeviceOrientationDo(_ action: ((_ layout: TGASDK.TGBaseLayout, _ isFirst: Swift.Bool, _ isPortrait: Swift.Bool) -> Swift.Void)?)
+  @_Concurrency.MainActor(unsafe) public var tg_topBorderline: TGASDK.TGBorderline! {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var tg_leadingBorderline: TGASDK.TGBorderline! {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var tg_bottomBorderline: TGASDK.TGBorderline! {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var tg_trailingBorderline: TGASDK.TGBorderline! {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var tg_leftBorderline: TGASDK.TGBorderline! {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var tg_rightBorderline: TGASDK.TGBorderline! {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var tg_boundBorderline: TGASDK.TGBorderline! {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var tg_intelligentBorderline: TGASDK.TGBorderline!
+  @_Concurrency.MainActor(unsafe) public var tg_notUseIntelligentBorderline: Swift.Bool
+  @_Concurrency.MainActor(unsafe) public func tg_setTarget(_ target: ObjectiveC.NSObjectProtocol?, action: ObjectiveC.Selector?, for controlEvents: UIKit.UIControl.Event)
+  @_Concurrency.MainActor(unsafe) public var tg_highlightedBackgroundColor: UIKit.UIColor!
+  @_Concurrency.MainActor(unsafe) public var tg_highlightedOpacity: CoreFoundation.CGFloat
+  @_Concurrency.MainActor(unsafe) public var tg_backgroundImage: UIKit.UIImage! {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var tg_highlightedBackgroundImage: UIKit.UIImage!
+  @objc deinit
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func safeAreaInsetsDidChange()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func setNeedsLayout()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open var intrinsicContentSize: CoreFoundation.CGSize {
+    @objc get
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func layoutSubviews()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func traitCollectionDidChange(_ previousTraitCollection: UIKit.UITraitCollection?)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func sizeThatFits(_ size: CoreFoundation.CGSize) -> CoreFoundation.CGSize
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open var isHidden: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func awakeFromNib()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func didAddSubview(_ subview: UIKit.UIView)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func willRemoveSubview(_ subview: UIKit.UIView)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func willMove(toSuperview newSuperview: UIKit.UIView?)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func observeValue(forKeyPath keyPath: Swift.String?, of object: Any?, change: [Foundation.NSKeyValueChangeKey : Any]?, context: Swift.UnsafeMutableRawPointer?)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func touchesBegan(_ touches: Swift.Set<UIKit.UITouch>, with event: UIKit.UIEvent?)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func touchesMoved(_ touches: Swift.Set<UIKit.UITouch>, with event: UIKit.UIEvent?)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func touchesEnded(_ touches: Swift.Set<UIKit.UITouch>, with event: UIKit.UIEvent?)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func touchesCancelled(_ touches: Swift.Set<UIKit.UITouch>, with event: UIKit.UIEvent?)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+}
+@_hasMissingDesignatedInitializers public class TGDimeAdapter {
+  public class func template(_ size: CoreFoundation.CGSize)
+  public class func size(_ val: CoreFoundation.CGFloat) -> CoreFoundation.CGFloat
+  public class func width(_ val: CoreFoundation.CGFloat) -> CoreFoundation.CGFloat
+  public class func height(_ val: CoreFoundation.CGFloat) -> CoreFoundation.CGFloat
+  public class func round(_ val: CoreFoundation.CGFloat) -> CoreFoundation.CGFloat
+  public class func round(_ val: CoreFoundation.CGPoint) -> CoreFoundation.CGPoint
+  public class func round(_ val: CoreFoundation.CGSize) -> CoreFoundation.CGSize
+  public class func round(_ val: CoreFoundation.CGRect) -> CoreFoundation.CGRect
+  @objc deinit
+}
+public protocol TGLayoutPosType {
+}
+extension CoreFoundation.CGFloat : TGASDK.TGLayoutPosType {
+}
+extension Swift.Double : TGASDK.TGLayoutPosType {
+}
+extension Swift.Float : TGASDK.TGLayoutPosType {
+}
+extension Swift.Int : TGASDK.TGLayoutPosType {
+}
+extension Swift.Int8 : TGASDK.TGLayoutPosType {
+}
+extension Swift.Int16 : TGASDK.TGLayoutPosType {
+}
+extension Swift.Int32 : TGASDK.TGLayoutPosType {
+}
+extension Swift.Int64 : TGASDK.TGLayoutPosType {
+}
+extension Swift.UInt : TGASDK.TGLayoutPosType {
+}
+extension Swift.UInt8 : TGASDK.TGLayoutPosType {
+}
+extension Swift.UInt16 : TGASDK.TGLayoutPosType {
+}
+extension Swift.UInt32 : TGASDK.TGLayoutPosType {
+}
+extension Swift.UInt64 : TGASDK.TGLayoutPosType {
+}
+extension TGASDK.TGWeight : TGASDK.TGLayoutPosType {
+}
+extension Swift.Array : TGASDK.TGLayoutPosType {
+}
+extension TGASDK.TGLayoutPos : TGASDK.TGLayoutPosType {
+}
+extension UIKit.UIView : TGASDK.TGLayoutPosType {
+}
+final public class TGLayoutPos {
+  public static var tg_safeAreaMargin: CoreFoundation.CGFloat {
+    get
+  }
+  @discardableResult
+  final public func equal(_ origin: Swift.Int, offset: CoreFoundation.CGFloat = 0) -> TGASDK.TGLayoutPos
+  @discardableResult
+  final public func equal(_ origin: CoreFoundation.CGFloat, offset: CoreFoundation.CGFloat = 0) -> TGASDK.TGLayoutPos
+  @discardableResult
+  final public func equal(_ weight: TGASDK.TGWeight, offset: CoreFoundation.CGFloat = 0) -> TGASDK.TGLayoutPos
+  @discardableResult
+  final public func equal(_ array: [TGASDK.TGLayoutPos], offset: CoreFoundation.CGFloat = 0) -> TGASDK.TGLayoutPos
+  @discardableResult
+  final public func equal(_ view: UIKit.UIView, offset: CoreFoundation.CGFloat = 0) -> TGASDK.TGLayoutPos
+  @discardableResult
+  final public func equal(_ pos: TGASDK.TGLayoutPos!, offset: CoreFoundation.CGFloat = 0) -> TGASDK.TGLayoutPos
+  @discardableResult
+  final public func equal(_ pos: UIKit.UILayoutSupport, offset: CoreFoundation.CGFloat = 0) -> TGASDK.TGLayoutPos
+  @discardableResult
+  final public func offset(_ val: CoreFoundation.CGFloat) -> TGASDK.TGLayoutPos
+  @discardableResult
+  final public func min(_ val: CoreFoundation.CGFloat, offset: CoreFoundation.CGFloat = 0) -> TGASDK.TGLayoutPos
+  @discardableResult
+  final public func min(_ val: TGASDK.TGLayoutPos!, offset: CoreFoundation.CGFloat = 0) -> TGASDK.TGLayoutPos
+  @discardableResult
+  final public func max(_ val: CoreFoundation.CGFloat, offset: CoreFoundation.CGFloat = 0) -> TGASDK.TGLayoutPos
+  @discardableResult
+  final public func max(_ val: TGASDK.TGLayoutPos!, offset: CoreFoundation.CGFloat = 0) -> TGASDK.TGLayoutPos
+  @discardableResult
+  final public func and() -> UIKit.UIView
+  final public func clear()
+  final public var isActive: Swift.Bool {
+    get
+    set
+  }
+  final public var hasValue: Swift.Bool {
+    get
+  }
+  final public var numberVal: CoreFoundation.CGFloat! {
+    get
+  }
+  final public var weightVal: TGASDK.TGWeight! {
+    get
+  }
+  final public var posVal: TGASDK.TGLayoutPos! {
+    get
+  }
+  final public var arrayVal: [TGASDK.TGLayoutPos]! {
+    get
+  }
+  final public var offset: CoreFoundation.CGFloat {
+    get
+  }
+  final public var min: TGASDK.TGLayoutPos {
+    get
+  }
+  final public var max: TGASDK.TGLayoutPos {
+    get
+  }
+  public init(_ type: TGASDK.TGGravity, view: UIKit.UIView!)
+  @objc deinit
+}
+extension TGASDK.TGLayoutPos : Foundation.NSCopying {
+  @objc final public func copy(with zone: ObjectiveC.NSZone? = nil) -> Any
+}
+public func ~= (oprPos: TGASDK.TGLayoutPos, origin: CoreFoundation.CGFloat)
+public func ~= (oprPos: TGASDK.TGLayoutPos, weight: TGASDK.TGWeight)
+public func ~= (oprPos: TGASDK.TGLayoutPos, array: [TGASDK.TGLayoutPos])
+public func ~= (oprPos: TGASDK.TGLayoutPos, pos: TGASDK.TGLayoutPos!)
+public func += (oprPos: TGASDK.TGLayoutPos, val: CoreFoundation.CGFloat)
+public func -= (oprPos: TGASDK.TGLayoutPos, val: CoreFoundation.CGFloat)
+public func >= (oprPos: TGASDK.TGLayoutPos, size: CoreFoundation.CGFloat)
+public func <= (oprPos: TGASDK.TGLayoutPos, size: CoreFoundation.CGFloat)
+public protocol TGLayoutSizeType {
+}
+extension CoreFoundation.CGFloat : TGASDK.TGLayoutSizeType {
+}
+extension Swift.Double : TGASDK.TGLayoutSizeType {
+}
+extension Swift.Float : TGASDK.TGLayoutSizeType {
+}
+extension Swift.Int : TGASDK.TGLayoutSizeType {
+}
+extension Swift.Int8 : TGASDK.TGLayoutSizeType {
+}
+extension Swift.Int16 : TGASDK.TGLayoutSizeType {
+}
+extension Swift.Int32 : TGASDK.TGLayoutSizeType {
+}
+extension Swift.Int64 : TGASDK.TGLayoutSizeType {
+}
+extension Swift.UInt : TGASDK.TGLayoutSizeType {
+}
+extension Swift.UInt8 : TGASDK.TGLayoutSizeType {
+}
+extension Swift.UInt16 : TGASDK.TGLayoutSizeType {
+}
+extension Swift.UInt32 : TGASDK.TGLayoutSizeType {
+}
+extension Swift.UInt64 : TGASDK.TGLayoutSizeType {
+}
+extension TGASDK.TGWeight : TGASDK.TGLayoutSizeType {
+}
+extension Swift.Array : TGASDK.TGLayoutSizeType {
+}
+extension TGASDK.TGLayoutSize : TGASDK.TGLayoutSizeType {
+}
+extension UIKit.UIView : TGASDK.TGLayoutSizeType {
+}
+final public class TGLayoutSize {
+  public static let wrap: TGASDK.TGLayoutSize
+  public static let fill: TGASDK.TGLayoutSize
+  public static let average: TGASDK.TGLayoutSize
+  @discardableResult
+  final public func equal(_ size: Swift.Int, increment: CoreFoundation.CGFloat = 0, multiple: CoreFoundation.CGFloat = 1) -> TGASDK.TGLayoutSize
+  @discardableResult
+  final public func equal(_ size: CoreFoundation.CGFloat, increment: CoreFoundation.CGFloat = 0, multiple: CoreFoundation.CGFloat = 1) -> TGASDK.TGLayoutSize
+  @discardableResult
+  final public func equal(_ weight: TGASDK.TGWeight, increment: CoreFoundation.CGFloat = 0, multiple: CoreFoundation.CGFloat = 1) -> TGASDK.TGLayoutSize
+  @discardableResult
+  final public func equal(_ array: [TGASDK.TGLayoutSize], increment: CoreFoundation.CGFloat = 0, multiple: CoreFoundation.CGFloat = 1) -> TGASDK.TGLayoutSize
+  @discardableResult
+  final public func equal(_ view: UIKit.UIView, increment: CoreFoundation.CGFloat = 0, multiple: CoreFoundation.CGFloat = 1) -> TGASDK.TGLayoutSize
+  @discardableResult
+  final public func equal(_ dime: TGASDK.TGLayoutSize!, increment: CoreFoundation.CGFloat = 0, multiple: CoreFoundation.CGFloat = 1) -> TGASDK.TGLayoutSize
+  @discardableResult
+  final public func add(_ val: CoreFoundation.CGFloat) -> TGASDK.TGLayoutSize
+  @discardableResult
+  final public func multiply(_ val: CoreFoundation.CGFloat) -> TGASDK.TGLayoutSize
+  @discardableResult
+  final public func min(_ size: CoreFoundation.CGFloat, increment: CoreFoundation.CGFloat = 0, multiple: CoreFoundation.CGFloat = 1) -> TGASDK.TGLayoutSize
+  @discardableResult
+  final public func min(_ dime: TGASDK.TGLayoutSize!, increment: CoreFoundation.CGFloat = 0, multiple: CoreFoundation.CGFloat = 1) -> TGASDK.TGLayoutSize
+  @discardableResult
+  final public func min(_ view: UIKit.UIView, increment: CoreFoundation.CGFloat = 0, multiple: CoreFoundation.CGFloat = 1) -> TGASDK.TGLayoutSize
+  @discardableResult
+  final public func max(_ size: CoreFoundation.CGFloat, increment: CoreFoundation.CGFloat = 0, multiple: CoreFoundation.CGFloat = 1) -> TGASDK.TGLayoutSize
+  @discardableResult
+  final public func max(_ view: UIKit.UIView, increment: CoreFoundation.CGFloat = 0, multiple: CoreFoundation.CGFloat = 1) -> TGASDK.TGLayoutSize
+  @discardableResult
+  final public func max(_ dime: TGASDK.TGLayoutSize!, increment: CoreFoundation.CGFloat = 0, multiple: CoreFoundation.CGFloat = 1) -> TGASDK.TGLayoutSize
+  @discardableResult
+  final public func and() -> UIKit.UIView
+  final public func clear()
+  final public var isActive: Swift.Bool {
+    get
+    set
+  }
+  final public var hasValue: Swift.Bool {
+    get
+  }
+  final public var isWrap: Swift.Bool {
+    get
+  }
+  final public var isFill: Swift.Bool {
+    get
+  }
+  final public var numberVal: CoreFoundation.CGFloat! {
+    get
+  }
+  final public var sizeVal: TGASDK.TGLayoutSize! {
+    get
+  }
+  final public var arrayVal: [TGASDK.TGLayoutSize]! {
+    get
+  }
+  final public var weightVal: TGASDK.TGWeight! {
+    get
+  }
+  final public var increment: CoreFoundation.CGFloat {
+    get
+  }
+  final public var multiple: CoreFoundation.CGFloat {
+    get
+  }
+  final public var min: TGASDK.TGLayoutSize {
+    get
+  }
+  final public var max: TGASDK.TGLayoutSize {
+    get
+  }
+  public init(_ type: TGASDK.TGGravity, view: UIKit.UIView!)
+  @objc deinit
+}
+extension TGASDK.TGLayoutSize : Foundation.NSCopying {
+  @objc final public func copy(with zone: ObjectiveC.NSZone? = nil) -> Any
+}
+public func ~= (oprSize: TGASDK.TGLayoutSize, size: CoreFoundation.CGFloat)
+public func ~= (oprSize: TGASDK.TGLayoutSize, weight: TGASDK.TGWeight)
+public func ~= (oprSize: TGASDK.TGLayoutSize, array: [TGASDK.TGLayoutSize])
+public func ~= (oprSize: TGASDK.TGLayoutSize, size: TGASDK.TGLayoutSize!)
+public func *= (oprSize: TGASDK.TGLayoutSize, val: CoreFoundation.CGFloat)
+public func /= (oprSize: TGASDK.TGLayoutSize, val: CoreFoundation.CGFloat)
+public func += (oprSize: TGASDK.TGLayoutSize, val: CoreFoundation.CGFloat)
+public func -= (oprSize: TGASDK.TGLayoutSize, val: CoreFoundation.CGFloat)
+public func >= (oprSize: TGASDK.TGLayoutSize, size: CoreFoundation.CGFloat)
+public func >= (oprSize: TGASDK.TGLayoutSize, size: TGASDK.TGLayoutSize)
+public func <= (oprSize: TGASDK.TGLayoutSize, size: CoreFoundation.CGFloat)
+public func <= (oprSize: TGASDK.TGLayoutSize, size: TGASDK.TGLayoutSize)
+public enum TGSizeClassType {
+  public enum Width {
+    case any
+    case compact
+    case regular
+    public static func == (a: TGASDK.TGSizeClassType.Width, b: TGASDK.TGSizeClassType.Width) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public enum Height {
+    case any
+    case compact
+    case regular
+    public static func == (a: TGASDK.TGSizeClassType.Height, b: TGASDK.TGSizeClassType.Height) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public enum Screen {
+    case portrait
+    case landscape
+    public static func == (a: TGASDK.TGSizeClassType.Screen, b: TGASDK.TGSizeClassType.Screen) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  case `default`
+  case portrait
+  case landscape
+  case comb(TGASDK.TGSizeClassType.Width, TGASDK.TGSizeClassType.Height, TGASDK.TGSizeClassType.Screen?)
+}
+public protocol TGViewSizeClass : AnyObject {
+  var tg_top: TGASDK.TGLayoutPos { get }
+  var tg_leading: TGASDK.TGLayoutPos { get }
+  var tg_bottom: TGASDK.TGLayoutPos { get }
+  var tg_trailing: TGASDK.TGLayoutPos { get }
+  var tg_centerX: TGASDK.TGLayoutPos { get }
+  var tg_centerY: TGASDK.TGLayoutPos { get }
+  var tg_left: TGASDK.TGLayoutPos { get }
+  var tg_right: TGASDK.TGLayoutPos { get }
+  var tg_baseline: TGASDK.TGLayoutPos { get }
+  var tg_width: TGASDK.TGLayoutSize { get }
+  var tg_height: TGASDK.TGLayoutSize { get }
+  var tg_useFrame: Swift.Bool { get set }
+  var tg_noLayout: Swift.Bool { get set }
+  var tg_reverseFloat: Swift.Bool { get set }
+  var tg_clearFloat: Swift.Bool { get set }
+  var tg_visibility: TGASDK.TGVisibility { get set }
+  var tg_alignment: TGASDK.TGGravity { get set }
+}
+public protocol TGLayoutViewSizeClass : TGASDK.TGViewSizeClass {
+  var tg_padding: UIKit.UIEdgeInsets { get set }
+  var tg_topPadding: CoreFoundation.CGFloat { get set }
+  var tg_leadingPadding: CoreFoundation.CGFloat { get set }
+  var tg_bottomPadding: CoreFoundation.CGFloat { get set }
+  var tg_trailingPadding: CoreFoundation.CGFloat { get set }
+  var tg_zeroPadding: Swift.Bool { get set }
+  var tg_insetsPaddingFromSafeArea: UIKit.UIRectEdge { get set }
+  var tg_insetLandscapeFringePadding: Swift.Bool { get set }
+  var tg_leftPadding: CoreFoundation.CGFloat { get set }
+  var tg_rightPadding: CoreFoundation.CGFloat { get set }
+  var tg_vspace: CoreFoundation.CGFloat { get set }
+  var tg_hspace: CoreFoundation.CGFloat { get set }
+  var tg_space: CoreFoundation.CGFloat { get set }
+  var tg_reverseLayout: Swift.Bool { get set }
+  var tg_gravity: TGASDK.TGGravity { get set }
+  var tg_layoutTransform: CoreFoundation.CGAffineTransform { get set }
+}
+public protocol TGSequentLayoutViewSizeClass : TGASDK.TGLayoutViewSizeClass {
+  var tg_orientation: TGASDK.TGOrientation { get set }
+}
+public protocol TGLinearLayoutViewSizeClass : TGASDK.TGSequentLayoutViewSizeClass {
+  var tg_shrinkType: TGASDK.TGSubviewsShrinkType { get set }
+}
+public protocol TGTableLayoutViewSizeClass : TGASDK.TGLinearLayoutViewSizeClass {
+}
+public protocol TGFlowLayoutViewSizeClass : TGASDK.TGSequentLayoutViewSizeClass {
+  var tg_arrangedCount: Swift.Int { get set }
+  var tg_pagedCount: Swift.Int { get set }
+  var tg_arrangedGravity: TGASDK.TGGravity { get set }
+  var tg_lastlineGravityPolicy: TGASDK.TGGravityPolicy { get set }
+  var tg_autoArrange: Swift.Bool { get set }
+}
+public protocol TGFloatLayoutViewSizeClass : TGASDK.TGSequentLayoutViewSizeClass {
+  var tg_noBoundaryLimit: Swift.Bool { get set }
+}
+public protocol TGRelativeLayoutViewSizeClass : TGASDK.TGLayoutViewSizeClass {
+}
+public protocol TGFrameLayoutViewSizeClass : TGASDK.TGLayoutViewSizeClass {
+}
+public protocol TGPathLayoutViewSizeClass : TGASDK.TGLayoutViewSizeClass {
+}
+@objc @_Concurrency.MainActor(unsafe) open class TGLinearLayout : TGASDK.TGBaseLayout, TGASDK.TGLinearLayoutViewSizeClass {
+  @_Concurrency.MainActor(unsafe) convenience public init(_ orientation: TGASDK.TGOrientation)
+  @_Concurrency.MainActor(unsafe) public init(frame: CoreFoundation.CGRect, orientation: TGASDK.TGOrientation)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) public var tg_orientation: TGASDK.TGOrientation {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var tg_shrinkType: TGASDK.TGSubviewsShrinkType {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) public var tg_baselineBaseView: UIKit.UIView!
+  @_Concurrency.MainActor(unsafe) public func tg_equalizeSubviews(centered: Swift.Bool, withSpace space: CoreFoundation.CGFloat! = nil, inSizeClass type: TGASDK.TGSizeClassType = TGSizeClassType.default)
+  @_Concurrency.MainActor(unsafe) public func tg_equalizeSubviewsSpace(centered: Swift.Bool, inSizeClass type: TGASDK.TGSizeClassType = TGSizeClassType.default)
+  @_Concurrency.MainActor(unsafe) public func tg_setSubviews(size: CoreFoundation.CGFloat, minSpace: CoreFoundation.CGFloat, maxSpace: CoreFoundation.CGFloat = CGFloat.greatestFiniteMagnitude, centered: Swift.Bool = false, inSizeClass type: TGASDK.TGSizeClassType = TGSizeClassType.default)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func willRemoveSubview(_ subview: UIKit.UIView)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class TGRelativeLayout : TGASDK.TGBaseLayout, TGASDK.TGRelativeLayoutViewSizeClass {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
   @objc deinit
 }
 extension TGASDK.SwiftyJSONError : Swift.Equatable {}
@@ -511,6 +1301,20 @@ extension TGASDK.`Type` : Swift.Hashable {}
 extension TGASDK.`Type` : Swift.RawRepresentable {}
 extension TGASDK.writingOptionsKeys : Swift.Equatable {}
 extension TGASDK.writingOptionsKeys : Swift.Hashable {}
+extension TGASDK.TGOrientation : Swift.Equatable {}
+extension TGASDK.TGOrientation : Swift.Hashable {}
+extension TGASDK.TGVisibility : Swift.Equatable {}
+extension TGASDK.TGVisibility : Swift.Hashable {}
+extension TGASDK.TGGravityPolicy : Swift.Equatable {}
+extension TGASDK.TGGravityPolicy : Swift.Hashable {}
+extension TGASDK.TGAdjustScrollViewContentSizeMode : Swift.Equatable {}
+extension TGASDK.TGAdjustScrollViewContentSizeMode : Swift.Hashable {}
 extension TGASDK.TGALogLevel : Swift.Equatable {}
 extension TGASDK.TGALogLevel : Swift.Hashable {}
 extension TGASDK.TGALogLevel : Swift.RawRepresentable {}
+extension TGASDK.TGSizeClassType.Width : Swift.Equatable {}
+extension TGASDK.TGSizeClassType.Width : Swift.Hashable {}
+extension TGASDK.TGSizeClassType.Height : Swift.Equatable {}
+extension TGASDK.TGSizeClassType.Height : Swift.Hashable {}
+extension TGASDK.TGSizeClassType.Screen : Swift.Equatable {}
+extension TGASDK.TGSizeClassType.Screen : Swift.Hashable {}

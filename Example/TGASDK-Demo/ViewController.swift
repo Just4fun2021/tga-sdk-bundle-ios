@@ -10,6 +10,7 @@
 
 import UIKit
 import TGASDK
+import AppLovinSDK
 
 /// MARK - TGA演示控制器
 final class ViewController: UIViewController, TGAEventDelegate {
@@ -183,7 +184,6 @@ extension ViewController: UITableViewDataSource {
     }
 }
 
-
 /// MARK - UITableViewDelegate
 extension ViewController: UITableViewDelegate {
     
@@ -295,6 +295,6 @@ extension ViewController: TGASdkDelegate {
     func tgaOnInAppShare(fromVC: UIViewController, shareInfo: TGAShareInfo, completion: @escaping ((String, Bool) -> Void))
     {
         completion(shareInfo.callbackId, true)
-        TGASdk.shared.openGameCenter(vc: fromVC, secUrl: shareInfo.link)
+        TGASdk.shared.openGameCenter(vc: fromVC, secUrl: shareInfo.link, secTitle: shareInfo.title)
     }
 }
