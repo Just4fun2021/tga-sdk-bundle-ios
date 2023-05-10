@@ -196,7 +196,7 @@ extension ViewController: UITableViewDelegate {
             self.initStatus = "初始化中..."
             tableView.reloadRows(at: [indexPath], with: UITableView.RowAnimation.none)
             let userInfo = TGAUserInfo()
-            userInfo.userId = "11"
+            userInfo.userId = ""
             userInfo.nickname = "123"
             userInfo.avatar = ""
             TGASdk.shared.initSdk(env: "", appKey: "c7dd39bedb1711eba8290212f3e42114", userInfo: userInfo, delegate: self)
