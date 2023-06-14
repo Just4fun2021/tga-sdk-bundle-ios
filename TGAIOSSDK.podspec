@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   s.static_framework = true
   s.swift_versions = ['5']
-  s.ios.deployment_target = '10.0'
+  s.ios.deployment_target = '11.0'
 
   s.resource_bundles = {
      'TGASDK' => ['TGASDK/Assets/Langs.bundle', 'TGASDK/Assets/*.xcassets']
