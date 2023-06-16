@@ -16616,6 +16616,35 @@
               "Override"
             ],
             "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "aes",
+            "printedName": "aes(data:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:6TGASDK6TGASdkC3aes4dataS2S_tF",
+            "mangledName": "$s6TGASDK6TGASdkC3aes4dataS2S_tF",
+            "moduleName": "TGASDK",
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
           }
         ],
         "declKind": "Class",
@@ -16716,6 +16745,13 @@
       },
       {
         "kind": "Import",
+        "name": "AppLovinSDK",
+        "printedName": "AppLovinSDK",
+        "declKind": "Import",
+        "moduleName": "TGASDK"
+      },
+      {
+        "kind": "Import",
         "name": "WebKit",
         "printedName": "WebKit",
         "declKind": "Import",
@@ -16723,6 +16759,13 @@
         "declAttributes": [
           "RawDocComment"
         ]
+      },
+      {
+        "kind": "Import",
+        "name": "AppLovinSDK",
+        "printedName": "AppLovinSDK",
+        "declKind": "Import",
+        "moduleName": "TGASDK"
       },
       {
         "kind": "Import",
@@ -43502,7 +43545,7 @@
       "kind": "StringLiteral",
       "offset": 698,
       "length": 7,
-      "value": "\"1.3.0\""
+      "value": "\"1.3.1\""
     },
     {
       "filePath": "\/Users\/ljh\/ljh\/dev\/ios\/tga-sdk-ios\/TGAProject\/Classes\/Core\/TGAConstant.swift",
@@ -52299,65 +52342,86 @@
     {
       "filePath": "\/Users\/ljh\/ljh\/dev\/ios\/tga-sdk-ios\/TGAProject\/Classes\/AppLovin\/TGALovin.swift",
       "kind": "IntegerLiteral",
-      "offset": 443,
+      "offset": 456,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/ljh\/ljh\/dev\/ios\/tga-sdk-ios\/TGAProject\/Classes\/AppLovin\/TGALovin.swift",
       "kind": "IntegerLiteral",
-      "offset": 471,
+      "offset": 484,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/ljh\/ljh\/dev\/ios\/tga-sdk-ios\/TGAProject\/Classes\/AppLovin\/TGALovin.swift",
       "kind": "IntegerLiteral",
-      "offset": 497,
+      "offset": 510,
       "length": 1,
       "value": "2"
     },
     {
       "filePath": "\/Users\/ljh\/ljh\/dev\/ios\/tga-sdk-ios\/TGAProject\/Classes\/AppLovin\/TGALovin.swift",
       "kind": "IntegerLiteral",
-      "offset": 443,
+      "offset": 532,
+      "length": 1,
+      "value": "3"
+    },
+    {
+      "filePath": "\/Users\/ljh\/ljh\/dev\/ios\/tga-sdk-ios\/TGAProject\/Classes\/AppLovin\/TGALovin.swift",
+      "kind": "IntegerLiteral",
+      "offset": 456,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/ljh\/ljh\/dev\/ios\/tga-sdk-ios\/TGAProject\/Classes\/AppLovin\/TGALovin.swift",
       "kind": "IntegerLiteral",
-      "offset": 471,
+      "offset": 484,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/ljh\/ljh\/dev\/ios\/tga-sdk-ios\/TGAProject\/Classes\/AppLovin\/TGALovin.swift",
       "kind": "IntegerLiteral",
-      "offset": 497,
+      "offset": 510,
       "length": 1,
       "value": "2"
     },
     {
       "filePath": "\/Users\/ljh\/ljh\/dev\/ios\/tga-sdk-ios\/TGAProject\/Classes\/AppLovin\/TGALovin.swift",
       "kind": "IntegerLiteral",
-      "offset": 443,
+      "offset": 532,
+      "length": 1,
+      "value": "3"
+    },
+    {
+      "filePath": "\/Users\/ljh\/ljh\/dev\/ios\/tga-sdk-ios\/TGAProject\/Classes\/AppLovin\/TGALovin.swift",
+      "kind": "IntegerLiteral",
+      "offset": 456,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/ljh\/ljh\/dev\/ios\/tga-sdk-ios\/TGAProject\/Classes\/AppLovin\/TGALovin.swift",
       "kind": "IntegerLiteral",
-      "offset": 471,
+      "offset": 484,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/ljh\/ljh\/dev\/ios\/tga-sdk-ios\/TGAProject\/Classes\/AppLovin\/TGALovin.swift",
       "kind": "IntegerLiteral",
-      "offset": 497,
+      "offset": 510,
       "length": 1,
       "value": "2"
+    },
+    {
+      "filePath": "\/Users\/ljh\/ljh\/dev\/ios\/tga-sdk-ios\/TGAProject\/Classes\/AppLovin\/TGALovin.swift",
+      "kind": "IntegerLiteral",
+      "offset": 532,
+      "length": 1,
+      "value": "3"
     },
     {
       "filePath": "\/Users\/ljh\/ljh\/dev\/ios\/tga-sdk-ios\/TGAProject\/Classes\/AppLovin\/TGAMARewardedAd.swift",
@@ -52453,63 +52517,63 @@
     {
       "filePath": "\/Users\/ljh\/ljh\/dev\/ios\/tga-sdk-ios\/TGAProject\/Classes\/Core\/TGAModel.swift",
       "kind": "StringLiteral",
-      "offset": 3805,
+      "offset": 3823,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ljh\/ljh\/dev\/ios\/tga-sdk-ios\/TGAProject\/Classes\/Core\/TGAModel.swift",
       "kind": "StringLiteral",
-      "offset": 3830,
+      "offset": 3848,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ljh\/ljh\/dev\/ios\/tga-sdk-ios\/TGAProject\/Classes\/Core\/TGAModel.swift",
       "kind": "BooleanLiteral",
-      "offset": 4492,
+      "offset": 4510,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/ljh\/ljh\/dev\/ios\/tga-sdk-ios\/TGAProject\/Classes\/Core\/TGAModel.swift",
       "kind": "BooleanLiteral",
-      "offset": 4624,
+      "offset": 4642,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/ljh\/ljh\/dev\/ios\/tga-sdk-ios\/TGAProject\/Classes\/Core\/TGAModel.swift",
       "kind": "StringLiteral",
-      "offset": 4923,
+      "offset": 4941,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ljh\/ljh\/dev\/ios\/tga-sdk-ios\/TGAProject\/Classes\/Core\/TGAModel.swift",
       "kind": "StringLiteral",
-      "offset": 4950,
+      "offset": 4968,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ljh\/ljh\/dev\/ios\/tga-sdk-ios\/TGAProject\/Classes\/Core\/TGAModel.swift",
       "kind": "BooleanLiteral",
-      "offset": 4977,
+      "offset": 4995,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/ljh\/ljh\/dev\/ios\/tga-sdk-ios\/TGAProject\/Classes\/Core\/TGAModel.swift",
       "kind": "BooleanLiteral",
-      "offset": 5342,
+      "offset": 5360,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/ljh\/ljh\/dev\/ios\/tga-sdk-ios\/TGAProject\/Classes\/Core\/TGAModel.swift",
       "kind": "StringLiteral",
-      "offset": 6076,
+      "offset": 6094,
       "length": 2,
       "value": "\"\""
     },
@@ -52663,42 +52727,42 @@
     {
       "filePath": "\/Users\/ljh\/ljh\/dev\/ios\/tga-sdk-ios\/TGAProject\/Classes\/UI\/TGAWebGameViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 410,
+      "offset": 454,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/ljh\/ljh\/dev\/ios\/tga-sdk-ios\/TGAProject\/Classes\/UI\/TGAWebGameViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 527,
+      "offset": 609,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/ljh\/ljh\/dev\/ios\/tga-sdk-ios\/TGAProject\/Classes\/UI\/TGAWebGameViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 817,
+      "offset": 899,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/ljh\/ljh\/dev\/ios\/tga-sdk-ios\/TGAProject\/Classes\/UI\/TGAWebGameViewController.swift",
       "kind": "StringLiteral",
-      "offset": 108,
+      "offset": 127,
       "length": 24,
       "value": "\"TGASDK.TGAWebGameViewController\""
     },
     {
       "filePath": "\/Users\/ljh\/ljh\/dev\/ios\/tga-sdk-ios\/TGAProject\/Classes\/WebView\/TGAWebView.swift",
       "kind": "BooleanLiteral",
-      "offset": 1261,
+      "offset": 1402,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/ljh\/ljh\/dev\/ios\/tga-sdk-ios\/TGAProject\/Classes\/WebView\/TGAWebView.swift",
       "kind": "StringLiteral",
-      "offset": 996,
+      "offset": 1137,
       "length": 10,
       "value": "\"TGASDK.TGAWebView\""
     },

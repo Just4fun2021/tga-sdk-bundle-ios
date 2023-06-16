@@ -686,6 +686,9 @@ public protocol TGAEventDelegate : AnyObject {
   @objc override dynamic public init()
   @objc deinit
 }
+extension TGASDK.TGASdk {
+  public func aes(data: Swift.String) -> Swift.String
+}
 extension UIKit.UIView : TGASDK.TGViewSizeClass {
   @_Concurrency.MainActor(unsafe) public var tg_top: TGASDK.TGLayoutPos {
     get
