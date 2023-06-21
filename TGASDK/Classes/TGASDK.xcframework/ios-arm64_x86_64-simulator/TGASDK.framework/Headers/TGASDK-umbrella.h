@@ -11,7 +11,7 @@
 #endif
 
 #import "TangramKit.h"
-
+#import "GoogleAdsInterop.h"
 FOUNDATION_EXPORT double TGASDKVersionNumber;
 FOUNDATION_EXPORT const unsigned char TGASDKVersionString[];
 

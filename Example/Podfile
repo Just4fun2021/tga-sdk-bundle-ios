@@ -5,7 +5,7 @@ platform :ios, '10.0'
 
 target 'TGASDK-Swift' do
   pod 'TGAIOSSDK', :path => '../'
-  pod 'Bugly'
+  pod 'Google-Mobile-Ads-SDK'
   pod 'CocoaDebug', '~> 1.7.2'
   pod 'AppLovinMediationAdColonyAdapter', '~> 4.9.0.0.2'
   #pod 'AppLovinMediationUnityAdsAdapter'

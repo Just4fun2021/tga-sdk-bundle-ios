@@ -10,7 +10,7 @@
 
 import UIKit
 import CocoaDebug
-import Bugly
+//import Bugly
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         CocoaDebug.enable()
         CocoaDebugSettings.shared.showBubbleAndWindow = false
-        Bugly.start(withAppId: "c46f930fed")
+//        Bugly.start(withAppId: "c46f930fed")
         return true
     }
 
