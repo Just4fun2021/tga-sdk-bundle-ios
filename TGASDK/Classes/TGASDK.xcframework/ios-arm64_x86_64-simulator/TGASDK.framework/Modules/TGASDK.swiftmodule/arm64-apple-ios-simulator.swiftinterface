@@ -673,13 +673,16 @@ public protocol TGAEventDelegate : AnyObject {
   @objc func tgaSdkCloseGameCenter()
   @objc func tgaSdkOnLogout()
   @objc func tgaOnInAppShare(fromVC: UIKit.UIViewController, shareInfo: TGASDK.TGAShareInfo, completion: @escaping ((_ callbackId: Swift.String, _ isSuccess: Swift.Bool) -> Swift.Void))
+  @objc optional func tgaOnInAppPay(fromVC: UIKit.UIViewController, orderNo: Swift.String, completion: @escaping ((_ orderNo: Swift.String, _ isSuccess: Swift.Bool) -> Swift.Void))
 }
 @_inheritsConvenienceInitializers @objc public class TGASdk : ObjectiveC.NSObject {
   @objc public static let shared: TGASDK.TGASdk
   @objc public var configuration: TGASDK.TGAConfiguration
+  @discardableResult
   @objc public func initSdk(env: Swift.String? = nil, appKey: Swift.String, userInfo: TGASDK.TGAUserInfo? = nil, delegate: TGASDK.TGASdkDelegate) -> Swift.Bool
   @objc public func isInited() -> Swift.Bool
   @objc public func logout()
+  @discardableResult
   @objc public func openGameCenter(vc: UIKit.UIViewController, secUrl: Swift.String? = nil, secTitle: Swift.String? = nil, theme: Swift.String? = nil) -> Swift.Bool
   @objc public func closeAllWindow()
   @objc public func setLogLevel(level: TGASDK.TGALogLevel)

@@ -344,7 +344,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) TGASdk * _No
 ///
 /// \param delegate 委托
 ///
-- (BOOL)initSdkWithEnv:(NSString * _Nullable)env appKey:(NSString * _Nonnull)appKey userInfo:(TGAUserInfo * _Nullable)userInfo delegate:(id <TGASdkDelegate> _Nonnull)delegate SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)initSdkWithEnv:(NSString * _Nullable)env appKey:(NSString * _Nonnull)appKey userInfo:(TGAUserInfo * _Nullable)userInfo delegate:(id <TGASdkDelegate> _Nonnull)delegate SWIFT_METHOD_FAMILY(none);
 /// 是否初始化
 - (BOOL)isInited SWIFT_WARN_UNUSED_RESULT;
 /// 退出登录
@@ -356,7 +356,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) TGASdk * _No
 ///
 /// \param theme 主题
 ///
-- (BOOL)openGameCenterWithVc:(UIViewController * _Nonnull)vc secUrl:(NSString * _Nullable)secUrl secTitle:(NSString * _Nullable)secTitle theme:(NSString * _Nullable)theme SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)openGameCenterWithVc:(UIViewController * _Nonnull)vc secUrl:(NSString * _Nullable)secUrl secTitle:(NSString * _Nullable)secTitle theme:(NSString * _Nullable)theme;
 - (void)closeAllWindow;
 /// 设置日志等级
 /// \param level TGALogLevel
@@ -390,6 +390,8 @@ SWIFT_PROTOCOL("_TtP6TGASDK14TGASdkDelegate_")
 - (void)tgaSdkOnLogout;
 /// 用户分享
 - (void)tgaOnInAppShareFromVC:(UIViewController * _Nonnull)fromVC shareInfo:(TGAShareInfo * _Nonnull)shareInfo completion:(void (^ _Nonnull)(NSString * _Nonnull, BOOL))completion;
+@optional
+- (void)tgaOnInAppPayFromVC:(UIViewController * _Nonnull)fromVC orderNo:(NSString * _Nonnull)orderNo completion:(void (^ _Nonnull)(NSString * _Nonnull, BOOL))completion;
 @end
 
 
@@ -853,7 +855,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) TGASdk * _No
 ///
 /// \param delegate 委托
 ///
-- (BOOL)initSdkWithEnv:(NSString * _Nullable)env appKey:(NSString * _Nonnull)appKey userInfo:(TGAUserInfo * _Nullable)userInfo delegate:(id <TGASdkDelegate> _Nonnull)delegate SWIFT_METHOD_FAMILY(none) SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)initSdkWithEnv:(NSString * _Nullable)env appKey:(NSString * _Nonnull)appKey userInfo:(TGAUserInfo * _Nullable)userInfo delegate:(id <TGASdkDelegate> _Nonnull)delegate SWIFT_METHOD_FAMILY(none);
 /// 是否初始化
 - (BOOL)isInited SWIFT_WARN_UNUSED_RESULT;
 /// 退出登录
@@ -865,7 +867,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) TGASdk * _No
 ///
 /// \param theme 主题
 ///
-- (BOOL)openGameCenterWithVc:(UIViewController * _Nonnull)vc secUrl:(NSString * _Nullable)secUrl secTitle:(NSString * _Nullable)secTitle theme:(NSString * _Nullable)theme SWIFT_WARN_UNUSED_RESULT;
+- (BOOL)openGameCenterWithVc:(UIViewController * _Nonnull)vc secUrl:(NSString * _Nullable)secUrl secTitle:(NSString * _Nullable)secTitle theme:(NSString * _Nullable)theme;
 - (void)closeAllWindow;
 /// 设置日志等级
 /// \param level TGALogLevel
@@ -899,6 +901,8 @@ SWIFT_PROTOCOL("_TtP6TGASDK14TGASdkDelegate_")
 - (void)tgaSdkOnLogout;
 /// 用户分享
 - (void)tgaOnInAppShareFromVC:(UIViewController * _Nonnull)fromVC shareInfo:(TGAShareInfo * _Nonnull)shareInfo completion:(void (^ _Nonnull)(NSString * _Nonnull, BOOL))completion;
+@optional
+- (void)tgaOnInAppPayFromVC:(UIViewController * _Nonnull)fromVC orderNo:(NSString * _Nonnull)orderNo completion:(void (^ _Nonnull)(NSString * _Nonnull, BOOL))completion;
 @end
 
 

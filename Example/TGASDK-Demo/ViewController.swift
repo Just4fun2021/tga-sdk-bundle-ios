@@ -297,4 +297,9 @@ extension ViewController: TGASdkDelegate {
         completion(shareInfo.callbackId, true)
         TGASdk.shared.openGameCenter(vc: fromVC, secUrl: shareInfo.link, secTitle: shareInfo.title)
     }
+    
+    func tgaOnInAppPay(fromVC: UIViewController, orderNo: String, completion: @escaping ((String, Bool) -> Void))
+    {
+        completion(orderNo, true)
+    }
 }

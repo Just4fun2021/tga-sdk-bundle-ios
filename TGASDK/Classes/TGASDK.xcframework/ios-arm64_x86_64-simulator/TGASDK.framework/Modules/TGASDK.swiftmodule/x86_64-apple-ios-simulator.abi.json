@@ -16188,6 +16188,75 @@
             ],
             "reqNewWitnessTableEntry": true,
             "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "tgaOnInAppPay",
+            "printedName": "tgaOnInAppPay(fromVC:orderNo:completion:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UIViewController",
+                "printedName": "UIKit.UIViewController",
+                "usr": "c:objc(cs)UIViewController"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Swift.String, Swift.Bool) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Tuple",
+                    "printedName": "(Swift.String, Swift.Bool)",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Bool",
+                        "printedName": "Swift.Bool",
+                        "usr": "s:Sb"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@TGASDK@objc(pl)TGASdkDelegate(im)tgaOnInAppPayFromVC:orderNo:completion:",
+            "mangledName": "$s6TGASDK14TGASdkDelegateP13tgaOnInAppPay6fromVC7orderNo10completionySo16UIViewControllerC_SSySS_SbtctF",
+            "moduleName": "TGASDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : TGASDK.TGASdkDelegate>",
+            "sugared_genericSig": "<Self where Self : TGASDK.TGASdkDelegate>",
+            "protocolReq": true,
+            "objc_name": "tgaOnInAppPayFromVC:orderNo:completion:",
+            "declAttributes": [
+              "Optional",
+              "ObjC"
+            ],
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
           }
         ],
         "declKind": "Protocol",
@@ -16417,6 +16486,7 @@
             "declAttributes": [
               "AccessControl",
               "ObjC",
+              "DiscardableResult",
               "RawDocComment"
             ],
             "funcSelfKind": "NonMutating"
@@ -16537,6 +16607,7 @@
             "declAttributes": [
               "AccessControl",
               "ObjC",
+              "DiscardableResult",
               "RawDocComment"
             ],
             "funcSelfKind": "NonMutating"
@@ -43545,7 +43616,7 @@
       "kind": "StringLiteral",
       "offset": 698,
       "length": 7,
-      "value": "\"1.3.2\""
+      "value": "\"1.3.3\""
     },
     {
       "filePath": "\/Users\/ljh\/ljh\/dev\/ios\/tga-sdk-ios\/TGAProject\/Classes\/Core\/TGAConstant.swift",
@@ -43627,28 +43698,28 @@
     {
       "filePath": "\/Users\/ljh\/ljh\/dev\/ios\/tga-sdk-ios\/TGAProject\/Classes\/WebView\/Action\/TGAJsInterface.swift",
       "kind": "StringLiteral",
-      "offset": 2118,
+      "offset": 1376,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ljh\/ljh\/dev\/ios\/tga-sdk-ios\/TGAProject\/Classes\/WebView\/Action\/TGAJsInterface.swift",
       "kind": "StringLiteral",
-      "offset": 2160,
+      "offset": 1418,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ljh\/ljh\/dev\/ios\/tga-sdk-ios\/TGAProject\/Classes\/WebView\/Action\/TGAJsInterface.swift",
       "kind": "BooleanLiteral",
-      "offset": 2275,
+      "offset": 1533,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/ljh\/ljh\/dev\/ios\/tga-sdk-ios\/TGAProject\/Classes\/WebView\/Action\/TGAJsInterface.swift",
       "kind": "BooleanLiteral",
-      "offset": 2400,
+      "offset": 1658,
       "length": 4,
       "value": "true"
     },
@@ -52650,28 +52721,28 @@
     {
       "filePath": "\/Users\/ljh\/ljh\/dev\/ios\/tga-sdk-ios\/TGAProject\/Classes\/Core\/TGASdk.swift",
       "kind": "IntegerLiteral",
-      "offset": 1746,
+      "offset": 1909,
       "length": 2,
       "value": "1"
     },
     {
       "filePath": "\/Users\/ljh\/ljh\/dev\/ios\/tga-sdk-ios\/TGAProject\/Classes\/Core\/TGASdk.swift",
       "kind": "IntegerLiteral",
-      "offset": 1766,
+      "offset": 1929,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/ljh\/ljh\/dev\/ios\/tga-sdk-ios\/TGAProject\/Classes\/Core\/TGASdk.swift",
       "kind": "IntegerLiteral",
-      "offset": 1785,
+      "offset": 1948,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/ljh\/ljh\/dev\/ios\/tga-sdk-ios\/TGAProject\/Classes\/Core\/TGASdk.swift",
       "kind": "IntegerLiteral",
-      "offset": 1803,
+      "offset": 1966,
       "length": 1,
       "value": "2"
     },
