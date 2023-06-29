@@ -43616,7 +43616,7 @@
       "kind": "StringLiteral",
       "offset": 698,
       "length": 7,
-      "value": "\"1.3.3\""
+      "value": "\"1.3.4\""
     },
     {
       "filePath": "\/Users\/ljh\/ljh\/dev\/ios\/tga-sdk-ios\/TGAProject\/Classes\/Core\/TGAConstant.swift",
