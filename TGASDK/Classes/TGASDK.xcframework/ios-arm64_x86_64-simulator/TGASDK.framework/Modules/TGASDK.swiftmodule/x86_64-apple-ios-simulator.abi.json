@@ -43616,7 +43616,7 @@
       "kind": "StringLiteral",
       "offset": 698,
       "length": 7,
-      "value": "\"1.3.5\""
+      "value": "\"1.3.6\""
     },
     {
       "filePath": "\/Users\/ljh\/ljh\/dev\/ios\/tga-sdk-ios\/TGAProject\/Classes\/Core\/TGAConstant.swift",
@@ -52798,21 +52798,28 @@
     {
       "filePath": "\/Users\/ljh\/ljh\/dev\/ios\/tga-sdk-ios\/TGAProject\/Classes\/UI\/TGAWebGameViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 454,
+      "offset": 589,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/ljh\/ljh\/dev\/ios\/tga-sdk-ios\/TGAProject\/Classes\/UI\/TGAWebGameViewController.swift",
+      "kind": "IntegerLiteral",
+      "offset": 796,
+      "length": 2,
+      "value": "50"
+    },
+    {
+      "filePath": "\/Users\/ljh\/ljh\/dev\/ios\/tga-sdk-ios\/TGAProject\/Classes\/UI\/TGAWebGameViewController.swift",
+      "kind": "BooleanLiteral",
+      "offset": 869,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/ljh\/ljh\/dev\/ios\/tga-sdk-ios\/TGAProject\/Classes\/UI\/TGAWebGameViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 609,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/ljh\/ljh\/dev\/ios\/tga-sdk-ios\/TGAProject\/Classes\/UI\/TGAWebGameViewController.swift",
-      "kind": "BooleanLiteral",
-      "offset": 945,
+      "offset": 1205,
       "length": 5,
       "value": "false"
     },
@@ -52826,14 +52833,14 @@
     {
       "filePath": "\/Users\/ljh\/ljh\/dev\/ios\/tga-sdk-ios\/TGAProject\/Classes\/WebView\/TGAWebView.swift",
       "kind": "BooleanLiteral",
-      "offset": 1402,
+      "offset": 1472,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/ljh\/ljh\/dev\/ios\/tga-sdk-ios\/TGAProject\/Classes\/WebView\/TGAWebView.swift",
       "kind": "StringLiteral",
-      "offset": 1137,
+      "offset": 1207,
       "length": 10,
       "value": "\"TGASDK.TGAWebView\""
     },
