@@ -185,7 +185,22 @@ extension ViewController: UITableViewDataSource {
 }
 
 /// MARK - UITableViewDelegate
-extension ViewController: UITableViewDelegate {
+extension ViewController: UITableViewDelegate, TGAPayInfoDelegate {
+    
+    func getEncryptedMsisdn() -> String
+    {
+        return "111"
+    }
+    
+    func getWsUser() -> String
+    {
+        return "222"
+    }
+    
+    func getPassword() -> String
+    {
+        return "333"
+    } 
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
@@ -199,6 +214,7 @@ extension ViewController: UITableViewDelegate {
             userInfo.userId = ""
             userInfo.nickname = "123"
             userInfo.avatar = ""
+            TGASdk.shared.bipPayInfoDelegate = self
             TGASdk.shared.initSdk(env: "", appKey: "c7dd39bedb1711eba8290212f3e42114", userInfo: userInfo, delegate: self)
         case .openGame:
             gameCenterSelectTableView(tableView, didSelectRowAt: indexPath)
@@ -298,8 +314,8 @@ extension ViewController: TGASdkDelegate {
         TGASdk.shared.openGameCenter(vc: fromVC, secUrl: shareInfo.link, secTitle: shareInfo.title)
     }
     
-    func tgaOnInAppPay(fromVC: UIViewController, orderNo: String, completion: @escaping ((String, Bool) -> Void))
+    func tgaOnInAppPay(fromVC: UIViewController, orderNo: String)
     {
-        completion(orderNo, true)
+        TGASdk.shared.onInAppPaySuccess(orderNo: "111")
     }
 }

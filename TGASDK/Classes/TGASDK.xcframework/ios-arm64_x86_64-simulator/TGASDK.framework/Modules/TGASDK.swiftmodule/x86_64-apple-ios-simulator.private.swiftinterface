@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.7.2 (swiftlang-5.7.2.135.5 clang-1400.0.29.51)
+// swift-compiler-version: Apple Swift version 5.9.2 (swiftlang-5.9.2.2.56 clang-1500.1.0.2.5)
 // swift-module-flags: -target x86_64-apple-ios11.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name TGASDK
 // swift-module-flags-ignorable: -enable-bare-slash-regex
 import AppLovinSDK
@@ -18,6 +18,7 @@ import UniformTypeIdentifiers
 import WebKit
 import _Concurrency
 import _StringProcessing
+import _SwiftConcurrencyShims
 extension Swift.String {
   public var md5: Swift.String {
     get
@@ -259,11 +260,11 @@ extension Swift.String : TGASDK.JSONSubscriptType {
   }
 }
 extension TGASDK.JSON {
-  public subscript(path: [TGASDK.JSONSubscriptType]) -> TGASDK.JSON {
+  public subscript(path: [any TGASDK.JSONSubscriptType]) -> TGASDK.JSON {
     get
     set
   }
-  public subscript(path: TGASDK.JSONSubscriptType...) -> TGASDK.JSON {
+  public subscript(path: any TGASDK.JSONSubscriptType...) -> TGASDK.JSON {
     get
     set
   }
@@ -499,8 +500,8 @@ public enum writingOptionsKeys {
   }
 }
 extension TGASDK.JSON : Swift.Codable {
-  public init(from decoder: Swift.Decoder) throws
-  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
 }
 public enum TGOrientation {
   case vert
@@ -632,8 +633,8 @@ public protocol TGAEventDelegate : AnyObject {
 }
 @_hasMissingDesignatedInitializers public class TGAEventCenter {
   public static var shared: TGASDK.TGAEventCenter
-  public func addEventDelegate(eventType: Swift.String, delegate: TGASDK.TGAEventDelegate)
-  public func removeEventDelegate(eventType: Swift.String, delegate: TGASDK.TGAEventDelegate)
+  public func addEventDelegate(eventType: Swift.String, delegate: any TGASDK.TGAEventDelegate)
+  public func removeEventDelegate(eventType: Swift.String, delegate: any TGASDK.TGAEventDelegate)
   public func postEvent(eventType: Swift.String, param: Any?)
   @objc deinit
 }
@@ -666,6 +667,13 @@ public protocol TGAEventDelegate : AnyObject {
   @objc override dynamic public init()
   @objc deinit
 }
+@_inheritsConvenienceInitializers @objc public class PurchaseError : ObjectiveC.NSObject {
+  @objc public var resultCode: Swift.Int
+  @objc public var resultDesc: Swift.String
+  @objc public var transactionId: Swift.String
+  @objc override dynamic public init()
+  @objc deinit
+}
 @objc public protocol TGASdkDelegate : ObjectiveC.NSObjectProtocol {
   @objc func tgaSdkInitSucceed()
   @objc func tgaSdkInitError(_ error: Foundation.NSError)
@@ -673,19 +681,27 @@ public protocol TGAEventDelegate : AnyObject {
   @objc func tgaSdkCloseGameCenter()
   @objc func tgaSdkOnLogout()
   @objc func tgaOnInAppShare(fromVC: UIKit.UIViewController, shareInfo: TGASDK.TGAShareInfo, completion: @escaping ((_ callbackId: Swift.String, _ isSuccess: Swift.Bool) -> Swift.Void))
-  @objc optional func tgaOnInAppPay(fromVC: UIKit.UIViewController, orderNo: Swift.String, completion: @escaping ((_ orderNo: Swift.String, _ isSuccess: Swift.Bool) -> Swift.Void))
+  @objc optional func tgaOnInAppPay(fromVC: UIKit.UIViewController, orderNo: Swift.String)
+}
+@objc public protocol TGAPayInfoDelegate : ObjectiveC.NSObjectProtocol {
+  @objc func getEncryptedMsisdn() -> Swift.String
+  @objc func getWsUser() -> Swift.String
+  @objc func getPassword() -> Swift.String
 }
 @_inheritsConvenienceInitializers @objc public class TGASdk : ObjectiveC.NSObject {
   @objc public static let shared: TGASDK.TGASdk
   @objc public var configuration: TGASDK.TGAConfiguration
+  @objc public var bipPayInfoDelegate: (any TGASDK.TGAPayInfoDelegate)?
   @discardableResult
-  @objc public func initSdk(env: Swift.String? = nil, appKey: Swift.String, userInfo: TGASDK.TGAUserInfo? = nil, delegate: TGASDK.TGASdkDelegate) -> Swift.Bool
+  @objc public func initSdk(env: Swift.String? = nil, appKey: Swift.String, userInfo: TGASDK.TGAUserInfo? = nil, delegate: any TGASDK.TGASdkDelegate) -> Swift.Bool
   @objc public func isInited() -> Swift.Bool
   @objc public func logout()
   @discardableResult
   @objc public func openGameCenter(vc: UIKit.UIViewController, secUrl: Swift.String? = nil, secTitle: Swift.String? = nil, theme: Swift.String? = nil) -> Swift.Bool
   @objc public func closeAllWindow()
   @objc public func setLogLevel(level: TGASDK.TGALogLevel)
+  @objc public func onInAppPaySuccess(orderNo: Swift.String)
+  @objc public func onInAppPayFailure(error: TGASDK.PurchaseError)
   @objc override dynamic public init()
   @objc deinit
 }
@@ -753,16 +769,16 @@ extension UIKit.UIView : TGASDK.TGViewSizeClass {
 }
 extension UIKit.UIView {
   @_Concurrency.MainActor(unsafe) public func tg_origin(_ point: CoreFoundation.CGPoint)
-  @_Concurrency.MainActor(unsafe) public func tg_origin(x: TGASDK.TGLayoutPosType, y: TGASDK.TGLayoutPosType)
+  @_Concurrency.MainActor(unsafe) public func tg_origin(x: any TGASDK.TGLayoutPosType, y: any TGASDK.TGLayoutPosType)
   @_Concurrency.MainActor(unsafe) public func tg_end(_ point: CoreFoundation.CGPoint)
-  @_Concurrency.MainActor(unsafe) public func tg_end(x: TGASDK.TGLayoutPosType, y: TGASDK.TGLayoutPosType)
+  @_Concurrency.MainActor(unsafe) public func tg_end(x: any TGASDK.TGLayoutPosType, y: any TGASDK.TGLayoutPosType)
   @_Concurrency.MainActor(unsafe) public func tg_size(_ size: CoreFoundation.CGSize)
   @_Concurrency.MainActor(unsafe) public func tg_size(width: TGASDK.TGLayoutSize, height: TGASDK.TGLayoutSize)
-  @_Concurrency.MainActor(unsafe) public func tg_size(width: TGASDK.TGLayoutSizeType, height: TGASDK.TGLayoutSize)
-  @_Concurrency.MainActor(unsafe) public func tg_size(width: TGASDK.TGLayoutSize, height: TGASDK.TGLayoutSizeType)
-  @_Concurrency.MainActor(unsafe) public func tg_size(width: TGASDK.TGLayoutSizeType, height: TGASDK.TGLayoutSizeType)
+  @_Concurrency.MainActor(unsafe) public func tg_size(width: any TGASDK.TGLayoutSizeType, height: TGASDK.TGLayoutSize)
+  @_Concurrency.MainActor(unsafe) public func tg_size(width: TGASDK.TGLayoutSize, height: any TGASDK.TGLayoutSizeType)
+  @_Concurrency.MainActor(unsafe) public func tg_size(width: any TGASDK.TGLayoutSizeType, height: any TGASDK.TGLayoutSizeType)
   @_Concurrency.MainActor(unsafe) public func tg_size(_ sideLength: TGASDK.TGLayoutSize)
-  @_Concurrency.MainActor(unsafe) public func tg_size(_ sideLength: TGASDK.TGLayoutSizeType)
+  @_Concurrency.MainActor(unsafe) public func tg_size(_ sideLength: any TGASDK.TGLayoutSizeType)
   @_Concurrency.MainActor(unsafe) public func tg_margin(_ val: CoreFoundation.CGFloat)
   @_Concurrency.MainActor(unsafe) public func tg_horzMargin(_ val: CoreFoundation.CGFloat)
   @_Concurrency.MainActor(unsafe) public func tg_vertMargin(_ val: CoreFoundation.CGFloat)
@@ -771,7 +787,7 @@ extension UIKit.UIView {
   }
   @_Concurrency.MainActor(unsafe) public func tg_layoutCompletedDo(_ action: ((_ layout: TGASDK.TGBaseLayout, _ view: UIKit.UIView) -> Swift.Void)?)
   @_Concurrency.MainActor(unsafe) public func tg_clearLayout(inSizeClass type: TGASDK.TGSizeClassType = .default)
-  @_Concurrency.MainActor(unsafe) public func tg_fetchSizeClass(with type: TGASDK.TGSizeClassType, from srcType: TGASDK.TGSizeClassType! = nil) -> TGASDK.TGViewSizeClass
+  @_Concurrency.MainActor(unsafe) public func tg_fetchSizeClass(with type: TGASDK.TGSizeClassType, from srcType: TGASDK.TGSizeClassType! = nil) -> any TGASDK.TGViewSizeClass
 }
 public class TGBorderline {
   public init(color: UIKit.UIColor, thick: CoreFoundation.CGFloat = 1, dash: CoreFoundation.CGFloat = 0, headIndent: CoreFoundation.CGFloat = 0, tailIndent: CoreFoundation.CGFloat = 0, offset: CoreFoundation.CGFloat = 0)
@@ -900,7 +916,7 @@ public class TGBorderline {
   }
   @_Concurrency.MainActor(unsafe) public var tg_intelligentBorderline: TGASDK.TGBorderline!
   @_Concurrency.MainActor(unsafe) public var tg_notUseIntelligentBorderline: Swift.Bool
-  @_Concurrency.MainActor(unsafe) public func tg_setTarget(_ target: ObjectiveC.NSObjectProtocol?, action: ObjectiveC.Selector?, for controlEvents: UIKit.UIControl.Event)
+  @_Concurrency.MainActor(unsafe) public func tg_setTarget(_ target: (any ObjectiveC.NSObjectProtocol)?, action: ObjectiveC.Selector?, for controlEvents: UIKit.UIControl.Event)
   @_Concurrency.MainActor(unsafe) public var tg_highlightedBackgroundColor: UIKit.UIColor!
   @_Concurrency.MainActor(unsafe) public var tg_highlightedOpacity: CoreFoundation.CGFloat
   @_Concurrency.MainActor(unsafe) public var tg_backgroundImage: UIKit.UIImage! {
@@ -997,7 +1013,7 @@ final public class TGLayoutPos {
   @discardableResult
   final public func equal(_ pos: TGASDK.TGLayoutPos!, offset: CoreFoundation.CGFloat = 0) -> TGASDK.TGLayoutPos
   @discardableResult
-  final public func equal(_ pos: UIKit.UILayoutSupport, offset: CoreFoundation.CGFloat = 0) -> TGASDK.TGLayoutPos
+  final public func equal(_ pos: any UIKit.UILayoutSupport, offset: CoreFoundation.CGFloat = 0) -> TGASDK.TGLayoutPos
   @discardableResult
   final public func offset(_ val: CoreFoundation.CGFloat) -> TGASDK.TGLayoutPos
   @discardableResult
