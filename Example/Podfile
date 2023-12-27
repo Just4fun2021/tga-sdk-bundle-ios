@@ -6,14 +6,14 @@ platform :ios, '11.0'
 
 target 'TGASDK-Swift' do
   pod 'TGAIOSSDK', :path => '../'
+
+  # 第三方SDK  
   pod 'Google-Mobile-Ads-SDK'
   #pod 'CocoaDebug', '~> 1.7.2'
   pod 'AppLovinMediationAdColonyAdapter', '~> 4.9.0.0.2'
   #pod 'AppLovinMediationUnityAdsAdapter'
-  pod 'AppLovinMediationVungleAdapter', '~> 6.12.0.2'
+  #pod 'AppLovinMediationVungleAdapter', '~> 6.12.0.2'
 
-  # 第三方SDK
-  #pod 'CocoaDebug', '~> 1.7.2'
   pod 'XBPickerView', '~> 2.1.0' #选择器
   pod 'XBDialog', '~> 1.6.0'
 end
