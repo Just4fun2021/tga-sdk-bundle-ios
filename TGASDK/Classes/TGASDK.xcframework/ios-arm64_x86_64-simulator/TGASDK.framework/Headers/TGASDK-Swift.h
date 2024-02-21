@@ -336,8 +336,6 @@ typedef SWIFT_ENUM(NSInteger, TGALogLevel, open) {
 SWIFT_PROTOCOL("_TtP6TGASDK18TGAPayInfoDelegate_")
 @protocol TGAPayInfoDelegate <NSObject>
 - (NSString * _Nonnull)getEncryptedMsisdn SWIFT_WARN_UNUSED_RESULT;
-- (NSString * _Nonnull)getWsUser SWIFT_WARN_UNUSED_RESULT;
-- (NSString * _Nonnull)getPassword SWIFT_WARN_UNUSED_RESULT;
 @end
 
 @class TGAUserInfo;
@@ -868,8 +866,6 @@ typedef SWIFT_ENUM(NSInteger, TGALogLevel, open) {
 SWIFT_PROTOCOL("_TtP6TGASDK18TGAPayInfoDelegate_")
 @protocol TGAPayInfoDelegate <NSObject>
 - (NSString * _Nonnull)getEncryptedMsisdn SWIFT_WARN_UNUSED_RESULT;
-- (NSString * _Nonnull)getWsUser SWIFT_WARN_UNUSED_RESULT;
-- (NSString * _Nonnull)getPassword SWIFT_WARN_UNUSED_RESULT;
 @end
 
 @class TGAUserInfo;

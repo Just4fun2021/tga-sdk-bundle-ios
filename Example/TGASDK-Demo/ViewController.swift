@@ -192,16 +192,6 @@ extension ViewController: UITableViewDelegate, TGAPayInfoDelegate {
         return "111"
     }
     
-    func getWsUser() -> String
-    {
-        return "222"
-    }
-    
-    func getPassword() -> String
-    {
-        return "333"
-    } 
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         switch Section.allCases[indexPath.section] {

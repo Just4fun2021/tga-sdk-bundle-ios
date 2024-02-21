@@ -684,8 +684,6 @@ public protocol TGAEventDelegate : AnyObject {
 }
 @objc public protocol TGAPayInfoDelegate : ObjectiveC.NSObjectProtocol {
   @objc func getEncryptedMsisdn() -> Swift.String
-  @objc func getWsUser() -> Swift.String
-  @objc func getPassword() -> Swift.String
 }
 @_inheritsConvenienceInitializers @objc public class TGASdk : ObjectiveC.NSObject {
   @objc public static let shared: TGASDK.TGASdk

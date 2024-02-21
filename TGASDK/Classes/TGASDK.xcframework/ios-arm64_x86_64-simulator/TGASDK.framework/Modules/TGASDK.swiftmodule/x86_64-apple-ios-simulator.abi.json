@@ -16645,56 +16645,6 @@
             ],
             "reqNewWitnessTableEntry": true,
             "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "getWsUser",
-            "printedName": "getWsUser()",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@M@TGASDK@objc(pl)TGAPayInfoDelegate(im)getWsUser",
-            "mangledName": "$s6TGASDK18TGAPayInfoDelegateP9getWsUserSSyF",
-            "moduleName": "TGASDK",
-            "genericSig": "<τ_0_0 where τ_0_0 : TGASDK.TGAPayInfoDelegate>",
-            "sugared_genericSig": "<Self where Self : TGASDK.TGAPayInfoDelegate>",
-            "protocolReq": true,
-            "declAttributes": [
-              "ObjC"
-            ],
-            "reqNewWitnessTableEntry": true,
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "getPassword",
-            "printedName": "getPassword()",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@M@TGASDK@objc(pl)TGAPayInfoDelegate(im)getPassword",
-            "mangledName": "$s6TGASDK18TGAPayInfoDelegateP11getPasswordSSyF",
-            "moduleName": "TGASDK",
-            "genericSig": "<τ_0_0 where τ_0_0 : TGASDK.TGAPayInfoDelegate>",
-            "sugared_genericSig": "<Self where Self : TGASDK.TGAPayInfoDelegate>",
-            "protocolReq": true,
-            "declAttributes": [
-              "ObjC"
-            ],
-            "reqNewWitnessTableEntry": true,
-            "funcSelfKind": "NonMutating"
           }
         ],
         "declKind": "Protocol",
@@ -53346,28 +53296,28 @@
     {
       "filePath": "\/Users\/ljh\/dev\/ios\/tga-sdk-ios\/TGAProject\/Classes\/Core\/TGASdk.swift",
       "kind": "IntegerLiteral",
-      "offset": 2201,
+      "offset": 2125,
       "length": 2,
       "value": "1"
     },
     {
       "filePath": "\/Users\/ljh\/dev\/ios\/tga-sdk-ios\/TGAProject\/Classes\/Core\/TGASdk.swift",
       "kind": "IntegerLiteral",
-      "offset": 2221,
+      "offset": 2145,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/ljh\/dev\/ios\/tga-sdk-ios\/TGAProject\/Classes\/Core\/TGASdk.swift",
       "kind": "IntegerLiteral",
-      "offset": 2240,
+      "offset": 2164,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/ljh\/dev\/ios\/tga-sdk-ios\/TGAProject\/Classes\/Core\/TGASdk.swift",
       "kind": "IntegerLiteral",
-      "offset": 2258,
+      "offset": 2182,
       "length": 1,
       "value": "2"
     },
