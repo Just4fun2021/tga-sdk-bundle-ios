@@ -234,6 +234,7 @@ using UInt = size_t;
 @import Foundation;
 @import ObjectiveC;
 @import UIKit;
+@import WebKit;
 #endif
 
 #endif
@@ -277,18 +278,7 @@ SWIFT_CLASS("_TtC6TGASDK16JTSegmentControl")
 
 
 
-
-
 @class NSString;
-
-SWIFT_CLASS("_TtC6TGASDK13PurchaseError")
-@interface PurchaseError : NSObject
-@property (nonatomic) NSInteger resultCode;
-@property (nonatomic, copy) NSString * _Nonnull resultDesc;
-@property (nonatomic, copy) NSString * _Nonnull transactionId;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
 @class UIImage;
 
 /// MARK - TGA configuration
@@ -300,6 +290,13 @@ SWIFT_CLASS("_TtC6TGASDK16TGAConfiguration")
 @property (nonatomic) UIStatusBarStyle statusBarStyle;
 /// 导航栏返回图片
 @property (nonatomic, strong) UIImage * _Nullable navigationBackImage;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+/// MARK - 日志类
+SWIFT_CLASS("_TtC6TGASDK6TGALog")
+@interface TGALog : NSObject
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -332,26 +329,19 @@ typedef SWIFT_ENUM(NSInteger, TGALogLevel, open) {
   TGALogLevelAll = 6,
 };
 
-
-SWIFT_PROTOCOL("_TtP6TGASDK18TGAPayInfoDelegate_")
-@protocol TGAPayInfoDelegate <NSObject>
-- (NSString * _Nonnull)getEncryptedMsisdn SWIFT_WARN_UNUSED_RESULT;
-@end
-
 @class TGAUserInfo;
 @protocol TGASdkDelegate;
 @class UIViewController;
 
-/// MARK - TGASDK
 SWIFT_CLASS("_TtC6TGASDK6TGASdk")
 @interface TGASdk : NSObject
 /// 单利
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) TGASdk * _Nonnull shared;)
 + (TGASdk * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 /// 默认配置
 @property (nonatomic, strong) TGAConfiguration * _Nonnull configuration;
-/// bip支付数据回调
-@property (nonatomic, weak) id <TGAPayInfoDelegate> _Nullable bipPayInfoDelegate;
 /// 初始化SDK
 /// \param env sdk区分环境的唯一值,可以传null或者空字符
 ///
@@ -379,9 +369,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) TGASdk * _No
 /// \param level TGALogLevel
 ///
 - (void)setLogLevelWithLevel:(enum TGALogLevel)level;
-- (void)onInAppPaySuccessWithOrderNo:(NSString * _Nonnull)orderNo;
-- (void)onInAppPayFailureWithError:(PurchaseError * _Nonnull)error;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 
@@ -389,7 +376,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) TGASdk * _No
 @class NSError;
 @class TGAShareInfo;
 
-/// MARK - TGASDK Delegate
 SWIFT_PROTOCOL("_TtP6TGASDK14TGASdkDelegate_")
 @protocol TGASdkDelegate <NSObject>
 /// 初始化成功
@@ -409,8 +395,68 @@ SWIFT_PROTOCOL("_TtP6TGASDK14TGASdkDelegate_")
 - (void)tgaSdkOnLogout;
 /// 用户分享
 - (void)tgaOnInAppShareFromVC:(UIViewController * _Nonnull)fromVC shareInfo:(TGAShareInfo * _Nonnull)shareInfo completion:(void (^ _Nonnull)(NSString * _Nonnull, BOOL))completion;
-@optional
-- (void)tgaOnInAppPayFromVC:(UIViewController * _Nonnull)fromVC orderNo:(NSString * _Nonnull)orderNo;
+@end
+
+@class WKWebViewConfiguration;
+
+SWIFT_CLASS("_TtC6TGASDK9TGASdkWeb")
+@interface TGASdkWeb : WKWebView
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+- (nonnull instancetype)initWithFrame:(CGRect)frame configuration:(WKWebViewConfiguration * _Nonnull)configuration SWIFT_UNAVAILABLE;
+@end
+
+@class WKUserContentController;
+@class WKScriptMessage;
+
+@interface TGASdkWeb (SWIFT_EXTENSION(TGASDK)) <WKScriptMessageHandler>
+- (void)userContentController:(WKUserContentController * _Nonnull)userContentController didReceiveScriptMessage:(WKScriptMessage * _Nonnull)message;
+@end
+
+
+@class WKNavigation;
+@class WKNavigationAction;
+
+@interface TGASdkWeb (SWIFT_EXTENSION(TGASDK)) <WKNavigationDelegate>
+/// 开始接受web内容时触发
+/// \param webView WKWebView
+///
+/// \param navigation WKNavigation
+///
+- (void)webView:(WKWebView * _Nonnull)webView didCommitNavigation:(WKNavigation * _Null_unspecified)navigation;
+/// 开始加载web内容时触发
+/// \param webView WKWebView
+///
+/// \param navigation WKNavigation
+///
+- (void)webView:(WKWebView * _Nonnull)webView didStartProvisionalNavigation:(WKNavigation * _Null_unspecified)navigation;
+/// web完成加载时触发
+/// \param webView WKWebView
+///
+/// \param navigation WKNavigation
+///
+- (void)webView:(WKWebView * _Nonnull)webView didFinishNavigation:(WKNavigation * _Null_unspecified)navigation;
+/// 加载web失败触发
+/// \param webView WKWebView
+///
+/// \param navigation WKNavigation
+///
+/// \param error Error
+///
+- (void)webView:(WKWebView * _Nonnull)webView didFailProvisionalNavigation:(WKNavigation * _Null_unspecified)navigation withError:(NSError * _Nonnull)error;
+/// webView终止时调用
+/// \param webView WKWebView
+///
+- (void)webViewWebContentProcessDidTerminate:(WKWebView * _Nonnull)webView;
+/// 是否允许导航
+/// \param webView WKWebView
+///
+/// \param navigationAction WKNavigationAction
+///
+/// \param decisionHandler WKNavigationActionPolicy
+///
+- (void)webView:(WKWebView * _Nonnull)webView decidePolicyForNavigationAction:(WKNavigationAction * _Nonnull)navigationAction decisionHandler:(void (^ _Nonnull)(WKNavigationActionPolicy))decisionHandler;
 @end
 
 
@@ -434,6 +480,12 @@ SWIFT_CLASS("_TtC6TGASDK11TGAUserInfo")
 @property (nonatomic, copy) NSString * _Nonnull nickname;
 /// 用户头像
 @property (nonatomic, copy) NSString * _Nonnull avatar;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC6TGASDK16TGAWebPluginBase")
+@interface TGAWebPluginBase : NSObject
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -764,6 +816,7 @@ using UInt = size_t;
 @import Foundation;
 @import ObjectiveC;
 @import UIKit;
+@import WebKit;
 #endif
 
 #endif
@@ -807,18 +860,7 @@ SWIFT_CLASS("_TtC6TGASDK16JTSegmentControl")
 
 
 
-
-
 @class NSString;
-
-SWIFT_CLASS("_TtC6TGASDK13PurchaseError")
-@interface PurchaseError : NSObject
-@property (nonatomic) NSInteger resultCode;
-@property (nonatomic, copy) NSString * _Nonnull resultDesc;
-@property (nonatomic, copy) NSString * _Nonnull transactionId;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
 @class UIImage;
 
 /// MARK - TGA configuration
@@ -830,6 +872,13 @@ SWIFT_CLASS("_TtC6TGASDK16TGAConfiguration")
 @property (nonatomic) UIStatusBarStyle statusBarStyle;
 /// 导航栏返回图片
 @property (nonatomic, strong) UIImage * _Nullable navigationBackImage;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+/// MARK - 日志类
+SWIFT_CLASS("_TtC6TGASDK6TGALog")
+@interface TGALog : NSObject
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -862,26 +911,19 @@ typedef SWIFT_ENUM(NSInteger, TGALogLevel, open) {
   TGALogLevelAll = 6,
 };
 
-
-SWIFT_PROTOCOL("_TtP6TGASDK18TGAPayInfoDelegate_")
-@protocol TGAPayInfoDelegate <NSObject>
-- (NSString * _Nonnull)getEncryptedMsisdn SWIFT_WARN_UNUSED_RESULT;
-@end
-
 @class TGAUserInfo;
 @protocol TGASdkDelegate;
 @class UIViewController;
 
-/// MARK - TGASDK
 SWIFT_CLASS("_TtC6TGASDK6TGASdk")
 @interface TGASdk : NSObject
 /// 单利
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) TGASdk * _Nonnull shared;)
 + (TGASdk * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 /// 默认配置
 @property (nonatomic, strong) TGAConfiguration * _Nonnull configuration;
-/// bip支付数据回调
-@property (nonatomic, weak) id <TGAPayInfoDelegate> _Nullable bipPayInfoDelegate;
 /// 初始化SDK
 /// \param env sdk区分环境的唯一值,可以传null或者空字符
 ///
@@ -909,9 +951,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) TGASdk * _No
 /// \param level TGALogLevel
 ///
 - (void)setLogLevelWithLevel:(enum TGALogLevel)level;
-- (void)onInAppPaySuccessWithOrderNo:(NSString * _Nonnull)orderNo;
-- (void)onInAppPayFailureWithError:(PurchaseError * _Nonnull)error;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 
@@ -919,7 +958,6 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) TGASdk * _No
 @class NSError;
 @class TGAShareInfo;
 
-/// MARK - TGASDK Delegate
 SWIFT_PROTOCOL("_TtP6TGASDK14TGASdkDelegate_")
 @protocol TGASdkDelegate <NSObject>
 /// 初始化成功
@@ -939,8 +977,68 @@ SWIFT_PROTOCOL("_TtP6TGASDK14TGASdkDelegate_")
 - (void)tgaSdkOnLogout;
 /// 用户分享
 - (void)tgaOnInAppShareFromVC:(UIViewController * _Nonnull)fromVC shareInfo:(TGAShareInfo * _Nonnull)shareInfo completion:(void (^ _Nonnull)(NSString * _Nonnull, BOOL))completion;
-@optional
-- (void)tgaOnInAppPayFromVC:(UIViewController * _Nonnull)fromVC orderNo:(NSString * _Nonnull)orderNo;
+@end
+
+@class WKWebViewConfiguration;
+
+SWIFT_CLASS("_TtC6TGASDK9TGASdkWeb")
+@interface TGASdkWeb : WKWebView
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+- (nonnull instancetype)initWithFrame:(CGRect)frame configuration:(WKWebViewConfiguration * _Nonnull)configuration SWIFT_UNAVAILABLE;
+@end
+
+@class WKUserContentController;
+@class WKScriptMessage;
+
+@interface TGASdkWeb (SWIFT_EXTENSION(TGASDK)) <WKScriptMessageHandler>
+- (void)userContentController:(WKUserContentController * _Nonnull)userContentController didReceiveScriptMessage:(WKScriptMessage * _Nonnull)message;
+@end
+
+
+@class WKNavigation;
+@class WKNavigationAction;
+
+@interface TGASdkWeb (SWIFT_EXTENSION(TGASDK)) <WKNavigationDelegate>
+/// 开始接受web内容时触发
+/// \param webView WKWebView
+///
+/// \param navigation WKNavigation
+///
+- (void)webView:(WKWebView * _Nonnull)webView didCommitNavigation:(WKNavigation * _Null_unspecified)navigation;
+/// 开始加载web内容时触发
+/// \param webView WKWebView
+///
+/// \param navigation WKNavigation
+///
+- (void)webView:(WKWebView * _Nonnull)webView didStartProvisionalNavigation:(WKNavigation * _Null_unspecified)navigation;
+/// web完成加载时触发
+/// \param webView WKWebView
+///
+/// \param navigation WKNavigation
+///
+- (void)webView:(WKWebView * _Nonnull)webView didFinishNavigation:(WKNavigation * _Null_unspecified)navigation;
+/// 加载web失败触发
+/// \param webView WKWebView
+///
+/// \param navigation WKNavigation
+///
+/// \param error Error
+///
+- (void)webView:(WKWebView * _Nonnull)webView didFailProvisionalNavigation:(WKNavigation * _Null_unspecified)navigation withError:(NSError * _Nonnull)error;
+/// webView终止时调用
+/// \param webView WKWebView
+///
+- (void)webViewWebContentProcessDidTerminate:(WKWebView * _Nonnull)webView;
+/// 是否允许导航
+/// \param webView WKWebView
+///
+/// \param navigationAction WKNavigationAction
+///
+/// \param decisionHandler WKNavigationActionPolicy
+///
+- (void)webView:(WKWebView * _Nonnull)webView decidePolicyForNavigationAction:(WKNavigationAction * _Nonnull)navigationAction decisionHandler:(void (^ _Nonnull)(WKNavigationActionPolicy))decisionHandler;
 @end
 
 
@@ -964,6 +1062,12 @@ SWIFT_CLASS("_TtC6TGASDK11TGAUserInfo")
 @property (nonatomic, copy) NSString * _Nonnull nickname;
 /// 用户头像
 @property (nonatomic, copy) NSString * _Nonnull avatar;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC6TGASDK16TGAWebPluginBase")
+@interface TGAWebPluginBase : NSObject
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
