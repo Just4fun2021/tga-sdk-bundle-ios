@@ -332,7 +332,6 @@ extension TGASDK.TGASdkWeb : WebKit.WKScriptMessageHandler {
   public static func dataToString(_ data: Foundation.Data) -> Swift.String
   public static func dictToCodeable<T>(dictionary: [Swift.String : Any], into type: T.Type) -> T? where T : Swift.Decodable, T : Swift.Encodable
   public static func dictToJsonString(data: [Swift.String : Any]?) -> Swift.String
-  public static func loadAppLovinWebPlugin() -> TGASDK.TGAWebPluginBase?
   @objc deinit
 }
 public struct WebCommand : Swift.Codable {

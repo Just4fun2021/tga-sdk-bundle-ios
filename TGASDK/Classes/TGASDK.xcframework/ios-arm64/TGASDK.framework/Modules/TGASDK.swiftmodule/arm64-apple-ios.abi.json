@@ -10368,37 +10368,6 @@
               "AccessControl"
             ],
             "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "loadAppLovinWebPlugin",
-            "printedName": "loadAppLovinWebPlugin()",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "TGASDK.TGAWebPluginBase?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "TGAWebPluginBase",
-                    "printedName": "TGASDK.TGAWebPluginBase",
-                    "usr": "c:@M@TGASDK@objc(cs)TGAWebPluginBase"
-                  }
-                ],
-                "usr": "s:Sq"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:6TGASDK7TGAUtilC21loadAppLovinWebPluginAA06TGAWebG4BaseCSgyFZ",
-            "mangledName": "$s6TGASDK7TGAUtilC21loadAppLovinWebPluginAA06TGAWebG4BaseCSgyFZ",
-            "moduleName": "TGASDK",
-            "static": true,
-            "declAttributes": [
-              "Final",
-              "AccessControl"
-            ],
-            "funcSelfKind": "NonMutating"
           }
         ],
         "declKind": "Class",
@@ -38162,7 +38131,7 @@
       "kind": "StringLiteral",
       "offset": 698,
       "length": 7,
-      "value": "\"1.4.0\""
+      "value": "\"1.4.1\""
     },
     {
       "filePath": "\/Users\/ljh\/dev\/ios\/tga-sdk-sets\/TGASDK\/TGASDK\/Classes\/Core\/TGAConstant.swift",
