@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'TGAIOSSDK'
-  s.version          = '1.4.1'
+  s.version          = '1.4.0'
   s.summary          = 'TGAIOSSDK SDK for iOS'
 
   s.homepage         = 'https://github.com/Just4fun2021/tga-sdk-bundle-ios'
@@ -20,6 +20,4 @@ Pod::Spec.new do |s|
   s.pod_target_xcconfig = { 'VALID_ARCHS' => 'x86_64 armv7 armv7s arm64' }
   
   s.vendored_frameworks = "TGASDK/Classes/TGASDK.xcframework"
-  s.dependency 'AppLovinSDK', '~> 11.5.1'
-  
 end
