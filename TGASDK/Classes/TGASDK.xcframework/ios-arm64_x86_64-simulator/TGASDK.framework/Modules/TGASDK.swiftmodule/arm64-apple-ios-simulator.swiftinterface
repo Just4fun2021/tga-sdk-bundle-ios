@@ -87,6 +87,27 @@ extension TGASDK.JTSegmentControl {
   @objc @_Concurrency.MainActor(unsafe) dynamic open func move(to index: Swift.Int, animated: Swift.Bool)
   @_Concurrency.MainActor(unsafe) @objc override dynamic open func layoutSubviews()
 }
+public struct AnyCodingKeys : Swift.CodingKey {
+  public var stringValue: Swift.String
+  public var intValue: Swift.Int?
+  public init(stringValue: Swift.String)
+  public init(intValue: Swift.Int)
+}
+public struct AnyCodable : Swift.Codable {
+  public var value: Any
+  public init(_ value: Any)
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+open class BaseDict<KeyType> : Swift.Codable where KeyType : Swift.CodingKey {
+  required public init(from decoder: Swift.Decoder) throws
+  open func encode(to encoder: Swift.Encoder) throws
+  open func onDecode(container: Swift.KeyedDecodingContainer<KeyType>)
+  open func onEncode(container: inout Swift.KeyedEncodingContainer<KeyType>)
+  open func getDictData(container: Swift.KeyedDecodingContainer<KeyType>, forKey key: Swift.KeyedDecodingContainer<KeyType>.Key) -> [Swift.String : Any]?
+  open func setDictData(container: inout Swift.KeyedEncodingContainer<KeyType>, forKey key: Swift.KeyedEncodingContainer<KeyType>.Key, values: [Swift.String : Any])
+  @objc deinit
+}
 public enum TGOrientation {
   case vert
   case horz
@@ -332,6 +353,7 @@ extension TGASDK.TGASdkWeb : WebKit.WKScriptMessageHandler {
   public static func dataToString(_ data: Foundation.Data) -> Swift.String
   public static func dictToCodeable<T>(dictionary: [Swift.String : Any], into type: T.Type) -> T? where T : Swift.Decodable, T : Swift.Encodable
   public static func dictToJsonString(data: [Swift.String : Any]?) -> Swift.String
+  public static func jsonStringToDict(jsonString: Swift.String) -> [Swift.String : Any]?
   @objc deinit
 }
 public struct WebCommand : Swift.Codable {
@@ -354,13 +376,34 @@ public enum WebPluginEvent {
     get
   }
 }
-public struct JsInfo : Swift.Codable {
+public enum JsInfoCodingKeys : Swift.String, Swift.CodingKey {
+  case cmd
+  case action
+  case callbackId
+  case params
+  public init?(rawValue: Swift.String)
+  public init?(stringValue: Swift.String)
+  public init?(intValue: Swift.Int)
+  public typealias RawValue = Swift.String
+  public var intValue: Swift.Int? {
+    get
+  }
+  public var rawValue: Swift.String {
+    get
+  }
+  public var stringValue: Swift.String {
+    get
+  }
+}
+@_inheritsConvenienceInitializers public class JsInfo : TGASDK.BaseDict<TGASDK.JsInfoCodingKeys> {
   public var cmd: Swift.String?
   public var action: Swift.String?
   public var callbackId: Swift.String?
   public var params: [Swift.String : Any]?
-  public init(from decoder: Swift.Decoder) throws
-  public func encode(to encoder: Swift.Encoder) throws
+  override public func onDecode(container: Swift.KeyedDecodingContainer<TGASDK.JsInfoCodingKeys>)
+  override public func onEncode(container: inout Swift.KeyedEncodingContainer<TGASDK.JsInfoCodingKeys>)
+  required public init(from decoder: Swift.Decoder) throws
+  @objc deinit
 }
 @objc @_inheritsConvenienceInitializers open class TGAWebPluginBase : ObjectiveC.NSObject {
   public static let CMD: Swift.String
@@ -1013,6 +1056,9 @@ extension TGASDK.WebLoadState : Swift.Equatable {}
 extension TGASDK.WebLoadState : Swift.Hashable {}
 extension TGASDK.WebPluginEvent : Swift.Equatable {}
 extension TGASDK.WebPluginEvent : Swift.Hashable {}
+extension TGASDK.JsInfoCodingKeys : Swift.Equatable {}
+extension TGASDK.JsInfoCodingKeys : Swift.Hashable {}
+extension TGASDK.JsInfoCodingKeys : Swift.RawRepresentable {}
 extension TGASDK.TGSizeClassType.Width : Swift.Equatable {}
 extension TGASDK.TGSizeClassType.Width : Swift.Hashable {}
 extension TGASDK.TGSizeClassType.Height : Swift.Equatable {}

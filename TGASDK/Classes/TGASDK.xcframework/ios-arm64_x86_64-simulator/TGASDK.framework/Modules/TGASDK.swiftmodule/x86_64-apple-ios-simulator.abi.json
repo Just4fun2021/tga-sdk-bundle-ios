@@ -2108,6 +2108,800 @@
         ]
       },
       {
+        "kind": "TypeDecl",
+        "name": "AnyCodingKeys",
+        "printedName": "AnyCodingKeys",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "stringValue",
+            "printedName": "stringValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:6TGASDK13AnyCodingKeysV11stringValueSSvp",
+            "mangledName": "$s6TGASDK13AnyCodingKeysV11stringValueSSvp",
+            "moduleName": "TGASDK",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:6TGASDK13AnyCodingKeysV11stringValueSSvg",
+                "mangledName": "$s6TGASDK13AnyCodingKeysV11stringValueSSvg",
+                "moduleName": "TGASDK",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:6TGASDK13AnyCodingKeysV11stringValueSSvs",
+                "mangledName": "$s6TGASDK13AnyCodingKeysV11stringValueSSvs",
+                "moduleName": "TGASDK",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:6TGASDK13AnyCodingKeysV11stringValueSSvM",
+                "mangledName": "$s6TGASDK13AnyCodingKeysV11stringValueSSvM",
+                "moduleName": "TGASDK",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "intValue",
+            "printedName": "intValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.Int?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:6TGASDK13AnyCodingKeysV8intValueSiSgvp",
+            "mangledName": "$s6TGASDK13AnyCodingKeysV8intValueSiSgvp",
+            "moduleName": "TGASDK",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.Int?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Int",
+                        "printedName": "Swift.Int",
+                        "usr": "s:Si"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:6TGASDK13AnyCodingKeysV8intValueSiSgvg",
+                "mangledName": "$s6TGASDK13AnyCodingKeysV8intValueSiSgvg",
+                "moduleName": "TGASDK",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.Int?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Int",
+                        "printedName": "Swift.Int",
+                        "usr": "s:Si"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:6TGASDK13AnyCodingKeysV8intValueSiSgvs",
+                "mangledName": "$s6TGASDK13AnyCodingKeysV8intValueSiSgvs",
+                "moduleName": "TGASDK",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:6TGASDK13AnyCodingKeysV8intValueSiSgvM",
+                "mangledName": "$s6TGASDK13AnyCodingKeysV8intValueSiSgvM",
+                "moduleName": "TGASDK",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(stringValue:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "AnyCodingKeys",
+                "printedName": "TGASDK.AnyCodingKeys",
+                "usr": "s:6TGASDK13AnyCodingKeysV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:6TGASDK13AnyCodingKeysV11stringValueACSS_tcfc",
+            "mangledName": "$s6TGASDK13AnyCodingKeysV11stringValueACSS_tcfc",
+            "moduleName": "TGASDK",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(intValue:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "AnyCodingKeys",
+                "printedName": "TGASDK.AnyCodingKeys",
+                "usr": "s:6TGASDK13AnyCodingKeysV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:6TGASDK13AnyCodingKeysV8intValueACSi_tcfc",
+            "mangledName": "$s6TGASDK13AnyCodingKeysV8intValueACSi_tcfc",
+            "moduleName": "TGASDK",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Struct",
+        "usr": "s:6TGASDK13AnyCodingKeysV",
+        "mangledName": "$s6TGASDK13AnyCodingKeysV",
+        "moduleName": "TGASDK",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "CodingKey",
+            "printedName": "CodingKey",
+            "usr": "s:s9CodingKeyP",
+            "mangledName": "$ss9CodingKeyP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "AnyCodable",
+        "printedName": "AnyCodable",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "value",
+            "printedName": "value",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ProtocolComposition",
+                "printedName": "Any"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:6TGASDK10AnyCodableV5valueypvp",
+            "mangledName": "$s6TGASDK10AnyCodableV5valueypvp",
+            "moduleName": "TGASDK",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:6TGASDK10AnyCodableV5valueypvg",
+                "mangledName": "$s6TGASDK10AnyCodableV5valueypvg",
+                "moduleName": "TGASDK",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:6TGASDK10AnyCodableV5valueypvs",
+                "mangledName": "$s6TGASDK10AnyCodableV5valueypvs",
+                "moduleName": "TGASDK",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:6TGASDK10AnyCodableV5valueypvM",
+                "mangledName": "$s6TGASDK10AnyCodableV5valueypvM",
+                "moduleName": "TGASDK",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "AnyCodable",
+                "printedName": "TGASDK.AnyCodable",
+                "usr": "s:6TGASDK10AnyCodableV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "ProtocolComposition",
+                "printedName": "Any"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:6TGASDK10AnyCodableVyACypcfc",
+            "mangledName": "$s6TGASDK10AnyCodableVyACypcfc",
+            "moduleName": "TGASDK",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "encode",
+            "printedName": "encode(to:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Encoder",
+                "printedName": "Swift.Encoder",
+                "usr": "s:s7EncoderP"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:6TGASDK10AnyCodableV6encode2toys7Encoder_p_tKF",
+            "mangledName": "$s6TGASDK10AnyCodableV6encode2toys7Encoder_p_tKF",
+            "moduleName": "TGASDK",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(from:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "AnyCodable",
+                "printedName": "TGASDK.AnyCodable",
+                "usr": "s:6TGASDK10AnyCodableV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Decoder",
+                "printedName": "Swift.Decoder",
+                "usr": "s:s7DecoderP"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:6TGASDK10AnyCodableV4fromACs7Decoder_p_tKcfc",
+            "mangledName": "$s6TGASDK10AnyCodableV4fromACs7Decoder_p_tKcfc",
+            "moduleName": "TGASDK",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "throwing": true,
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Struct",
+        "usr": "s:6TGASDK10AnyCodableV",
+        "mangledName": "$s6TGASDK10AnyCodableV",
+        "moduleName": "TGASDK",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Decodable",
+            "printedName": "Decodable",
+            "usr": "s:Se",
+            "mangledName": "$sSe"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Encodable",
+            "printedName": "Encodable",
+            "usr": "s:SE",
+            "mangledName": "$sSE"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "BaseDict",
+        "printedName": "BaseDict",
+        "children": [
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(from:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "BaseDict",
+                "printedName": "TGASDK.BaseDict<τ_0_0>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "τ_0_0"
+                  }
+                ],
+                "usr": "s:6TGASDK8BaseDictC"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Decoder",
+                "printedName": "Swift.Decoder",
+                "usr": "s:s7DecoderP"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:6TGASDK8BaseDictC4fromACyxGs7Decoder_p_tKcfc",
+            "mangledName": "$s6TGASDK8BaseDictC4fromACyxGs7Decoder_p_tKcfc",
+            "moduleName": "TGASDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : Swift.CodingKey>",
+            "sugared_genericSig": "<KeyType where KeyType : Swift.CodingKey>",
+            "declAttributes": [
+              "AccessControl",
+              "Required"
+            ],
+            "throwing": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "encode",
+            "printedName": "encode(to:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Encoder",
+                "printedName": "Swift.Encoder",
+                "usr": "s:s7EncoderP"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:6TGASDK8BaseDictC6encode2toys7Encoder_p_tKF",
+            "mangledName": "$s6TGASDK8BaseDictC6encode2toys7Encoder_p_tKF",
+            "moduleName": "TGASDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : Swift.CodingKey>",
+            "sugared_genericSig": "<KeyType where KeyType : Swift.CodingKey>",
+            "isOpen": true,
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "throwing": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "onDecode",
+            "printedName": "onDecode(container:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "KeyedDecodingContainer",
+                "printedName": "Swift.KeyedDecodingContainer<τ_0_0>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "τ_0_0"
+                  }
+                ],
+                "usr": "s:s22KeyedDecodingContainerV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:6TGASDK8BaseDictC8onDecode9containerys22KeyedDecodingContainerVyxG_tF",
+            "mangledName": "$s6TGASDK8BaseDictC8onDecode9containerys22KeyedDecodingContainerVyxG_tF",
+            "moduleName": "TGASDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : Swift.CodingKey>",
+            "sugared_genericSig": "<KeyType where KeyType : Swift.CodingKey>",
+            "isOpen": true,
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "onEncode",
+            "printedName": "onEncode(container:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "KeyedEncodingContainer",
+                "printedName": "Swift.KeyedEncodingContainer<τ_0_0>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "τ_0_0"
+                  }
+                ],
+                "paramValueOwnership": "InOut",
+                "usr": "s:s22KeyedEncodingContainerV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:6TGASDK8BaseDictC8onEncode9containerys22KeyedEncodingContainerVyxGz_tF",
+            "mangledName": "$s6TGASDK8BaseDictC8onEncode9containerys22KeyedEncodingContainerVyxGz_tF",
+            "moduleName": "TGASDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : Swift.CodingKey>",
+            "sugared_genericSig": "<KeyType where KeyType : Swift.CodingKey>",
+            "isOpen": true,
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "getDictData",
+            "printedName": "getDictData(container:forKey:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "[Swift.String : Any]?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Dictionary",
+                    "printedName": "[Swift.String : Any]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ProtocolComposition",
+                        "printedName": "Any"
+                      }
+                    ],
+                    "usr": "s:SD"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "KeyedDecodingContainer",
+                "printedName": "Swift.KeyedDecodingContainer<τ_0_0>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "τ_0_0"
+                  }
+                ],
+                "usr": "s:s22KeyedDecodingContainerV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "GenericTypeParam",
+                "printedName": "τ_0_0"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:6TGASDK8BaseDictC03getC4Data9container6forKeySDySSypGSgs22KeyedDecodingContainerVyxG_xtF",
+            "mangledName": "$s6TGASDK8BaseDictC03getC4Data9container6forKeySDySSypGSgs22KeyedDecodingContainerVyxG_xtF",
+            "moduleName": "TGASDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : Swift.CodingKey>",
+            "sugared_genericSig": "<KeyType where KeyType : Swift.CodingKey>",
+            "isOpen": true,
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "setDictData",
+            "printedName": "setDictData(container:forKey:values:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "KeyedEncodingContainer",
+                "printedName": "Swift.KeyedEncodingContainer<τ_0_0>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "τ_0_0"
+                  }
+                ],
+                "paramValueOwnership": "InOut",
+                "usr": "s:s22KeyedEncodingContainerV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "GenericTypeParam",
+                "printedName": "τ_0_0"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Dictionary",
+                "printedName": "[Swift.String : Any]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
+                  }
+                ],
+                "usr": "s:SD"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:6TGASDK8BaseDictC03setC4Data9container6forKey6valuesys22KeyedEncodingContainerVyxGz_xSDySSypGtF",
+            "mangledName": "$s6TGASDK8BaseDictC03setC4Data9container6forKey6valuesys22KeyedEncodingContainerVyxGz_xSDySSypGtF",
+            "moduleName": "TGASDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : Swift.CodingKey>",
+            "sugared_genericSig": "<KeyType where KeyType : Swift.CodingKey>",
+            "isOpen": true,
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "s:6TGASDK8BaseDictC",
+        "mangledName": "$s6TGASDK8BaseDictC",
+        "moduleName": "TGASDK",
+        "genericSig": "<τ_0_0 where τ_0_0 : Swift.CodingKey>",
+        "sugared_genericSig": "<KeyType where KeyType : Swift.CodingKey>",
+        "isOpen": true,
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Decodable",
+            "printedName": "Decodable",
+            "usr": "s:Se",
+            "mangledName": "$sSe"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Encodable",
+            "printedName": "Encodable",
+            "usr": "s:SE",
+            "mangledName": "$sSE"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "TGASDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
         "kind": "Import",
         "name": "Foundation",
         "printedName": "Foundation",
@@ -10368,6 +11162,56 @@
               "AccessControl"
             ],
             "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "jsonStringToDict",
+            "printedName": "jsonStringToDict(jsonString:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "[Swift.String : Any]?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Dictionary",
+                    "printedName": "[Swift.String : Any]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ProtocolComposition",
+                        "printedName": "Any"
+                      }
+                    ],
+                    "usr": "s:SD"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:6TGASDK7TGAUtilC16jsonStringToDict0cD0SDySSypGSgSS_tFZ",
+            "mangledName": "$s6TGASDK7TGAUtilC16jsonStringToDict0cD0SDySSypGSgSS_tFZ",
+            "moduleName": "TGASDK",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
           }
         ],
         "declKind": "Class",
@@ -11110,6 +11954,467 @@
       },
       {
         "kind": "TypeDecl",
+        "name": "JsInfoCodingKeys",
+        "printedName": "JsInfoCodingKeys",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "cmd",
+            "printedName": "cmd",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(TGASDK.JsInfoCodingKeys.Type) -> TGASDK.JsInfoCodingKeys",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "JsInfoCodingKeys",
+                    "printedName": "TGASDK.JsInfoCodingKeys",
+                    "usr": "s:6TGASDK16JsInfoCodingKeysO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "TGASDK.JsInfoCodingKeys.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "JsInfoCodingKeys",
+                        "printedName": "TGASDK.JsInfoCodingKeys",
+                        "usr": "s:6TGASDK16JsInfoCodingKeysO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:6TGASDK16JsInfoCodingKeysO3cmdyA2CmF",
+            "mangledName": "$s6TGASDK16JsInfoCodingKeysO3cmdyA2CmF",
+            "moduleName": "TGASDK"
+          },
+          {
+            "kind": "Var",
+            "name": "action",
+            "printedName": "action",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(TGASDK.JsInfoCodingKeys.Type) -> TGASDK.JsInfoCodingKeys",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "JsInfoCodingKeys",
+                    "printedName": "TGASDK.JsInfoCodingKeys",
+                    "usr": "s:6TGASDK16JsInfoCodingKeysO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "TGASDK.JsInfoCodingKeys.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "JsInfoCodingKeys",
+                        "printedName": "TGASDK.JsInfoCodingKeys",
+                        "usr": "s:6TGASDK16JsInfoCodingKeysO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:6TGASDK16JsInfoCodingKeysO6actionyA2CmF",
+            "mangledName": "$s6TGASDK16JsInfoCodingKeysO6actionyA2CmF",
+            "moduleName": "TGASDK"
+          },
+          {
+            "kind": "Var",
+            "name": "callbackId",
+            "printedName": "callbackId",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(TGASDK.JsInfoCodingKeys.Type) -> TGASDK.JsInfoCodingKeys",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "JsInfoCodingKeys",
+                    "printedName": "TGASDK.JsInfoCodingKeys",
+                    "usr": "s:6TGASDK16JsInfoCodingKeysO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "TGASDK.JsInfoCodingKeys.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "JsInfoCodingKeys",
+                        "printedName": "TGASDK.JsInfoCodingKeys",
+                        "usr": "s:6TGASDK16JsInfoCodingKeysO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:6TGASDK16JsInfoCodingKeysO10callbackIdyA2CmF",
+            "mangledName": "$s6TGASDK16JsInfoCodingKeysO10callbackIdyA2CmF",
+            "moduleName": "TGASDK"
+          },
+          {
+            "kind": "Var",
+            "name": "params",
+            "printedName": "params",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(TGASDK.JsInfoCodingKeys.Type) -> TGASDK.JsInfoCodingKeys",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "JsInfoCodingKeys",
+                    "printedName": "TGASDK.JsInfoCodingKeys",
+                    "usr": "s:6TGASDK16JsInfoCodingKeysO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "TGASDK.JsInfoCodingKeys.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "JsInfoCodingKeys",
+                        "printedName": "TGASDK.JsInfoCodingKeys",
+                        "usr": "s:6TGASDK16JsInfoCodingKeysO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:6TGASDK16JsInfoCodingKeysO6paramsyA2CmF",
+            "mangledName": "$s6TGASDK16JsInfoCodingKeysO6paramsyA2CmF",
+            "moduleName": "TGASDK"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(rawValue:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "TGASDK.JsInfoCodingKeys?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "JsInfoCodingKeys",
+                    "printedName": "TGASDK.JsInfoCodingKeys",
+                    "usr": "s:6TGASDK16JsInfoCodingKeysO"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:6TGASDK16JsInfoCodingKeysO8rawValueACSgSS_tcfc",
+            "mangledName": "$s6TGASDK16JsInfoCodingKeysO8rawValueACSgSS_tcfc",
+            "moduleName": "TGASDK",
+            "implicit": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "rawValue",
+            "printedName": "rawValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:6TGASDK16JsInfoCodingKeysO8rawValueSSvp",
+            "mangledName": "$s6TGASDK16JsInfoCodingKeysO8rawValueSSvp",
+            "moduleName": "TGASDK",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:6TGASDK16JsInfoCodingKeysO8rawValueSSvg",
+                "mangledName": "$s6TGASDK16JsInfoCodingKeysO8rawValueSSvg",
+                "moduleName": "TGASDK",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "stringValue",
+            "printedName": "stringValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:6TGASDK16JsInfoCodingKeysO11stringValueSSvp",
+            "mangledName": "$s6TGASDK16JsInfoCodingKeysO11stringValueSSvp",
+            "moduleName": "TGASDK",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:6TGASDK16JsInfoCodingKeysO11stringValueSSvg",
+                "mangledName": "$s6TGASDK16JsInfoCodingKeysO11stringValueSSvg",
+                "moduleName": "TGASDK",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(stringValue:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "TGASDK.JsInfoCodingKeys?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "JsInfoCodingKeys",
+                    "printedName": "TGASDK.JsInfoCodingKeys",
+                    "usr": "s:6TGASDK16JsInfoCodingKeysO"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:6TGASDK16JsInfoCodingKeysO11stringValueACSgSS_tcfc",
+            "mangledName": "$s6TGASDK16JsInfoCodingKeysO11stringValueACSgSS_tcfc",
+            "moduleName": "TGASDK",
+            "implicit": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "intValue",
+            "printedName": "intValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.Int?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:6TGASDK16JsInfoCodingKeysO8intValueSiSgvp",
+            "mangledName": "$s6TGASDK16JsInfoCodingKeysO8intValueSiSgvp",
+            "moduleName": "TGASDK",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.Int?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Int",
+                        "printedName": "Swift.Int",
+                        "usr": "s:Si"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:6TGASDK16JsInfoCodingKeysO8intValueSiSgvg",
+                "mangledName": "$s6TGASDK16JsInfoCodingKeysO8intValueSiSgvg",
+                "moduleName": "TGASDK",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(intValue:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "TGASDK.JsInfoCodingKeys?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "JsInfoCodingKeys",
+                    "printedName": "TGASDK.JsInfoCodingKeys",
+                    "usr": "s:6TGASDK16JsInfoCodingKeysO"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:6TGASDK16JsInfoCodingKeysO8intValueACSgSi_tcfc",
+            "mangledName": "$s6TGASDK16JsInfoCodingKeysO8intValueACSgSi_tcfc",
+            "moduleName": "TGASDK",
+            "implicit": true,
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "s:6TGASDK16JsInfoCodingKeysO",
+        "mangledName": "$s6TGASDK16JsInfoCodingKeysO",
+        "moduleName": "TGASDK",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "enumRawTypeName": "String",
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "RawRepresentable",
+            "printedName": "RawRepresentable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "RawValue",
+                "printedName": "RawValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:SY",
+            "mangledName": "$sSY"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CodingKey",
+            "printedName": "CodingKey",
+            "usr": "s:s9CodingKeyP",
+            "mangledName": "$ss9CodingKeyP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
         "name": "JsInfo",
         "printedName": "JsInfo",
         "children": [
@@ -11134,8 +12439,8 @@
               }
             ],
             "declKind": "Var",
-            "usr": "s:6TGASDK6JsInfoV3cmdSSSgvp",
-            "mangledName": "$s6TGASDK6JsInfoV3cmdSSSgvp",
+            "usr": "s:6TGASDK6JsInfoC3cmdSSSgvp",
+            "mangledName": "$s6TGASDK6JsInfoC3cmdSSSgvp",
             "moduleName": "TGASDK",
             "declAttributes": [
               "HasInitialValue",
@@ -11165,8 +12470,8 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:6TGASDK6JsInfoV3cmdSSSgvg",
-                "mangledName": "$s6TGASDK6JsInfoV3cmdSSSgvg",
+                "usr": "s:6TGASDK6JsInfoC3cmdSSSgvg",
+                "mangledName": "$s6TGASDK6JsInfoC3cmdSSSgvg",
                 "moduleName": "TGASDK",
                 "implicit": true,
                 "accessorKind": "get"
@@ -11197,8 +12502,8 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:6TGASDK6JsInfoV3cmdSSSgvs",
-                "mangledName": "$s6TGASDK6JsInfoV3cmdSSSgvs",
+                "usr": "s:6TGASDK6JsInfoC3cmdSSSgvs",
+                "mangledName": "$s6TGASDK6JsInfoC3cmdSSSgvs",
                 "moduleName": "TGASDK",
                 "implicit": true,
                 "accessorKind": "set"
@@ -11215,8 +12520,8 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:6TGASDK6JsInfoV3cmdSSSgvM",
-                "mangledName": "$s6TGASDK6JsInfoV3cmdSSSgvM",
+                "usr": "s:6TGASDK6JsInfoC3cmdSSSgvM",
+                "mangledName": "$s6TGASDK6JsInfoC3cmdSSSgvM",
                 "moduleName": "TGASDK",
                 "implicit": true,
                 "accessorKind": "_modify"
@@ -11244,8 +12549,8 @@
               }
             ],
             "declKind": "Var",
-            "usr": "s:6TGASDK6JsInfoV6actionSSSgvp",
-            "mangledName": "$s6TGASDK6JsInfoV6actionSSSgvp",
+            "usr": "s:6TGASDK6JsInfoC6actionSSSgvp",
+            "mangledName": "$s6TGASDK6JsInfoC6actionSSSgvp",
             "moduleName": "TGASDK",
             "declAttributes": [
               "HasInitialValue",
@@ -11275,8 +12580,8 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:6TGASDK6JsInfoV6actionSSSgvg",
-                "mangledName": "$s6TGASDK6JsInfoV6actionSSSgvg",
+                "usr": "s:6TGASDK6JsInfoC6actionSSSgvg",
+                "mangledName": "$s6TGASDK6JsInfoC6actionSSSgvg",
                 "moduleName": "TGASDK",
                 "implicit": true,
                 "accessorKind": "get"
@@ -11307,8 +12612,8 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:6TGASDK6JsInfoV6actionSSSgvs",
-                "mangledName": "$s6TGASDK6JsInfoV6actionSSSgvs",
+                "usr": "s:6TGASDK6JsInfoC6actionSSSgvs",
+                "mangledName": "$s6TGASDK6JsInfoC6actionSSSgvs",
                 "moduleName": "TGASDK",
                 "implicit": true,
                 "accessorKind": "set"
@@ -11325,8 +12630,8 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:6TGASDK6JsInfoV6actionSSSgvM",
-                "mangledName": "$s6TGASDK6JsInfoV6actionSSSgvM",
+                "usr": "s:6TGASDK6JsInfoC6actionSSSgvM",
+                "mangledName": "$s6TGASDK6JsInfoC6actionSSSgvM",
                 "moduleName": "TGASDK",
                 "implicit": true,
                 "accessorKind": "_modify"
@@ -11354,8 +12659,8 @@
               }
             ],
             "declKind": "Var",
-            "usr": "s:6TGASDK6JsInfoV10callbackIdSSSgvp",
-            "mangledName": "$s6TGASDK6JsInfoV10callbackIdSSSgvp",
+            "usr": "s:6TGASDK6JsInfoC10callbackIdSSSgvp",
+            "mangledName": "$s6TGASDK6JsInfoC10callbackIdSSSgvp",
             "moduleName": "TGASDK",
             "declAttributes": [
               "HasInitialValue",
@@ -11385,8 +12690,8 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:6TGASDK6JsInfoV10callbackIdSSSgvg",
-                "mangledName": "$s6TGASDK6JsInfoV10callbackIdSSSgvg",
+                "usr": "s:6TGASDK6JsInfoC10callbackIdSSSgvg",
+                "mangledName": "$s6TGASDK6JsInfoC10callbackIdSSSgvg",
                 "moduleName": "TGASDK",
                 "implicit": true,
                 "accessorKind": "get"
@@ -11417,8 +12722,8 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:6TGASDK6JsInfoV10callbackIdSSSgvs",
-                "mangledName": "$s6TGASDK6JsInfoV10callbackIdSSSgvs",
+                "usr": "s:6TGASDK6JsInfoC10callbackIdSSSgvs",
+                "mangledName": "$s6TGASDK6JsInfoC10callbackIdSSSgvs",
                 "moduleName": "TGASDK",
                 "implicit": true,
                 "accessorKind": "set"
@@ -11435,8 +12740,8 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:6TGASDK6JsInfoV10callbackIdSSSgvM",
-                "mangledName": "$s6TGASDK6JsInfoV10callbackIdSSSgvM",
+                "usr": "s:6TGASDK6JsInfoC10callbackIdSSSgvM",
+                "mangledName": "$s6TGASDK6JsInfoC10callbackIdSSSgvM",
                 "moduleName": "TGASDK",
                 "implicit": true,
                 "accessorKind": "_modify"
@@ -11477,8 +12782,8 @@
               }
             ],
             "declKind": "Var",
-            "usr": "s:6TGASDK6JsInfoV6paramsSDySSypGSgvp",
-            "mangledName": "$s6TGASDK6JsInfoV6paramsSDySSypGSgvp",
+            "usr": "s:6TGASDK6JsInfoC6paramsSDySSypGSgvp",
+            "mangledName": "$s6TGASDK6JsInfoC6paramsSDySSypGSgvp",
             "moduleName": "TGASDK",
             "declAttributes": [
               "HasInitialValue",
@@ -11521,8 +12826,8 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:6TGASDK6JsInfoV6paramsSDySSypGSgvg",
-                "mangledName": "$s6TGASDK6JsInfoV6paramsSDySSypGSgvg",
+                "usr": "s:6TGASDK6JsInfoC6paramsSDySSypGSgvg",
+                "mangledName": "$s6TGASDK6JsInfoC6paramsSDySSypGSgvg",
                 "moduleName": "TGASDK",
                 "implicit": true,
                 "accessorKind": "get"
@@ -11566,8 +12871,8 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:6TGASDK6JsInfoV6paramsSDySSypGSgvs",
-                "mangledName": "$s6TGASDK6JsInfoV6paramsSDySSypGSgvs",
+                "usr": "s:6TGASDK6JsInfoC6paramsSDySSypGSgvs",
+                "mangledName": "$s6TGASDK6JsInfoC6paramsSDySSypGSgvs",
                 "moduleName": "TGASDK",
                 "implicit": true,
                 "accessorKind": "set"
@@ -11584,13 +12889,86 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:6TGASDK6JsInfoV6paramsSDySSypGSgvM",
-                "mangledName": "$s6TGASDK6JsInfoV6paramsSDySSypGSgvM",
+                "usr": "s:6TGASDK6JsInfoC6paramsSDySSypGSgvM",
+                "mangledName": "$s6TGASDK6JsInfoC6paramsSDySSypGSgvM",
                 "moduleName": "TGASDK",
                 "implicit": true,
                 "accessorKind": "_modify"
               }
             ]
+          },
+          {
+            "kind": "Function",
+            "name": "onDecode",
+            "printedName": "onDecode(container:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "KeyedDecodingContainer",
+                "printedName": "Swift.KeyedDecodingContainer<TGASDK.JsInfoCodingKeys>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "JsInfoCodingKeys",
+                    "printedName": "TGASDK.JsInfoCodingKeys",
+                    "usr": "s:6TGASDK16JsInfoCodingKeysO"
+                  }
+                ],
+                "usr": "s:s22KeyedDecodingContainerV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:6TGASDK6JsInfoC8onDecode9containerys22KeyedDecodingContainerVyAA0bC10CodingKeysOG_tF",
+            "mangledName": "$s6TGASDK6JsInfoC8onDecode9containerys22KeyedDecodingContainerVyAA0bC10CodingKeysOG_tF",
+            "moduleName": "TGASDK",
+            "overriding": true,
+            "declAttributes": [
+              "Override",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "onEncode",
+            "printedName": "onEncode(container:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "KeyedEncodingContainer",
+                "printedName": "Swift.KeyedEncodingContainer<TGASDK.JsInfoCodingKeys>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "JsInfoCodingKeys",
+                    "printedName": "TGASDK.JsInfoCodingKeys",
+                    "usr": "s:6TGASDK16JsInfoCodingKeysO"
+                  }
+                ],
+                "paramValueOwnership": "InOut",
+                "usr": "s:s22KeyedEncodingContainerV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:6TGASDK6JsInfoC8onEncode9containerys22KeyedEncodingContainerVyAA0bC10CodingKeysOGz_tF",
+            "mangledName": "$s6TGASDK6JsInfoC8onEncode9containerys22KeyedEncodingContainerVyAA0bC10CodingKeysOGz_tF",
+            "moduleName": "TGASDK",
+            "overriding": true,
+            "declAttributes": [
+              "Override",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
           },
           {
             "kind": "Constructor",
@@ -11601,7 +12979,7 @@
                 "kind": "TypeNominal",
                 "name": "JsInfo",
                 "printedName": "TGASDK.JsInfo",
-                "usr": "s:6TGASDK6JsInfoV"
+                "usr": "s:6TGASDK6JsInfoC"
               },
               {
                 "kind": "TypeNominal",
@@ -11611,49 +12989,29 @@
               }
             ],
             "declKind": "Constructor",
-            "usr": "s:6TGASDK6JsInfoV4fromACs7Decoder_p_tKcfc",
-            "mangledName": "$s6TGASDK6JsInfoV4fromACs7Decoder_p_tKcfc",
+            "usr": "s:6TGASDK6JsInfoC4fromACs7Decoder_p_tKcfc",
+            "mangledName": "$s6TGASDK6JsInfoC4fromACs7Decoder_p_tKcfc",
             "moduleName": "TGASDK",
+            "overriding": true,
+            "implicit": true,
             "declAttributes": [
-              "AccessControl"
+              "Required"
             ],
             "throwing": true,
             "init_kind": "Designated"
-          },
-          {
-            "kind": "Function",
-            "name": "encode",
-            "printedName": "encode(to:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Encoder",
-                "printedName": "Swift.Encoder",
-                "usr": "s:s7EncoderP"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:6TGASDK6JsInfoV6encode2toys7Encoder_p_tKF",
-            "mangledName": "$s6TGASDK6JsInfoV6encode2toys7Encoder_p_tKF",
-            "moduleName": "TGASDK",
-            "declAttributes": [
-              "AccessControl"
-            ],
-            "throwing": true,
-            "funcSelfKind": "NonMutating"
           }
         ],
-        "declKind": "Struct",
-        "usr": "s:6TGASDK6JsInfoV",
-        "mangledName": "$s6TGASDK6JsInfoV",
+        "declKind": "Class",
+        "usr": "s:6TGASDK6JsInfoC",
+        "mangledName": "$s6TGASDK6JsInfoC",
         "moduleName": "TGASDK",
         "declAttributes": [
           "AccessControl"
+        ],
+        "superclassUsr": "s:6TGASDK8BaseDictC",
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "TGASDK.BaseDict<TGASDK.JsInfoCodingKeys>"
         ],
         "conformances": [
           {
@@ -12492,15 +13850,15 @@
                     "kind": "TypeNominal",
                     "name": "JsInfo",
                     "printedName": "TGASDK.JsInfo",
-                    "usr": "s:6TGASDK6JsInfoV"
+                    "usr": "s:6TGASDK6JsInfoC"
                   }
                 ],
                 "usr": "s:Sq"
               }
             ],
             "declKind": "Func",
-            "usr": "s:6TGASDK16TGAWebPluginBaseC4exec4infoSbAA6JsInfoVSg_tF",
-            "mangledName": "$s6TGASDK16TGAWebPluginBaseC4exec4infoSbAA6JsInfoVSg_tF",
+            "usr": "s:6TGASDK16TGAWebPluginBaseC4exec4infoSbAA6JsInfoCSg_tF",
+            "mangledName": "$s6TGASDK16TGAWebPluginBaseC4exec4infoSbAA6JsInfoCSg_tF",
             "moduleName": "TGASDK",
             "isOpen": true,
             "declAttributes": [
@@ -12692,6 +14050,7 @@
         "isOpen": true,
         "declAttributes": [
           "AccessControl",
+          "RawDocComment",
           "ObjC"
         ],
         "superclassUsr": "c:objc(cs)NSObject",
@@ -47278,189 +48637,189 @@
     {
       "filePath": "\/Users\/ljh\/dev\/ios\/tga-sdk-sets\/TGASDK\/TGASDK\/Classes\/WebView\/TGAWebPluginBase.swift",
       "kind": "StringLiteral",
-      "offset": 3727,
+      "offset": 536,
       "length": 5,
       "value": "\"cmd\""
     },
     {
       "filePath": "\/Users\/ljh\/dev\/ios\/tga-sdk-sets\/TGASDK\/TGASDK\/Classes\/WebView\/TGAWebPluginBase.swift",
       "kind": "StringLiteral",
-      "offset": 3755,
+      "offset": 560,
       "length": 8,
       "value": "\"action\""
     },
     {
       "filePath": "\/Users\/ljh\/dev\/ios\/tga-sdk-sets\/TGASDK\/TGASDK\/Classes\/WebView\/TGAWebPluginBase.swift",
       "kind": "StringLiteral",
-      "offset": 3790,
+      "offset": 591,
       "length": 12,
       "value": "\"callbackId\""
     },
     {
       "filePath": "\/Users\/ljh\/dev\/ios\/tga-sdk-sets\/TGASDK\/TGASDK\/Classes\/WebView\/TGAWebPluginBase.swift",
       "kind": "StringLiteral",
-      "offset": 3825,
+      "offset": 622,
       "length": 8,
       "value": "\"params\""
     },
     {
       "filePath": "\/Users\/ljh\/dev\/ios\/tga-sdk-sets\/TGASDK\/TGASDK\/Classes\/WebView\/TGAWebPluginBase.swift",
       "kind": "StringLiteral",
-      "offset": 3727,
+      "offset": 536,
       "length": 5,
       "value": "\"cmd\""
     },
     {
       "filePath": "\/Users\/ljh\/dev\/ios\/tga-sdk-sets\/TGASDK\/TGASDK\/Classes\/WebView\/TGAWebPluginBase.swift",
       "kind": "StringLiteral",
-      "offset": 3755,
+      "offset": 560,
       "length": 8,
       "value": "\"action\""
     },
     {
       "filePath": "\/Users\/ljh\/dev\/ios\/tga-sdk-sets\/TGASDK\/TGASDK\/Classes\/WebView\/TGAWebPluginBase.swift",
       "kind": "StringLiteral",
-      "offset": 3790,
+      "offset": 591,
       "length": 12,
       "value": "\"callbackId\""
     },
     {
       "filePath": "\/Users\/ljh\/dev\/ios\/tga-sdk-sets\/TGASDK\/TGASDK\/Classes\/WebView\/TGAWebPluginBase.swift",
       "kind": "StringLiteral",
-      "offset": 3825,
+      "offset": 622,
       "length": 8,
       "value": "\"params\""
     },
     {
       "filePath": "\/Users\/ljh\/dev\/ios\/tga-sdk-sets\/TGASDK\/TGASDK\/Classes\/WebView\/TGAWebPluginBase.swift",
       "kind": "IntegerLiteral",
-      "offset": 4629,
+      "offset": 3705,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/ljh\/dev\/ios\/tga-sdk-sets\/TGASDK\/TGASDK\/Classes\/WebView\/TGAWebPluginBase.swift",
       "kind": "IntegerLiteral",
-      "offset": 4661,
+      "offset": 3737,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/ljh\/dev\/ios\/tga-sdk-sets\/TGASDK\/TGASDK\/Classes\/WebView\/TGAWebPluginBase.swift",
       "kind": "IntegerLiteral",
-      "offset": 4698,
+      "offset": 3774,
       "length": 1,
       "value": "2"
     },
     {
       "filePath": "\/Users\/ljh\/dev\/ios\/tga-sdk-sets\/TGASDK\/TGASDK\/Classes\/WebView\/TGAWebPluginBase.swift",
       "kind": "IntegerLiteral",
-      "offset": 4728,
+      "offset": 3804,
       "length": 1,
       "value": "3"
     },
     {
       "filePath": "\/Users\/ljh\/dev\/ios\/tga-sdk-sets\/TGASDK\/TGASDK\/Classes\/WebView\/TGAWebPluginBase.swift",
       "kind": "IntegerLiteral",
-      "offset": 4759,
+      "offset": 3835,
       "length": 1,
       "value": "4"
     },
     {
       "filePath": "\/Users\/ljh\/dev\/ios\/tga-sdk-sets\/TGASDK\/TGASDK\/Classes\/WebView\/TGAWebPluginBase.swift",
       "kind": "IntegerLiteral",
-      "offset": 4791,
+      "offset": 3867,
       "length": 1,
       "value": "5"
     },
     {
       "filePath": "\/Users\/ljh\/dev\/ios\/tga-sdk-sets\/TGASDK\/TGASDK\/Classes\/WebView\/TGAWebPluginBase.swift",
       "kind": "IntegerLiteral",
-      "offset": 4821,
+      "offset": 3897,
       "length": 1,
       "value": "6"
     },
     {
       "filePath": "\/Users\/ljh\/dev\/ios\/tga-sdk-sets\/TGASDK\/TGASDK\/Classes\/WebView\/TGAWebPluginBase.swift",
       "kind": "StringLiteral",
-      "offset": 4856,
+      "offset": 3932,
       "length": 5,
       "value": "\"cmd\""
     },
     {
       "filePath": "\/Users\/ljh\/dev\/ios\/tga-sdk-sets\/TGASDK\/TGASDK\/Classes\/WebView\/TGAWebPluginBase.swift",
       "kind": "StringLiteral",
-      "offset": 4901,
+      "offset": 3977,
       "length": 8,
       "value": "\"action\""
     },
     {
       "filePath": "\/Users\/ljh\/dev\/ios\/tga-sdk-sets\/TGASDK\/TGASDK\/Classes\/WebView\/TGAWebPluginBase.swift",
       "kind": "StringLiteral",
-      "offset": 4951,
+      "offset": 4027,
       "length": 12,
       "value": "\"callbackId\""
     },
     {
       "filePath": "\/Users\/ljh\/dev\/ios\/tga-sdk-sets\/TGASDK\/TGASDK\/Classes\/WebView\/TGAWebPluginBase.swift",
       "kind": "StringLiteral",
-      "offset": 5005,
+      "offset": 4081,
       "length": 8,
       "value": "\"params\""
     },
     {
       "filePath": "\/Users\/ljh\/dev\/ios\/tga-sdk-sets\/TGASDK\/TGASDK\/Classes\/WebView\/TGAWebPluginBase.swift",
       "kind": "StringLiteral",
-      "offset": 5058,
+      "offset": 4134,
       "length": 22,
       "value": "\"Bridge.Callback.exec\""
     },
     {
       "filePath": "\/Users\/ljh\/dev\/ios\/tga-sdk-sets\/TGASDK\/TGASDK\/Classes\/WebView\/TGAWebPluginBase.swift",
       "kind": "StringLiteral",
-      "offset": 5129,
+      "offset": 4205,
       "length": 16,
       "value": "\"%@('%@',%@,%@)\""
     },
     {
       "filePath": "\/Users\/ljh\/dev\/ios\/tga-sdk-sets\/TGASDK\/TGASDK\/Classes\/WebView\/TGAWebPluginBase.swift",
       "kind": "StringLiteral",
-      "offset": 5207,
+      "offset": 4283,
       "length": 28,
       "value": "\"Bridge.Callback.execListen\""
     },
     {
       "filePath": "\/Users\/ljh\/dev\/ios\/tga-sdk-sets\/TGASDK\/TGASDK\/Classes\/WebView\/TGAWebPluginBase.swift",
       "kind": "StringLiteral",
-      "offset": 5284,
+      "offset": 4360,
       "length": 13,
       "value": "\"%@('%@',%@)\""
     },
     {
       "filePath": "\/Users\/ljh\/dev\/ios\/tga-sdk-sets\/TGASDK\/TGASDK\/Classes\/WebView\/TGAWebPluginBase.swift",
       "kind": "StringLiteral",
-      "offset": 5358,
+      "offset": 4434,
       "length": 6,
       "value": "\"code\""
     },
     {
       "filePath": "\/Users\/ljh\/dev\/ios\/tga-sdk-sets\/TGASDK\/TGASDK\/Classes\/WebView\/TGAWebPluginBase.swift",
       "kind": "StringLiteral",
-      "offset": 5412,
+      "offset": 4488,
       "length": 9,
       "value": "\"message\""
     },
     {
       "filePath": "\/Users\/ljh\/dev\/ios\/tga-sdk-sets\/TGASDK\/TGASDK\/Classes\/WebView\/TGAWebPluginBase.swift",
       "kind": "StringLiteral",
-      "offset": 5468,
+      "offset": 4544,
       "length": 6,
       "value": "\"type\""
     },
     {
       "filePath": "\/Users\/ljh\/dev\/ios\/tga-sdk-sets\/TGASDK\/TGASDK\/Classes\/WebView\/TGAWebPluginBase.swift",
       "kind": "StringLiteral",
-      "offset": 5539,
+      "offset": 4615,
       "length": 11,
       "value": "\"isSuccess\""
     },
