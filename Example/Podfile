@@ -6,6 +6,7 @@ platform :ios, '11.0'
 
 target 'TGASDK-Swift' do
   pod 'TGAIOSSDK', :path => '../'
+  pod 'TGASDKApplovinLib', :podspec => '../'
   # 第三方SDK  
   pod 'Google-Mobile-Ads-SDK'
   #pod 'CocoaDebug', '~> 1.7.2'

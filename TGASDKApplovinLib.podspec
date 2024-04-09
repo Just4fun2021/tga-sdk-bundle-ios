@@ -10,7 +10,7 @@ TODO: Add long description of the pod here.
   s.homepage         = 'https://github.com/Just4fun2021/tga-sdk-bundle-ios'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'oauth2' => 'myplxdm@163.com' }
-  s.source           = { :http => 'https://data.just4fun.sg/TGASDKApplovinLib1.4.0-0.0.1.zip' :type => 'zip'}
+  s.source           = { :http => 'https://data.just4fun.sg/TGASDKApplovinLib1.4.0-0.0.1.zip', :type => 'zip'}
   
   s.requires_arc = true
   s.static_framework = true
