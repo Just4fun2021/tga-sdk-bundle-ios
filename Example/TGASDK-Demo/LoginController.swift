@@ -72,7 +72,7 @@ final class LoginController: UIViewController {
     
     @objc private func eventForConfirm() {
         let userInfo = TGAUserInfo()
-        userInfo.userId = textField.text ?? ""
+        userInfo.txnId = textField.text ?? ""
         userInfo.nickname = "测试"
         userInfo.avatar = ""
         completion?(userInfo)

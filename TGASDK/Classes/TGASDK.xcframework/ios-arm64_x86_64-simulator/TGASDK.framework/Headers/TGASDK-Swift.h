@@ -256,6 +256,18 @@ using UInt = size_t;
 
 #if defined(__OBJC__)
 
+SWIFT_CLASS("_TtC6TGASDK16TGAWebPluginBase")
+@interface TGAWebPluginBase : NSObject
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC6TGASDK7AdsPlug")
+@interface AdsPlug : TGAWebPluginBase
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
 
 
 
@@ -264,7 +276,7 @@ using UInt = size_t;
 
 SWIFT_CLASS("_TtC6TGASDK16JTSegmentControl")
 @interface JTSegmentControl : UIControl
-- (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -277,6 +289,13 @@ SWIFT_CLASS("_TtC6TGASDK16JTSegmentControl")
 
 
 
+
+
+SWIFT_CLASS("_TtC6TGASDK14SessionManager")
+@interface SessionManager : NSObject
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
 
 @class NSString;
 @class UIImage;
@@ -369,6 +388,9 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) TGASdk * _No
 /// \param level TGALogLevel
 ///
 - (void)setLogLevelWithLevel:(enum TGALogLevel)level;
+- (void)setLoginUserInfoWithUserInfo:(TGAUserInfo * _Nonnull)userInfo;
+- (NSString * _Nullable)getAppKey SWIFT_WARN_UNUSED_RESULT;
+- (TGAUserInfo * _Nullable)getUserInfo SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -395,6 +417,9 @@ SWIFT_PROTOCOL("_TtP6TGASDK14TGASdkDelegate_")
 - (void)tgaSdkOnLogout;
 /// 用户分享
 - (void)tgaOnInAppShareFromVC:(UIViewController * _Nonnull)fromVC shareInfo:(TGAShareInfo * _Nonnull)shareInfo completion:(void (^ _Nonnull)(NSString * _Nonnull, BOOL))completion;
+@optional
+- (NSString * _Nullable)tgaGetLang SWIFT_WARN_UNUSED_RESULT;
+- (NSString * _Nullable)tgaGetCountry SWIFT_WARN_UNUSED_RESULT;
 @end
 
 @class WKWebViewConfiguration;
@@ -414,6 +439,10 @@ SWIFT_CLASS("_TtC6TGASDK9TGASdkWeb")
 - (void)userContentController:(WKUserContentController * _Nonnull)userContentController didReceiveScriptMessage:(WKScriptMessage * _Nonnull)message;
 @end
 
+
+@interface TGASdkWeb (SWIFT_EXTENSION(TGASDK))
+- (void)layoutSubviews;
+@end
 
 @class WKNavigation;
 @class WKNavigationAction;
@@ -475,7 +504,7 @@ SWIFT_CLASS("_TtC6TGASDK12TGAShareInfo")
 SWIFT_CLASS("_TtC6TGASDK11TGAUserInfo")
 @interface TGAUserInfo : NSObject
 /// 用户Id
-@property (nonatomic, copy) NSString * _Nonnull userId;
+@property (nonatomic, copy) NSString * _Nonnull txnId;
 /// 用户昵称
 @property (nonatomic, copy) NSString * _Nonnull nickname;
 /// 用户头像
@@ -484,10 +513,18 @@ SWIFT_CLASS("_TtC6TGASDK11TGAUserInfo")
 @end
 
 
-SWIFT_CLASS("_TtC6TGASDK16TGAWebPluginBase")
-@interface TGAWebPluginBase : NSObject
+SWIFT_PROTOCOL("_TtP6TGASDK18TGAWebLoadDelegate_")
+@protocol TGAWebLoadDelegate <NSObject>
+- (void)webViewDidFinishWithWebView:(WKWebView * _Nonnull)webView url:(NSString * _Nonnull)url;
+- (void)webViewDidStartWithWebView:(WKWebView * _Nonnull)webView url:(NSString * _Nonnull)url;
+@end
+
+
+SWIFT_CLASS("_TtC6TGASDK16TGAWebLoadHelper")
+@interface TGAWebLoadHelper : NSObject
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
+
 
 @class UITraitCollection;
 @class UITouch;
@@ -557,6 +594,7 @@ SWIFT_CLASS("_TtC6TGASDK16TGRelativeLayout")
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
+
 
 
 
@@ -838,6 +876,18 @@ using UInt = size_t;
 
 #if defined(__OBJC__)
 
+SWIFT_CLASS("_TtC6TGASDK16TGAWebPluginBase")
+@interface TGAWebPluginBase : NSObject
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC6TGASDK7AdsPlug")
+@interface AdsPlug : TGAWebPluginBase
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
 
 
 
@@ -846,7 +896,7 @@ using UInt = size_t;
 
 SWIFT_CLASS("_TtC6TGASDK16JTSegmentControl")
 @interface JTSegmentControl : UIControl
-- (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -859,6 +909,13 @@ SWIFT_CLASS("_TtC6TGASDK16JTSegmentControl")
 
 
 
+
+
+SWIFT_CLASS("_TtC6TGASDK14SessionManager")
+@interface SessionManager : NSObject
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
 
 @class NSString;
 @class UIImage;
@@ -951,6 +1008,9 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) TGASdk * _No
 /// \param level TGALogLevel
 ///
 - (void)setLogLevelWithLevel:(enum TGALogLevel)level;
+- (void)setLoginUserInfoWithUserInfo:(TGAUserInfo * _Nonnull)userInfo;
+- (NSString * _Nullable)getAppKey SWIFT_WARN_UNUSED_RESULT;
+- (TGAUserInfo * _Nullable)getUserInfo SWIFT_WARN_UNUSED_RESULT;
 @end
 
 
@@ -977,6 +1037,9 @@ SWIFT_PROTOCOL("_TtP6TGASDK14TGASdkDelegate_")
 - (void)tgaSdkOnLogout;
 /// 用户分享
 - (void)tgaOnInAppShareFromVC:(UIViewController * _Nonnull)fromVC shareInfo:(TGAShareInfo * _Nonnull)shareInfo completion:(void (^ _Nonnull)(NSString * _Nonnull, BOOL))completion;
+@optional
+- (NSString * _Nullable)tgaGetLang SWIFT_WARN_UNUSED_RESULT;
+- (NSString * _Nullable)tgaGetCountry SWIFT_WARN_UNUSED_RESULT;
 @end
 
 @class WKWebViewConfiguration;
@@ -996,6 +1059,10 @@ SWIFT_CLASS("_TtC6TGASDK9TGASdkWeb")
 - (void)userContentController:(WKUserContentController * _Nonnull)userContentController didReceiveScriptMessage:(WKScriptMessage * _Nonnull)message;
 @end
 
+
+@interface TGASdkWeb (SWIFT_EXTENSION(TGASDK))
+- (void)layoutSubviews;
+@end
 
 @class WKNavigation;
 @class WKNavigationAction;
@@ -1057,7 +1124,7 @@ SWIFT_CLASS("_TtC6TGASDK12TGAShareInfo")
 SWIFT_CLASS("_TtC6TGASDK11TGAUserInfo")
 @interface TGAUserInfo : NSObject
 /// 用户Id
-@property (nonatomic, copy) NSString * _Nonnull userId;
+@property (nonatomic, copy) NSString * _Nonnull txnId;
 /// 用户昵称
 @property (nonatomic, copy) NSString * _Nonnull nickname;
 /// 用户头像
@@ -1066,10 +1133,18 @@ SWIFT_CLASS("_TtC6TGASDK11TGAUserInfo")
 @end
 
 
-SWIFT_CLASS("_TtC6TGASDK16TGAWebPluginBase")
-@interface TGAWebPluginBase : NSObject
+SWIFT_PROTOCOL("_TtP6TGASDK18TGAWebLoadDelegate_")
+@protocol TGAWebLoadDelegate <NSObject>
+- (void)webViewDidFinishWithWebView:(WKWebView * _Nonnull)webView url:(NSString * _Nonnull)url;
+- (void)webViewDidStartWithWebView:(WKWebView * _Nonnull)webView url:(NSString * _Nonnull)url;
+@end
+
+
+SWIFT_CLASS("_TtC6TGASDK16TGAWebLoadHelper")
+@interface TGAWebLoadHelper : NSObject
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
+
 
 @class UITraitCollection;
 @class UITouch;
@@ -1139,6 +1214,7 @@ SWIFT_CLASS("_TtC6TGASDK16TGRelativeLayout")
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
+
 
 
 

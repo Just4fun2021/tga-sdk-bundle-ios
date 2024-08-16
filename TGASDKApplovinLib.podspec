@@ -1,8 +1,9 @@
 # 定义版本号变量
+ios_sdk_version = '1.4.0'
 version_number = '0.0.2'
 
 # 构建 source 字段中的 URL
-source_url = "https://data.just4fun.sg/TGASDKApplovinLib1.4.0-#{version_number}.zip"
+source_url = "https://data.just4fun.sg/TGASDKApplovinLib#{ios_sdk_version}-#{version_number}.zip"
 
 # 构建 vendored_frameworks 字段中的路径
 vendored_frameworks_path = "TGASDKApplovinLib1.4.0-#{version_number}/TGASDKApplovinLib.xcframework"

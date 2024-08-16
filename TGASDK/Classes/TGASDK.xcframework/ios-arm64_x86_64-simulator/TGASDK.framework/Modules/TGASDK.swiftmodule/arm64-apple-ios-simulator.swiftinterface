@@ -25,19 +25,27 @@ extension Swift.String {
 extension UIKit.UIView {
   @_Concurrency.MainActor(unsafe) public func showToast(message: Swift.String, duration: Foundation.TimeInterval = 2.0, position: CoreFoundation.CGPoint)
   @_Concurrency.MainActor(unsafe) public func getStatusBarHeight() -> CoreFoundation.CGFloat
+  @_Concurrency.MainActor(unsafe) public func getNavigationBarHeight() -> CoreFoundation.CGFloat
+  @_Concurrency.MainActor(unsafe) public func removeAllViews()
+  @_Concurrency.MainActor(unsafe) public func addTapGestureRecognizer(target: Swift.AnyObject, action: ObjectiveC.Selector)
 }
 extension TGASDK.TGBaseLayout {
   @_Concurrency.MainActor(unsafe) public func baseLayoutSetting()
 }
+extension UIKit.UIColor {
+  public class func hexStringToColor(hex: Swift.String) -> UIKit.UIColor?
+}
 public protocol JTSegmentControlDelegate : AnyObject {
   func didSelected(segement: TGASDK.JTSegmentControl, index: Swift.Int)
 }
-@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) open class JTSegmentControl : UIKit.UIControl {
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class JTSegmentControl : UIKit.UIControl {
+  @_Concurrency.MainActor(unsafe) weak public var delegate: TGASDK.JTSegmentControlDelegate?
   @_Concurrency.MainActor(unsafe) public var sliderHeight: CoreFoundation.CGFloat
   @_Concurrency.MainActor(unsafe) public var isScroll: Swift.Bool
   @_Concurrency.MainActor(unsafe) public var scrollItemPadding: CoreFoundation.CGFloat
   @_Concurrency.MainActor(unsafe) open var autoScrollWhenIndexChange: Swift.Bool
   @_Concurrency.MainActor(unsafe) open var scrollToPointWhenIndexChanged: CoreFoundation.CGPoint?
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreFoundation.CGRect)
   @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
   @_Concurrency.MainActor(unsafe) open var selectedIndex: Swift.Int {
     get
@@ -80,33 +88,13 @@ public protocol JTSegmentControlDelegate : AnyObject {
     get
     set
   }
+  @_Concurrency.MainActor(unsafe) open func setBgColor(color: UIKit.UIColor)
   @objc deinit
 }
 extension TGASDK.JTSegmentControl {
   @objc @_Concurrency.MainActor(unsafe) dynamic open func move(to index: Swift.Int)
   @objc @_Concurrency.MainActor(unsafe) dynamic open func move(to index: Swift.Int, animated: Swift.Bool)
   @_Concurrency.MainActor(unsafe) @objc override dynamic open func layoutSubviews()
-}
-public struct AnyCodingKeys : Swift.CodingKey {
-  public var stringValue: Swift.String
-  public var intValue: Swift.Int?
-  public init(stringValue: Swift.String)
-  public init(intValue: Swift.Int)
-}
-public struct AnyCodable : Swift.Codable {
-  public var value: Any
-  public init(_ value: Any)
-  public func encode(to encoder: Swift.Encoder) throws
-  public init(from decoder: Swift.Decoder) throws
-}
-open class BaseDict<KeyType> : Swift.Codable where KeyType : Swift.CodingKey {
-  required public init(from decoder: Swift.Decoder) throws
-  open func encode(to encoder: Swift.Encoder) throws
-  open func onDecode(container: Swift.KeyedDecodingContainer<KeyType>)
-  open func onEncode(container: inout Swift.KeyedEncodingContainer<KeyType>)
-  open func getDictData(container: Swift.KeyedDecodingContainer<KeyType>, forKey key: Swift.KeyedDecodingContainer<KeyType>.Key) -> [Swift.String : Any]?
-  open func setDictData(container: inout Swift.KeyedEncodingContainer<KeyType>, forKey key: Swift.KeyedEncodingContainer<KeyType>.Key, values: [Swift.String : Any])
-  @objc deinit
 }
 public enum TGOrientation {
   case vert
@@ -223,6 +211,30 @@ public enum TGAdjustScrollViewContentSizeMode {
     get
   }
 }
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class SessionManager : ObjectiveC.NSObject {
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class TGAApi {
+  public static let HT_CODE_ERROR: Swift.Int
+  public static let HT_CODE_OK: Swift.Int
+  public static func userLogin(appKey: Swift.String, encryptData: Swift.String, completion: @escaping ((Swift.Bool) -> Swift.Void))
+  public static func signParam(dict: inout [Swift.String : Swift.String]) -> Swift.String
+  public static func get(url: Swift.String, header: [Swift.String : Swift.String]?, completion: @escaping (Swift.Bool, Swift.Int, Foundation.Data?) -> Swift.Void)
+  public static func post(url: Swift.String, header: [Swift.String : Swift.String]?, params: [Swift.String : Any]?, completion: @escaping (Swift.Bool, Swift.Int, Foundation.Data?) -> Swift.Void)
+  @objc deinit
+}
+public enum Language : Swift.String {
+  case en
+  case zhHans
+  public static var current: TGASDK.Language {
+    get
+  }
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
 @_inheritsConvenienceInitializers @objc public class TGAConfiguration : ObjectiveC.NSObject {
   @objc public var lang: Swift.String {
     @objc get
@@ -233,6 +245,24 @@ public enum TGAdjustScrollViewContentSizeMode {
   @objc override dynamic public init()
   @objc deinit
 }
+@objc @_inheritsConvenienceInitializers public class AdsPlug : TGASDK.TGAWebPluginBase {
+  override public func getCommand() -> TGASDK.WebCommand?
+  override public func exec(info: TGASDK.JsInfo?) -> Swift.Bool
+  @objc required dynamic public init()
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class TGAConstant {
+  public static let DESIGN_WIDTH: Swift.Double
+  public static let SW: CoreFoundation.CGFloat
+  public static let SH: CoreFoundation.CGFloat
+  public static func calcPX(_ pos: Swift.Int) -> CoreFoundation.CGFloat
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class TGACrashHandler {
+  public static let shared: TGASDK.TGACrashHandler
+  public func registerHandler()
+  @objc deinit
+}
 public protocol TGAEventDelegate : AnyObject {
   func onEvent(type: Swift.String, param: Any?)
 }
@@ -241,6 +271,27 @@ public protocol TGAEventDelegate : AnyObject {
   public func addEventDelegate(eventType: Swift.String, delegate: TGASDK.TGAEventDelegate)
   public func removeEventDelegate(eventType: Swift.String, delegate: TGASDK.TGAEventDelegate)
   public func postEvent(eventType: Swift.String, param: Any?)
+  @objc deinit
+}
+public struct AnyCodingKeys : Swift.CodingKey {
+  public var stringValue: Swift.String
+  public var intValue: Swift.Int?
+  public init(stringValue: Swift.String)
+  public init(intValue: Swift.Int)
+}
+public struct AnyCodable : Swift.Codable {
+  public var value: Any
+  public init(_ value: Any)
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+open class BaseDict<KeyType> : Swift.Codable where KeyType : Swift.CodingKey {
+  required public init(from decoder: Swift.Decoder) throws
+  open func encode(to encoder: Swift.Encoder) throws
+  open func onDecode(container: Swift.KeyedDecodingContainer<KeyType>)
+  open func onEncode(container: inout Swift.KeyedEncodingContainer<KeyType>)
+  open func getDictData(container: Swift.KeyedDecodingContainer<KeyType>, forKey key: Swift.KeyedDecodingContainer<KeyType>.Key) -> [Swift.String : Any]?
+  open func setDictData(container: inout Swift.KeyedEncodingContainer<KeyType>, forKey key: Swift.KeyedEncodingContainer<KeyType>.Key, values: [Swift.String : Any])
   @objc deinit
 }
 @objc public enum TGALogLevel : Swift.Int {
@@ -268,13 +319,43 @@ public protocol TGAEventDelegate : AnyObject {
   @objc override dynamic public init()
   @objc deinit
 }
+public struct TGATheme : Swift.Codable {
+  public var name: Swift.String?
+  public var primaryColor: Swift.String?
+  public var textColor: Swift.String?
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
+public protocol TGANavigationDelegate : ObjectiveC.NSObjectProtocol {
+  func navigationViewBack()
+}
+@_hasMissingDesignatedInitializers public class TGANavigationHelper {
+  weak public var delegate: TGASDK.TGANavigationDelegate?
+  public static func createHelper() -> TGASDK.TGANavigationHelper
+  public func createView(rootView: UIKit.UIView)
+  public func setTitleColor(isShow: Swift.Bool, title: Swift.String?, titleColor: UIKit.UIColor? = nil, titleBgColor: UIKit.UIColor?)
+  public func setTitle(title: Swift.String)
+  public func setReturnColor(color: UIKit.UIColor?)
+  public func setStatusBarColor(isShow: Swift.Bool, statusColor: UIKit.UIColor? = nil)
+  public func setStatusBarColor(isShow: Swift.Bool, statusColor: Swift.String? = nil)
+  public func getNavLayout() -> TGASDK.TGRelativeLayout?
+  @objc deinit
+}
 public class TGAWeak<T> where T : AnyObject {
   weak public var value: T?
   public init(_ value: T?)
   @objc deinit
 }
+@_hasMissingDesignatedInitializers public class TGARoute {
+  public typealias Completion = (() -> Swift.Void)?
+  public class func present(fromeVC: UIKit.UIViewController, viewController: UIKit.UIViewController, animated: Swift.Bool = true, completion: TGASDK.TGARoute.Completion = nil)
+  public class func dismiss(vc: UIKit.UIViewController?, animated: Swift.Bool = true, completion: TGASDK.TGARoute.Completion = nil)
+  public class func dismissAll()
+  public class func openWebView(url: Swift.String)
+  @objc deinit
+}
 @_inheritsConvenienceInitializers @objc public class TGAUserInfo : ObjectiveC.NSObject {
-  @objc public var userId: Swift.String
+  @objc public var txnId: Swift.String
   @objc public var nickname: Swift.String
   @objc public var avatar: Swift.String
   @objc override dynamic public init()
@@ -296,6 +377,8 @@ public class TGAWeak<T> where T : AnyObject {
   @objc func tgaSdkCloseGameCenter()
   @objc func tgaSdkOnLogout()
   @objc func tgaOnInAppShare(fromVC: UIKit.UIViewController, shareInfo: TGASDK.TGAShareInfo, completion: @escaping ((_ callbackId: Swift.String, _ isSuccess: Swift.Bool) -> Swift.Void))
+  @objc optional func tgaGetLang() -> Swift.String?
+  @objc optional func tgaGetCountry() -> Swift.String?
 }
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc public class TGASdk : ObjectiveC.NSObject {
   @objc public static let shared: TGASDK.TGASdk
@@ -308,10 +391,13 @@ public class TGAWeak<T> where T : AnyObject {
   @objc public func openGameCenter(vc: UIKit.UIViewController, secUrl: Swift.String? = nil, secTitle: Swift.String? = nil, theme: Swift.String? = nil) -> Swift.Bool
   @objc public func closeAllWindow()
   @objc public func setLogLevel(level: TGASDK.TGALogLevel)
+  @objc public func setLoginUserInfo(userInfo: TGASDK.TGAUserInfo)
+  @objc public func getAppKey() -> Swift.String?
+  @objc public func getUserInfo() -> TGASDK.TGAUserInfo?
+  public func getTheme() -> TGASDK.TGATheme?
+  public func getLang() -> Swift.String
+  public func getAppId() -> Swift.String
   @objc deinit
-}
-extension TGASDK.TGASdk {
-  public func aes(data: Swift.String) -> Swift.String
 }
 public enum WebLoadState {
   case unLoad
@@ -331,7 +417,7 @@ public protocol TGAWebViewDelegate : ObjectiveC.NSObjectProtocol {
   @_Concurrency.MainActor(unsafe) public func addWebPlugin(plugin: TGASDK.TGAWebPluginBase)
   @_Concurrency.MainActor(unsafe) public func getWebPlugins() -> [TGASDK.TGAWebPluginBase]
   @_Concurrency.MainActor(unsafe) public func loadUrl(_ url: Swift.String)
-  @_Concurrency.MainActor(unsafe) public func activeWebPluginEvent(event: TGASDK.WebPluginEvent, data: Any?)
+  @_Concurrency.MainActor(unsafe) public func activeWebPluginEvent(event: TGASDK.WebPluginEvent, data: Any?, ordData: Any?)
   @objc deinit
 }
 extension TGASDK.TGASdkWeb : WebKit.WKNavigationDelegate {
@@ -345,8 +431,13 @@ extension TGASDK.TGASdkWeb : WebKit.WKNavigationDelegate {
 extension TGASDK.TGASdkWeb : WebKit.WKScriptMessageHandler {
   @_Concurrency.MainActor(unsafe) @objc dynamic public func userContentController(_ userContentController: WebKit.WKUserContentController, didReceive message: WebKit.WKScriptMessage)
 }
+extension TGASDK.TGASdkWeb {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func layoutSubviews()
+}
 @_hasMissingDesignatedInitializers public class TGAUtil {
+  public static func getLangText(lang: Swift.String = "EN", list: [[Swift.String : Swift.String]]?) -> Swift.String
   public static func getLangText(lang: Swift.String = "EN", dict: [Swift.String : Swift.String]?) -> Swift.String
+  public static func convertToDictionary(from object: Any) -> [Swift.String : Any]
   public static func objToJSONString(obj: Any) -> Swift.String
   public static func codableToJSONString(code: Swift.Codable) -> Swift.String
   public static func jsonStringToCodable<T>(_ jsonString: Swift.String, to type: T.Type) -> T? where T : Swift.Decodable, T : Swift.Encodable
@@ -354,6 +445,18 @@ extension TGASDK.TGASdkWeb : WebKit.WKScriptMessageHandler {
   public static func dictToCodeable<T>(dictionary: [Swift.String : Any], into type: T.Type) -> T? where T : Swift.Decodable, T : Swift.Encodable
   public static func dictToJsonString(data: [Swift.String : Any]?) -> Swift.String
   public static func jsonStringToDict(jsonString: Swift.String) -> [Swift.String : Any]?
+  public static func findUUID() -> Swift.String
+  public static func aes(key: Swift.String, data: Swift.String) -> Swift.String
+  public static func currentTimeMillis() -> Swift.UInt64
+  @objc deinit
+}
+@objc public protocol TGAWebLoadDelegate : ObjectiveC.NSObjectProtocol {
+  @objc func webViewDidFinish(webView: WebKit.WKWebView, url: Swift.String)
+  @objc func webViewDidStart(webView: WebKit.WKWebView, url: Swift.String)
+}
+@_inheritsConvenienceInitializers @objc public class TGAWebLoadHelper : ObjectiveC.NSObject {
+  weak public static var delegate: TGASDK.TGAWebLoadDelegate?
+  @objc override dynamic public init()
   @objc deinit
 }
 public struct WebCommand : Swift.Codable {
@@ -416,6 +519,7 @@ public enum JsInfoCodingKeys : Swift.String, Swift.CodingKey {
   public static let P_IS_SUCCESS: Swift.String
   weak public var shell: TGASDK.TGAWebShell?
   weak public var webView: TGASDK.TGASdkWeb?
+  public var orgJsonData: Any?
   @objc required override dynamic public init()
   open func initData(shell: TGASDK.TGAWebShell?, webView: TGASDK.TGASdkWeb?, data: [Swift.String : Any]? = nil)
   open func deInit()
@@ -1049,6 +1153,9 @@ extension TGASDK.TGGravityPolicy : Swift.Equatable {}
 extension TGASDK.TGGravityPolicy : Swift.Hashable {}
 extension TGASDK.TGAdjustScrollViewContentSizeMode : Swift.Equatable {}
 extension TGASDK.TGAdjustScrollViewContentSizeMode : Swift.Hashable {}
+extension TGASDK.Language : Swift.Equatable {}
+extension TGASDK.Language : Swift.Hashable {}
+extension TGASDK.Language : Swift.RawRepresentable {}
 extension TGASDK.TGALogLevel : Swift.Equatable {}
 extension TGASDK.TGALogLevel : Swift.Hashable {}
 extension TGASDK.TGALogLevel : Swift.RawRepresentable {}

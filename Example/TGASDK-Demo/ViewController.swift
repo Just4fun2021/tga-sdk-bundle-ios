@@ -201,7 +201,7 @@ extension ViewController: UITableViewDelegate {
             self.initStatus = "初始化中..."
             tableView.reloadRows(at: [indexPath], with: UITableView.RowAnimation.none)
             let userInfo = TGAUserInfo()
-            userInfo.userId = ""
+            userInfo.txnId = ""
             userInfo.nickname = "123"
             userInfo.avatar = ""
             //TGASdk.shared.bipPayInfoDelegate = self
@@ -286,7 +286,7 @@ extension ViewController: TGASdkDelegate {
         let user = TGAUserInfo()
         user.avatar = "11"
         user.nickname = "222"
-        user.userId = "333"
+        user.txnId = "333"
         completion(user)
     }
     
