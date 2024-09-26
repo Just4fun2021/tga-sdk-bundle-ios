@@ -3,7 +3,7 @@ ios_sdk_version = '1.4.0'
 version_number = '0.0.1'
 
 # 构建 source 字段中的 URL
-source_url = "https://data.just4fun.sg/TGASDKBipPayLib#{ios_sdk_version}-#{version_number}.zip"
+source_url = "https://test.just4fun.sg/TGASDKBipPayLib#{ios_sdk_version}-#{version_number}.zip"
 
 # 构建 vendored_frameworks 字段中的路径
 vendored_frameworks_path = "TGASDKBipPayLib1.4.0-#{version_number}/TGASDKBipPayLib.xcframework"
