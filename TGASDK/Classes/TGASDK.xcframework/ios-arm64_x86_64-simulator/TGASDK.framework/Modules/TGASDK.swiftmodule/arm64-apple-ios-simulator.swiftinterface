@@ -245,12 +245,6 @@ public enum Language : Swift.String {
   @objc override dynamic public init()
   @objc deinit
 }
-@objc @_inheritsConvenienceInitializers public class AdsPlug : TGASDK.TGAWebPluginBase {
-  override public func getCommand() -> TGASDK.WebCommand?
-  override public func exec(info: TGASDK.JsInfo?) -> Swift.Bool
-  @objc required dynamic public init()
-  @objc deinit
-}
 @_hasMissingDesignatedInitializers public class TGAConstant {
   public static let DESIGN_WIDTH: Swift.Double
   public static let SW: CoreFoundation.CGFloat

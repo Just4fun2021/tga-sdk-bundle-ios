@@ -256,18 +256,6 @@ using UInt = size_t;
 
 #if defined(__OBJC__)
 
-SWIFT_CLASS("_TtC6TGASDK16TGAWebPluginBase")
-@interface TGAWebPluginBase : NSObject
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-SWIFT_CLASS("_TtC6TGASDK7AdsPlug")
-@interface AdsPlug : TGAWebPluginBase
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
 
 
 
@@ -525,6 +513,11 @@ SWIFT_CLASS("_TtC6TGASDK16TGAWebLoadHelper")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+
+SWIFT_CLASS("_TtC6TGASDK16TGAWebPluginBase")
+@interface TGAWebPluginBase : NSObject
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
 
 @class UITraitCollection;
 @class UITouch;
