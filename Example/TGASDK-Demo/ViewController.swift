@@ -205,7 +205,7 @@ extension ViewController: UITableViewDelegate {
             userInfo.nickname = "123"
             userInfo.avatar = ""
             //TGASdk.shared.bipPayInfoDelegate = self
-            TGASdk.shared.initSdk(env: "bip", appKey: "c7dd39bedb1711eba8290212f3e42114", userInfo: userInfo, delegate: self)
+            TGASdk.shared.initSdk(env: "", appKey: "c7dd39bedb1711eba8290212f3e42114", userInfo: userInfo, delegate: self)
         case .openGame:
             gameCenterSelectTableView(tableView, didSelectRowAt: indexPath)
 //        case .webTest:
