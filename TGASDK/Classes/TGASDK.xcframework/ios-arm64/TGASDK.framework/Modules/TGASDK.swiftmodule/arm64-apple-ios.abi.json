@@ -9612,6 +9612,226 @@
             ]
           },
           {
+            "kind": "Var",
+            "name": "statusBarColor",
+            "printedName": "statusBarColor",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:6TGASDK8TGAThemeV14statusBarColorSSSgvp",
+            "mangledName": "$s6TGASDK8TGAThemeV14statusBarColorSSSgvp",
+            "moduleName": "TGASDK",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:6TGASDK8TGAThemeV14statusBarColorSSSgvg",
+                "mangledName": "$s6TGASDK8TGAThemeV14statusBarColorSSSgvg",
+                "moduleName": "TGASDK",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:6TGASDK8TGAThemeV14statusBarColorSSSgvs",
+                "mangledName": "$s6TGASDK8TGAThemeV14statusBarColorSSSgvs",
+                "moduleName": "TGASDK",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:6TGASDK8TGAThemeV14statusBarColorSSSgvM",
+                "mangledName": "$s6TGASDK8TGAThemeV14statusBarColorSSSgvM",
+                "moduleName": "TGASDK",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "statusTitleColor",
+            "printedName": "statusTitleColor",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:6TGASDK8TGAThemeV16statusTitleColorSSSgvp",
+            "mangledName": "$s6TGASDK8TGAThemeV16statusTitleColorSSSgvp",
+            "moduleName": "TGASDK",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:6TGASDK8TGAThemeV16statusTitleColorSSSgvg",
+                "mangledName": "$s6TGASDK8TGAThemeV16statusTitleColorSSSgvg",
+                "moduleName": "TGASDK",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:6TGASDK8TGAThemeV16statusTitleColorSSSgvs",
+                "mangledName": "$s6TGASDK8TGAThemeV16statusTitleColorSSSgvs",
+                "moduleName": "TGASDK",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:6TGASDK8TGAThemeV16statusTitleColorSSSgvM",
+                "mangledName": "$s6TGASDK8TGAThemeV16statusTitleColorSSSgvM",
+                "moduleName": "TGASDK",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
             "kind": "Constructor",
             "name": "init",
             "printedName": "init(from:)",
@@ -12875,6 +13095,29 @@
             "moduleName": "TGASDK",
             "declAttributes": [
               "Custom",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "clearCache",
+            "printedName": "clearCache()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:6TGASDK9TGASdkWebC10clearCacheyyFZ",
+            "mangledName": "$s6TGASDK9TGASdkWebC10clearCacheyyFZ",
+            "moduleName": "TGASDK",
+            "static": true,
+            "declAttributes": [
+              "Custom",
+              "Final",
               "AccessControl"
             ],
             "funcSelfKind": "NonMutating"
@@ -42883,7 +43126,7 @@
       "kind": "StringLiteral",
       "offset": 724,
       "length": 7,
-      "value": "\"1.4.2\""
+      "value": "\"1.4.3\""
     },
     {
       "filePath": "\/Users\/ljh\/dev\/ios\/tga-sdk-ios\/TGASDK\/Classes\/Core\/TGAConstant.swift",
@@ -51799,77 +52042,77 @@
     {
       "filePath": "\/Users\/ljh\/dev\/ios\/tga-sdk-ios\/TGASDK\/Classes\/Core\/TGAModel.swift",
       "kind": "StringLiteral",
-      "offset": 1258,
+      "offset": 1368,
       "length": 4,
       "value": "\"im\""
     },
     {
       "filePath": "\/Users\/ljh\/dev\/ios\/tga-sdk-ios\/TGASDK\/Classes\/Core\/TGAModel.swift",
       "kind": "StringLiteral",
-      "offset": 1288,
+      "offset": 1398,
       "length": 4,
       "value": "\"h5\""
     },
     {
       "filePath": "\/Users\/ljh\/dev\/ios\/tga-sdk-ios\/TGASDK\/Classes\/Core\/TGAModel.swift",
       "kind": "BooleanLiteral",
-      "offset": 1635,
+      "offset": 1745,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/ljh\/dev\/ios\/tga-sdk-ios\/TGASDK\/Classes\/Core\/TGAModel.swift",
       "kind": "BooleanLiteral",
-      "offset": 1671,
+      "offset": 1781,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/ljh\/dev\/ios\/tga-sdk-ios\/TGASDK\/Classes\/Core\/TGAModel.swift",
       "kind": "BooleanLiteral",
-      "offset": 1697,
+      "offset": 1807,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/ljh\/dev\/ios\/tga-sdk-ios\/TGASDK\/Classes\/Core\/TGAModel.swift",
       "kind": "BooleanLiteral",
-      "offset": 1898,
+      "offset": 2008,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/ljh\/dev\/ios\/tga-sdk-ios\/TGASDK\/Classes\/Core\/TGAModel.swift",
       "kind": "BooleanLiteral",
-      "offset": 1940,
+      "offset": 2050,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/ljh\/dev\/ios\/tga-sdk-ios\/TGASDK\/Classes\/Core\/TGAModel.swift",
       "kind": "BooleanLiteral",
-      "offset": 2013,
+      "offset": 2123,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/ljh\/dev\/ios\/tga-sdk-ios\/TGASDK\/Classes\/Core\/TGAModel.swift",
       "kind": "BooleanLiteral",
-      "offset": 2117,
+      "offset": 2227,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/ljh\/dev\/ios\/tga-sdk-ios\/TGASDK\/Classes\/Core\/TGAModel.swift",
       "kind": "StringLiteral",
-      "offset": 2609,
+      "offset": 2719,
       "length": 11,
       "value": "\"statusBar\""
     },
     {
       "filePath": "\/Users\/ljh\/dev\/ios\/tga-sdk-ios\/TGASDK\/Classes\/Core\/TGAModel.swift",
       "kind": "StringLiteral",
-      "offset": 2650,
+      "offset": 2760,
       "length": 8,
       "value": "\"navBar\""
     },

@@ -201,9 +201,12 @@ extension ViewController: UITableViewDelegate {
             self.initStatus = "初始化中..."
             tableView.reloadRows(at: [indexPath], with: UITableView.RowAnimation.none)
             let userInfo = TGAUserInfo()
-            userInfo.txnId = ""
-            userInfo.nickname = "123"
+            userInfo.txnId = "10000"
+            userInfo.nickname = "user1"
             userInfo.avatar = ""
+            
+            
+            
             //TGASdk.shared.bipPayInfoDelegate = self
             TGASdk.shared.initSdk(env: "", appKey: "c7dd39bedb1711eba8290212f3e42114", userInfo: userInfo, delegate: self)
         case .openGame:
@@ -284,9 +287,9 @@ extension ViewController: TGASdkDelegate {
 //        na.modalPresentationStyle = .fullScreen
 //        WZRoute.present(na, animated: true)
         let user = TGAUserInfo()
-        user.avatar = "11"
-        user.nickname = "222"
-        user.txnId = "333"
+        user.avatar = ""
+        user.nickname = "user1"
+        user.txnId = "10000"
         completion(user)
     }
     
@@ -304,6 +307,10 @@ extension ViewController: TGASdkDelegate {
         TGASdk.shared.openGameCenter(vc: fromVC, secUrl: shareInfo.link, secTitle: shareInfo.title)
     }
     
+    func tgaGetCountry() -> String?
+    {
+        return "TR"
+    }
 //    func tgaOnInAppPay(fromVC: UIViewController, orderNo: String)
 //    {
 //        TGASdk.shared.onInAppPaySuccess(orderNo: "111")

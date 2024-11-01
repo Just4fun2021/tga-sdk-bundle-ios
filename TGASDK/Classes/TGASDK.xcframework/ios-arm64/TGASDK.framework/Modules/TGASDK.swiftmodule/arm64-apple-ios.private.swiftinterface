@@ -317,6 +317,8 @@ public struct TGATheme : Swift.Codable {
   public var name: Swift.String?
   public var primaryColor: Swift.String?
   public var textColor: Swift.String?
+  public var statusBarColor: Swift.String?
+  public var statusTitleColor: Swift.String?
   public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws
 }
@@ -412,6 +414,7 @@ public protocol TGAWebViewDelegate : ObjectiveC.NSObjectProtocol {
   @_Concurrency.MainActor(unsafe) public func getWebPlugins() -> [TGASDK.TGAWebPluginBase]
   @_Concurrency.MainActor(unsafe) public func loadUrl(_ url: Swift.String)
   @_Concurrency.MainActor(unsafe) public func activeWebPluginEvent(event: TGASDK.WebPluginEvent, data: Any?, ordData: Any?)
+  @_Concurrency.MainActor(unsafe) public static func clearCache()
   @objc deinit
 }
 extension TGASDK.TGASdkWeb : WebKit.WKNavigationDelegate {

@@ -315,7 +315,7 @@
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
-						DevelopmentTeam = 736K2HGTND;
+						DevelopmentTeam = TRYPDBH44U;
 						LastSwiftMigration = 0900;
 					};
 					8048138F28CC89D600FA68DE = {
@@ -655,7 +655,7 @@
 			baseConfigurationReference = EF82F5D0C3918F238BF44D1E /* Pods-TGASDK-Swift.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 736K2HGTND;
+				DEVELOPMENT_TEAM = TRYPDBH44U;
 				INFOPLIST_FILE = "TGASDK-Demo/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -673,7 +673,7 @@
 			baseConfigurationReference = 883A700A83936C8F46B629C5 /* Pods-TGASDK-Swift.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 736K2HGTND;
+				DEVELOPMENT_TEAM = TRYPDBH44U;
 				INFOPLIST_FILE = "TGASDK-Demo/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
