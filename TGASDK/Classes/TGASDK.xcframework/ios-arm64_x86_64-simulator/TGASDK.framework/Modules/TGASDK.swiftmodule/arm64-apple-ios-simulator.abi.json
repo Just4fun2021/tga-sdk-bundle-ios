@@ -43126,7 +43126,7 @@
       "kind": "StringLiteral",
       "offset": 724,
       "length": 7,
-      "value": "\"1.4.3\""
+      "value": "\"1.4.4\""
     },
     {
       "filePath": "\/Users\/ljh\/dev\/ios\/tga-sdk-ios\/TGASDK\/Classes\/Core\/TGAConstant.swift",
@@ -52539,91 +52539,91 @@
     {
       "filePath": "\/Users\/ljh\/dev\/ios\/tga-sdk-ios\/TGASDK\/Classes\/WebView\/Plugins\/TGAWebSystemPlugin.swift",
       "kind": "StringLiteral",
-      "offset": 839,
+      "offset": 859,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ljh\/dev\/ios\/tga-sdk-ios\/TGASDK\/Classes\/WebView\/Plugins\/TGAWebSystemPlugin.swift",
       "kind": "StringLiteral",
-      "offset": 882,
+      "offset": 902,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ljh\/dev\/ios\/tga-sdk-ios\/TGASDK\/Classes\/WebView\/Plugins\/TGAWebSystemPlugin.swift",
       "kind": "BooleanLiteral",
-      "offset": 998,
+      "offset": 1018,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/ljh\/dev\/ios\/tga-sdk-ios\/TGASDK\/Classes\/WebView\/Plugins\/TGAWebSystemPlugin.swift",
       "kind": "BooleanLiteral",
-      "offset": 1124,
+      "offset": 1144,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/ljh\/dev\/ios\/tga-sdk-ios\/TGASDK\/Classes\/WebView\/Plugins\/TGAWebSystemPlugin.swift",
       "kind": "StringLiteral",
-      "offset": 1265,
+      "offset": 1285,
       "length": 8,
       "value": "\"system\""
     },
     {
       "filePath": "\/Users\/ljh\/dev\/ios\/tga-sdk-ios\/TGASDK\/Classes\/WebView\/Plugins\/TGAWebSystemPlugin.swift",
       "kind": "StringLiteral",
-      "offset": 1290,
+      "offset": 1310,
       "length": 9,
       "value": "\"version\""
     },
     {
       "filePath": "\/Users\/ljh\/dev\/ios\/tga-sdk-ios\/TGASDK\/Classes\/WebView\/Plugins\/TGAWebSystemPlugin.swift",
       "kind": "StringLiteral",
-      "offset": 1352,
+      "offset": 1372,
       "length": 5,
       "value": "\"ori\""
     },
     {
       "filePath": "\/Users\/ljh\/dev\/ios\/tga-sdk-ios\/TGASDK\/Classes\/WebView\/Plugins\/TGAWebSystemPlugin.swift",
       "kind": "StringLiteral",
-      "offset": 1387,
+      "offset": 1407,
       "length": 12,
       "value": "\"horizontal\""
     },
     {
       "filePath": "\/Users\/ljh\/dev\/ios\/tga-sdk-ios\/TGASDK\/Classes\/WebView\/Plugins\/TGAWebSystemPlugin.swift",
       "kind": "StringLiteral",
-      "offset": 1435,
+      "offset": 1455,
       "length": 10,
       "value": "\"vertical\""
     },
     {
       "filePath": "\/Users\/ljh\/dev\/ios\/tga-sdk-ios\/TGASDK\/Classes\/WebView\/Plugins\/TGAWebSystemPlugin.swift",
       "kind": "StringLiteral",
-      "offset": 1505,
+      "offset": 1525,
       "length": 7,
       "value": "\"token\""
     },
     {
       "filePath": "\/Users\/ljh\/dev\/ios\/tga-sdk-ios\/TGASDK\/Classes\/WebView\/Plugins\/TGAWebSystemPlugin.swift",
       "kind": "StringLiteral",
-      "offset": 1545,
+      "offset": 1565,
       "length": 14,
       "value": "\"refreshToken\""
     },
     {
       "filePath": "\/Users\/ljh\/dev\/ios\/tga-sdk-ios\/TGASDK\/Classes\/WebView\/Plugins\/TGAWebSystemPlugin.swift",
       "kind": "StringLiteral",
-      "offset": 1601,
+      "offset": 1621,
       "length": 12,
       "value": "\"showStatus\""
     },
     {
       "filePath": "\/Users\/ljh\/dev\/ios\/tga-sdk-ios\/TGASDK\/Classes\/WebView\/Plugins\/TGAWebSystemPlugin.swift",
       "kind": "StringLiteral",
-      "offset": 1663,
+      "offset": 1683,
       "length": 9,
       "value": "\"country\""
     },
